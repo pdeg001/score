@@ -11,10 +11,12 @@ using System.IO;
 
 namespace peter
 {
-    public partial class Form1 : Form
+    public partial class SCORE_44 : Form
     {
         public string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-        public Form1()
+        public int p1Caromboles = 0;
+        public int p2Caromboles = 0;
+        public SCORE_44()
         {
             InitializeComponent();
             
@@ -141,6 +143,16 @@ namespace peter
 
             }
 
+            if (player == "p1")
+            {
+                p1Caromboles = carom;
+            } else
+            {
+                p2Caromboles = carom;
+            }
+            Console.WriteLine(p1Caromboles);
+        //}
+
             PadStr padstr = new PadStr();
             padstr.carom = carom;
             string newCarom = padstr.GenPad();
@@ -182,5 +194,32 @@ namespace peter
                 return Image.FromFile(Path.Combine(projectDirectory, @"images\", imgName));
             }
         }
+
+        private void MouseOverImg(object sender, EventArgs e)
+        {
+            PictureBox pic = sender as PictureBox;
+            string picName = pic.Name;
+            string[] picNameSplit = picName.Split('_');
+            string markerName = picName + "_marker";
+            Label lblMark = Controls.Find(markerName, true).FirstOrDefault() as Label;
+            lblMark.Visible = true;
+        }
+
+        private void MouseOverImgHide(object sender, EventArgs e)
+        {
+            PictureBox pic = sender as PictureBox;
+            string picName = pic.Name;
+            string[] picNameSplit = picName.Split('_');
+            string markerName = picName + "_marker";
+            Label lblMark = Controls.Find(markerName, true).FirstOrDefault() as Label;
+            lblMark.Visible = false;
+        }
+
+        private void ExitApplication(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
     }
 }
