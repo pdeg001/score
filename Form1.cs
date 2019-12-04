@@ -9,13 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
+
+  
+
+
 namespace peter
 {
+   
     public partial class SCORE_44 : Form
     {
         public string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
         public int p1Caromboles = 0;
         public int p2Caromboles = 0;
+
+       
+
         public SCORE_44()
         {
             InitializeComponent();
@@ -27,11 +36,7 @@ namespace peter
 
         }
 
-        // private void Form1_MouseDown(object sender, EventArgs e)
-        //{
-
-        //}
-
+        
         private void Form1_MouseDownCp1(object sender, MouseEventArgs e)
         {
             int lblVal = 0;
@@ -85,8 +90,8 @@ namespace peter
             Console.WriteLine(carom);
 
             PadStr padstr = new PadStr();
-            padstr.carom = carom;
-            newCarom = padstr.GenPad();
+            // padstr.carom = carom;
+            newCarom = padstr.GenPad(carom);
             points = lblVal + carom;
             lbl1.Text = newCarom.Substring(3, 1);
             lbl10.Text = newCarom.Substring(2, 1);
@@ -106,76 +111,75 @@ namespace peter
         }
 
 
+
+        
+        private PictureBox ComposeElemName(PictureBox elemPic, string picValue)
+        { // Create pictureBox 
+            string picName = elemPic.Name;
+            string[] picNameSplit = picName.Split('_');
+            string pNum = picNameSplit.GetValue(1).ToString();
+            string pElem  = "pic_"+pNum+"_"+picValue;
+
+
+            return Controls.Find(pElem, true).FirstOrDefault() as PictureBox;
+        }
+
+        private int GetPassedValue(PictureBox pic)
+        {
+            string[] picNameSplit = pic.Name.Split('_');
+            return int.Parse(picNameSplit.GetValue(2).ToString());
+        }
+
         private void Form1_MouseDownImgClick(object sender, MouseEventArgs e)
         {
-            int carom = 0;
-            string padCarom = "";
-
+            var car = GlobalVars.carom;
+           
             PictureBox pic = sender as PictureBox;
-            string picName = pic.Name;
-            string[] picNameSplit = picName.Split('_');
-            string player = picNameSplit.GetValue(1).ToString();
-            int passedValue = Int32.Parse(picNameSplit.GetValue(2).ToString());
-
-            PictureBox pic1000 = Controls.Find("pic_" + player + "_1000", true).FirstOrDefault() as PictureBox;
-            PictureBox pic100 = Controls.Find("pic_" + player + "_100", true).FirstOrDefault() as PictureBox;
-            PictureBox pic10 = Controls.Find("pic_" + player + "_10", true).FirstOrDefault() as PictureBox;
-            PictureBox pic1 = Controls.Find("pic_" + player + "_1", true).FirstOrDefault() as PictureBox;
-
+            int passedValue = GetPassedValue(pic);
+            PictureBox pic1000 = ComposeElemName(pic, "1000");
+            PictureBox pic100 = ComposeElemName(pic, "100");
+            PictureBox pic10 = ComposeElemName(pic, "10");
+            PictureBox pic1 = ComposeElemName(pic, "1");
+            
             string p1Carom = pic1000.Tag.ToString() + pic100.Tag.ToString() + pic10.Tag.ToString() + pic1.Tag.ToString();
-            carom = Int32.Parse(p1Carom);
+            car = int.Parse(p1Carom);
             if (e.Button == MouseButtons.Left)
             {
-                carom += passedValue;
-
-                if (carom > 9999)
+                car += passedValue;
+                if (car > 9999)
                 {
                     return;
                 }
+                GlobalVars.p1Caroms += passedValue;
             }
             if (e.Button == MouseButtons.Right)
             {
-                carom -= passedValue;
-                if (carom <= -1)
+                car -= passedValue;
+                if (car <= -1)
                 {
                     return;
                 }
-
+                GlobalVars.p1Caroms -= passedValue;
             }
-
-            if (player == "p1")
-            {
-                p1Caromboles = carom;
-            } else
-            {
-                p2Caromboles = carom;
-            }
-            Console.WriteLine(p1Caromboles);
-        //}
 
             PadStr padstr = new PadStr();
-            padstr.carom = carom;
-            string newCarom = padstr.GenPad();
+            string newCarom = padstr.GenPad(car);
 
             pic1000.Tag = newCarom.Substring(0, 1);
             pic100.Tag = newCarom.Substring(1, 1);
             pic10.Tag = newCarom.Substring(2, 1);
             pic1.Tag = newCarom.Substring(3, 1);
+          
             GetNumPic numpic = new GetNumPic();
-            numpic.imgName = pic1.Tag.ToString() + ".png";
-            pic1.Image = numpic.getPic();
-            numpic.imgName = pic10.Tag.ToString() + ".png";
-            pic10.Image = numpic.getPic();
-            numpic.imgName = pic100.Tag.ToString() + ".png";
-            pic100.Image = numpic.getPic();
-            numpic.imgName = pic1000.Tag.ToString() + ".png";
-            pic1000.Image = numpic.getPic();
+            pic1.Image = numpic.getPic(pic1.Tag.ToString() + ".png");
+            pic10.Image = numpic.getPic(pic10.Tag.ToString() + ".png");
+            pic100.Image = numpic.getPic(pic100.Tag.ToString() + ".png");
+            pic1000.Image = numpic.getPic(pic1000.Tag.ToString() + ".png");
         }
 
         class PadStr
         {
-            public int carom = 0;
-                 public string GenPad()
+                 public string GenPad(int carom)
             {
                 return carom.ToString().PadLeft(4, '0');
             }
@@ -185,12 +189,9 @@ namespace peter
 
         class GetNumPic
         {
-            public string imgName = "";
-            public Image img; 
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-            public Image getPic()
+            public Image getPic(string imgName)
             {
-                
                 return Image.FromFile(Path.Combine(projectDirectory, @"images\", imgName));
             }
         }
@@ -199,7 +200,7 @@ namespace peter
         {
             PictureBox pic = sender as PictureBox;
             string picName = pic.Name;
-            string[] picNameSplit = picName.Split('_');
+            // string[] picNameSplit = picName.Split('_');
             string markerName = picName + "_marker";
             Label lblMark = Controls.Find(markerName, true).FirstOrDefault() as Label;
             lblMark.Visible = true;

@@ -444,7 +444,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 7;
-            this.label5.Text = p1Caromboles.ToString();
+           // this.label5.Text = p1Caromboles.ToString();
             // 
             // SCORE_44
             // 
