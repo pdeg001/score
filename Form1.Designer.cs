@@ -75,7 +75,7 @@
             this.lbl_p1_1000.Font = new System.Drawing.Font("Verdana", 200F);
             this.lbl_p1_1000.ForeColor = System.Drawing.Color.Black;
             this.lbl_p1_1000.Location = new System.Drawing.Point(19, 861);
-            this.lbl_p1_1000.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.lbl_p1_1000.Margin = new System.Windows.Forms.Padding(10);
             this.lbl_p1_1000.Name = "lbl_p1_1000";
             this.lbl_p1_1000.Size = new System.Drawing.Size(251, 125);
             this.lbl_p1_1000.TabIndex = 0;
@@ -89,7 +89,7 @@
             // 
             this.pic_p1_1000.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_p1_1000.Image = ((System.Drawing.Image)(resources.GetObject("pic_p1_1000.Image")));
-            this.pic_p1_1000.Location = new System.Drawing.Point(12, 168);
+            this.pic_p1_1000.Location = new System.Drawing.Point(12, 413);
             this.pic_p1_1000.Name = "pic_p1_1000";
             this.pic_p1_1000.Size = new System.Drawing.Size(175, 217);
             this.pic_p1_1000.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -196,7 +196,7 @@
             // 
             this.pic_p2_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_p2_1.Image = ((System.Drawing.Image)(resources.GetObject("pic_p2_1.Image")));
-            this.pic_p2_1.Location = new System.Drawing.Point(1701, 168);
+            this.pic_p2_1.Location = new System.Drawing.Point(1687, 168);
             this.pic_p2_1.Name = "pic_p2_1";
             this.pic_p2_1.Size = new System.Drawing.Size(175, 208);
             this.pic_p2_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -211,7 +211,7 @@
             // 
             this.pic_p1_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_p1_1.Image = global::peter.Properties.Resources._0;
-            this.pic_p1_1.Location = new System.Drawing.Point(549, 168);
+            this.pic_p1_1.Location = new System.Drawing.Point(537, 413);
             this.pic_p1_1.Name = "pic_p1_1";
             this.pic_p1_1.Size = new System.Drawing.Size(175, 217);
             this.pic_p1_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -226,7 +226,7 @@
             // 
             this.pic_p2_10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_p2_10.Image = ((System.Drawing.Image)(resources.GetObject("pic_p2_10.Image")));
-            this.pic_p2_10.Location = new System.Drawing.Point(1522, 168);
+            this.pic_p2_10.Location = new System.Drawing.Point(1512, 168);
             this.pic_p2_10.Name = "pic_p2_10";
             this.pic_p2_10.Size = new System.Drawing.Size(175, 208);
             this.pic_p2_10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -241,7 +241,7 @@
             // 
             this.pic_p1_10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_p1_10.Image = ((System.Drawing.Image)(resources.GetObject("pic_p1_10.Image")));
-            this.pic_p1_10.Location = new System.Drawing.Point(370, 168);
+            this.pic_p1_10.Location = new System.Drawing.Point(362, 413);
             this.pic_p1_10.Name = "pic_p1_10";
             this.pic_p1_10.Size = new System.Drawing.Size(175, 217);
             this.pic_p1_10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -256,7 +256,7 @@
             // 
             this.pic_p2_100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_p2_100.Image = ((System.Drawing.Image)(resources.GetObject("pic_p2_100.Image")));
-            this.pic_p2_100.Location = new System.Drawing.Point(1343, 168);
+            this.pic_p2_100.Location = new System.Drawing.Point(1338, 168);
             this.pic_p2_100.Name = "pic_p2_100";
             this.pic_p2_100.Size = new System.Drawing.Size(175, 208);
             this.pic_p2_100.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -271,7 +271,7 @@
             // 
             this.pic_p1_100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_p1_100.Image = ((System.Drawing.Image)(resources.GetObject("pic_p1_100.Image")));
-            this.pic_p1_100.Location = new System.Drawing.Point(191, 168);
+            this.pic_p1_100.Location = new System.Drawing.Point(187, 413);
             this.pic_p1_100.Name = "pic_p1_100";
             this.pic_p1_100.Size = new System.Drawing.Size(175, 217);
             this.pic_p1_100.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -300,7 +300,7 @@
             // pic_p1_1000_marker
             // 
             this.pic_p1_1000_marker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pic_p1_1000_marker.Location = new System.Drawing.Point(12, 386);
+            this.pic_p1_1000_marker.Location = new System.Drawing.Point(12, 631);
             this.pic_p1_1000_marker.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pic_p1_1000_marker.Name = "pic_p1_1000_marker";
             this.pic_p1_1000_marker.Size = new System.Drawing.Size(175, 8);
@@ -310,7 +310,7 @@
             // pic_p1_100_marker
             // 
             this.pic_p1_100_marker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pic_p1_100_marker.Location = new System.Drawing.Point(191, 386);
+            this.pic_p1_100_marker.Location = new System.Drawing.Point(187, 631);
             this.pic_p1_100_marker.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pic_p1_100_marker.Name = "pic_p1_100_marker";
             this.pic_p1_100_marker.Size = new System.Drawing.Size(175, 8);
@@ -320,7 +320,7 @@
             // pic_p1_10_marker
             // 
             this.pic_p1_10_marker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pic_p1_10_marker.Location = new System.Drawing.Point(370, 386);
+            this.pic_p1_10_marker.Location = new System.Drawing.Point(362, 631);
             this.pic_p1_10_marker.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pic_p1_10_marker.Name = "pic_p1_10_marker";
             this.pic_p1_10_marker.Size = new System.Drawing.Size(175, 8);
@@ -330,7 +330,7 @@
             // pic_p1_1_marker
             // 
             this.pic_p1_1_marker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pic_p1_1_marker.Location = new System.Drawing.Point(549, 386);
+            this.pic_p1_1_marker.Location = new System.Drawing.Point(537, 631);
             this.pic_p1_1_marker.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pic_p1_1_marker.Name = "pic_p1_1_marker";
             this.pic_p1_1_marker.Size = new System.Drawing.Size(175, 8);
@@ -350,7 +350,7 @@
             // pic_p2_100_marker
             // 
             this.pic_p2_100_marker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pic_p2_100_marker.Location = new System.Drawing.Point(1343, 377);
+            this.pic_p2_100_marker.Location = new System.Drawing.Point(1338, 377);
             this.pic_p2_100_marker.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pic_p2_100_marker.Name = "pic_p2_100_marker";
             this.pic_p2_100_marker.Size = new System.Drawing.Size(175, 8);
@@ -360,7 +360,7 @@
             // pic_p2_10_marker
             // 
             this.pic_p2_10_marker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pic_p2_10_marker.Location = new System.Drawing.Point(1521, 377);
+            this.pic_p2_10_marker.Location = new System.Drawing.Point(1511, 377);
             this.pic_p2_10_marker.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pic_p2_10_marker.Name = "pic_p2_10_marker";
             this.pic_p2_10_marker.Size = new System.Drawing.Size(175, 8);
@@ -370,7 +370,7 @@
             // pic_p2_1_marker
             // 
             this.pic_p2_1_marker.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pic_p2_1_marker.Location = new System.Drawing.Point(1701, 377);
+            this.pic_p2_1_marker.Location = new System.Drawing.Point(1687, 377);
             this.pic_p2_1_marker.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.pic_p2_1_marker.Name = "pic_p2_1_marker";
             this.pic_p2_1_marker.Size = new System.Drawing.Size(175, 8);
@@ -391,7 +391,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(15, 98);
+            this.label1.Location = new System.Drawing.Point(15, 343);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(709, 67);
@@ -440,17 +440,16 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(559, 457);
+            this.label5.Location = new System.Drawing.Point(450, 699);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 7;
-           // this.label5.Text = p1Caromboles.ToString();
             // 
             // SCORE_44
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -482,10 +481,8 @@
             this.Controls.Add(this.lbl_p1_10);
             this.Controls.Add(this.lbl_p1_100);
             this.Controls.Add(this.lbl_p1_1000);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SCORE_44";
             this.Text = "Main";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_p1_1000)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_p2_1)).EndInit();

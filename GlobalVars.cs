@@ -14,9 +14,11 @@ namespace peter
         public static int carom;
     }
 
-    public class GlobalFunc
+    public class Functions
     {
-
+        public static string GenPadding(int car)
+        {
+            return car.ToString().PadLeft(4, '0');
+        }
     }
-
 }
