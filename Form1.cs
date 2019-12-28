@@ -19,7 +19,7 @@ namespace peter
    
     public partial class SCORE_44 : Form
     {
-        public string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+        //public string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
         public int p1Caromboles = 0;
         public int p2Caromboles = 0;
 
@@ -180,7 +180,9 @@ namespace peter
         private static Image GetPic(string imgName)
         {
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-            return Image.FromFile(Path.Combine(projectDirectory, @"images\", imgName));
+            //return Image.FromFile(Path.Combine(projectDirectory, @"images\", imgName));
+            return Image.FromFile(Path.Combine(GlobalVars.projectDirectory, @"images\", imgName));
+            
         }
 
 
