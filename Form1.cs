@@ -132,8 +132,7 @@ namespace peter
 
         private void Form1_MouseDownImgClick(object sender, MouseEventArgs e)
         {
-            // var car = GlobalVars.carom;
-           
+                  
             PictureBox pic = sender as PictureBox;
             int passedValue = GetPassedValue(pic);
             PictureBox pic1000 = ComposeElemName(pic, "1000");
