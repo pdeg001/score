@@ -22,10 +22,13 @@ namespace peter
         {
             return car.ToString().PadLeft(4, '0');
         }
-        public static string HiDafna()
+        
+        public static string GetP1Carom(int lblTag)
         {
-            Console.WriteLine("Hallo skat");
-            return "";
+            
+            return "00";
         }
+            
+            
     }
 }

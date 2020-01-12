@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Text;
 
 
 
-  
+
 
 
 namespace peter
@@ -22,8 +23,8 @@ namespace peter
         //public string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
         public int p1Caromboles = 0;
         public int p2Caromboles = 0;
-
-       
+        ClsBord p1Bord = new ClsBord();
+        ClsBord p2Bord = new ClsBord();
 
         public SCORE_44()
         {
@@ -33,7 +34,7 @@ namespace peter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            InitBoard();
         }
 
         
@@ -135,17 +136,16 @@ namespace peter
                   
             PictureBox pic = sender as PictureBox;
             int passedValue = GetPassedValue(pic);
-            PictureBox pic1000 = ComposeElemName(pic, "1000");
             PictureBox pic100 = ComposeElemName(pic, "100");
             PictureBox pic10 = ComposeElemName(pic, "10");
             PictureBox pic1 = ComposeElemName(pic, "1");
             
-            string p1Carom = pic1000.Tag.ToString() + pic100.Tag.ToString() + pic10.Tag.ToString() + pic1.Tag.ToString();
+            string p1Carom = pic100.Tag.ToString() + pic10.Tag.ToString() + pic1.Tag.ToString();
             var car = int.Parse(p1Carom);
             if (e.Button == MouseButtons.Left)
             {
                 car += passedValue;
-                if (car > 9999)
+                if (car > 999)
                 {
                     return;
                 }
@@ -164,7 +164,7 @@ namespace peter
             
             var newCarom = Functions.GenPadding(car);
 
-            pic1000.Tag = newCarom.Substring(0, 1);
+            //pic1000.Tag = newCarom.Substring(0, 1);
             pic100.Tag = newCarom.Substring(1, 1);
             pic10.Tag = newCarom.Substring(2, 1);
             pic1.Tag = newCarom.Substring(3, 1);
@@ -172,7 +172,7 @@ namespace peter
             pic1.Image = GetPic(pic1.Tag.ToString() + ".png");
             pic10.Image = GetPic(pic10.Tag.ToString() + ".png");
             pic100.Image = GetPic(pic100.Tag.ToString() + ".png");
-            pic1000.Image = GetPic(pic1000.Tag.ToString() + ".png");
+         //   pic1000.Image = GetPic(pic1000.Tag.ToString() + ".png");
         }
 
 
@@ -184,10 +184,15 @@ namespace peter
             
         }
 
+        private void MouseHideLbl(object sender, EventArgs e)
+        {
+
+        }
 
         private void MouseOverImg(object sender, EventArgs e)
         {
             PictureBox pic = sender as PictureBox;
+            pic.BackColor = System.Drawing.Color.Beige;
             string picName = pic.Name;
             string markerName = picName + "_marker";
             Label lblMark = Controls.Find(markerName, true).FirstOrDefault() as Label;
@@ -197,6 +202,7 @@ namespace peter
         private void MouseOverImgHide(object sender, EventArgs e)
         {
             PictureBox pic = sender as PictureBox;
+            pic.BackColor = System.Drawing.Color.Blue;
             string picName = pic.Name;
             string markerName = picName + "_marker";
             Label lblMark = Controls.Find(markerName, true).FirstOrDefault() as Label;
@@ -208,6 +214,109 @@ namespace peter
             Application.Exit();
         }
 
+        private void genHover(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            lbl.BackColor = System.Drawing.Color.LightBlue;
+            lbl.ForeColor = System.Drawing.Color.Black;
 
+        }
+
+        private void restoreHover(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            lbl.BackColor = System.Drawing.Color.Blue;
+            lbl.ForeColor = System.Drawing.Color.Yellow;
+        }
+
+        private void setP1Carom(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void InitBoard()
+        {
+
+
+            string familyName = "";
+            string familyNameAndStyle;
+            FontFamily[] fontFamilies;
+            PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+            privateFontCollection.AddFontFile("L:\\GITHUB\\score\\Properties\\digital-7.ttf");
+            lbl_p1_car_1.Font = new Font(privateFontCollection.Families[0], 250);
+            lbl_p1_car_10.Font = new Font(privateFontCollection.Families[0], 250);
+            lbl_p1_car_100.Font = new Font(privateFontCollection.Families[0], 250);
+            lbl_p2_car_1.Font = new Font(privateFontCollection.Families[0], 250);
+            lbl_p2_car_10.Font = new Font(privateFontCollection.Families[0], 250);
+            lbl_p2_car_100.Font = new Font(privateFontCollection.Families[0], 250);
+
+            p1_make_1.Font = new Font(privateFontCollection.Families[0], 180);
+            p1_make_10.Font = new Font(privateFontCollection.Families[0], 180);
+            p1_make_100.Font = new Font(privateFontCollection.Families[0], 180);
+            p2_make_1.Font = new Font(privateFontCollection.Families[0], 180);
+            p2_make_10.Font = new Font(privateFontCollection.Families[0], 180);
+            p2_make_100.Font = new Font(privateFontCollection.Families[0], 180);
+
+           
+
+            p1Bord.lbl1 = lbl_p1_car_1;
+            p1Bord.lbl10 = lbl_p1_car_10;
+            p1Bord.lbl100 = lbl_p1_car_100;
+            p1Bord.lblMake1 = p1_make_1;
+            p1Bord.lblMake10 = p1_make_10;
+            p1Bord.lblMake100 = p1_make_100;
+            
+           
+            p2Bord.lbl1 = lbl_p2_car_1;
+            p2Bord.lbl10 = lbl_p2_car_10;
+            p2Bord.lbl100 = lbl_p2_car_100;
+            p2Bord.lblMake1 = p2_make_1;
+            p2Bord.lblMake10 = p2_make_10;
+            p2Bord.lblMake100 = p2_make_100;
+
+            p1Bord.ResetBoard();
+            p2Bord.ResetBoard();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            p1Bord.ResetBoard();
+            p2Bord.ResetBoard();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void P1Caram(object sender, MouseEventArgs e)
+        {
+            Label lbl = sender as Label;
+            Boolean leftMouse = e.Button == MouseButtons.Left;
+            p1Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
+        }
+
+        private void P2Caram(object sender, MouseEventArgs e)
+        {
+            Label lbl = sender as Label;
+            Boolean leftMouse = e.Button == MouseButtons.Left;
+            p2Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
+        }
+
+        private void P1Make(object sender, MouseEventArgs e)
+        {
+            Label lbl = sender as Label;
+            Boolean leftMouse = e.Button == MouseButtons.Left;
+           p1Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
+        }
+
+        private void P2Make(object sender, MouseEventArgs e)
+        {
+            Label lbl = sender as Label;
+            Boolean leftMouse = e.Button == MouseButtons.Left;
+            p2Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
+        }
     }
+
+   
 }
