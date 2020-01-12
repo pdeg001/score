@@ -1,12 +1,4 @@
-﻿/*
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing.Text;
-*/
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,19 +32,19 @@ namespace peter
             PrivateFontCollection privateFontCollection = new PrivateFontCollection();
             privateFontCollection.AddFontFile(Functions.GetFontFile());
 
-            lbl1.Text = "0";
-            lbl10.Text = "0";
-            lbl100.Text = "0";
-            lblMake1.Text = "0";
-            lblMake10.Text = "0";
+            lbl1.Text       = "0";
+            lbl10.Text      = "0";
+            lbl100.Text     = "0";
+            lblMake1.Text   = "0";
+            lblMake10.Text  = "0";
             lblMake100.Text = "0";
 
 
-            lbl1.Font = new Font(privateFontCollection.Families[0], 250);
-            lbl10.Font = new Font(privateFontCollection.Families[0], 250);
-            lbl100.Font = new Font(privateFontCollection.Families[0], 250);
-            lblMake1.Font = new Font(privateFontCollection.Families[0], 180);
-            lblMake10.Font = new Font(privateFontCollection.Families[0], 180);
+            lbl1.Font       = new Font(privateFontCollection.Families[0], 250);
+            lbl10.Font      = new Font(privateFontCollection.Families[0], 250);
+            lbl100.Font     = new Font(privateFontCollection.Families[0], 250);
+            lblMake1.Font   = new Font(privateFontCollection.Families[0], 180);
+            lblMake10.Font  = new Font(privateFontCollection.Families[0], 180);
             lblMake100.Font = new Font(privateFontCollection.Families[0], 180);
 
 
@@ -74,7 +66,6 @@ namespace peter
             {
                 SetNewCaram(Functions.GenPadding(currCaram));
             }
-           // calcMoyenne();
         }
 
         private int CalcCaram()
@@ -94,7 +85,6 @@ namespace peter
 
             if (currMake <= 999 && currMake >= 0)
             {
-                
                 SetNewMake(Functions.GenPadding(currMake));
             }
         }

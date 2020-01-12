@@ -370,7 +370,7 @@
             this.lbl_p1_moyenne.Name = "lbl_p1_moyenne";
             this.lbl_p1_moyenne.Size = new System.Drawing.Size(709, 67);
             this.lbl_p1_moyenne.TabIndex = 24;
-            this.lbl_p1_moyenne.Text = "0.00%";
+            this.lbl_p1_moyenne.Text = "0.00";
             this.lbl_p1_moyenne.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // SCORE_44

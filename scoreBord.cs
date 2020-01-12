@@ -14,9 +14,8 @@ namespace peter
 {
     public partial class SCORE_44 : Form
     {
-        //public string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-        public int p1Caromboles = 0;
-        public int p2Caromboles = 0;
+        //public int p1Caromboles = 0;
+        //public int p2Caromboles = 0;
         ClsBord p1Bord = new ClsBord();
         ClsBord p2Bord = new ClsBord();
         ClsInnings innings = new ClsInnings();
