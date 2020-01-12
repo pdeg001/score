@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+
 namespace peter
 {
     public class GlobalVars
@@ -20,15 +21,24 @@ namespace peter
     {
         public static string GenPadding(int car)
         {
-            return car.ToString().PadLeft(4, '0');
+            return car.ToString().PadLeft(3, '0');
         }
-        
+
         public static string GetP1Carom(int lblTag)
         {
-            
             return "00";
         }
-            
-            
+
+        public static string GetFontFile()
+        {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
+
+        }
+
+
+
+
     }
+
 }

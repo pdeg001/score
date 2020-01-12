@@ -1,8 +1,22 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing.Text;
+*/
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+using System.Drawing.Text;
 
 namespace peter
 {
@@ -12,14 +26,20 @@ namespace peter
         public System.Windows.Forms.Label lblMake1;
         public System.Windows.Forms.Label lbl10;
         public System.Windows.Forms.Label lblMake10;
-        public System.Windows.Forms.Label lblMake100;
         public System.Windows.Forms.Label lbl100;
+        public System.Windows.Forms.Label lblMake100;
+
+        public System.Windows.Forms.Label lblMoyenne;
+
         public int caroms;
         public double avg;
 
-
         public void ResetBoard()
         {
+
+            PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+            privateFontCollection.AddFontFile(Functions.GetFontFile());
+
             lbl1.Text = "0";
             lbl10.Text = "0";
             lbl100.Text = "0";
@@ -27,7 +47,15 @@ namespace peter
             lblMake10.Text = "0";
             lblMake100.Text = "0";
 
-          
+
+            lbl1.Font = new Font(privateFontCollection.Families[0], 250);
+            lbl10.Font = new Font(privateFontCollection.Families[0], 250);
+            lbl100.Font = new Font(privateFontCollection.Families[0], 250);
+            lblMake1.Font = new Font(privateFontCollection.Families[0], 180);
+            lblMake10.Font = new Font(privateFontCollection.Families[0], 180);
+            lblMake100.Font = new Font(privateFontCollection.Families[0], 180);
+
+
             caroms = 0;
             avg = 0.0;
         }
@@ -42,10 +70,11 @@ namespace peter
             int currCaram = CalcCaram();
             currCaram += Value;
             Console.WriteLine(value: currCaram);
-            if (currCaram <= 999)
+            if (currCaram <= 999 && currCaram > -1)
             {
                 SetNewCaram(Functions.GenPadding(currCaram));
             }
+           // calcMoyenne();
         }
 
         private int CalcCaram()
@@ -63,7 +92,7 @@ namespace peter
             int currMake = CalcMake();
             currMake += Value;
 
-            if (currMake <= 999)
+            if (currMake <= 999 && currMake >= 0)
             {
                 
                 SetNewMake(Functions.GenPadding(currMake));
@@ -77,24 +106,37 @@ namespace peter
 
         private void SetNewMake(string newMake)
         {
-            lblMake1.Text = newMake.Substring(3, 1);
-            lblMake10.Text = newMake.Substring(2, 1);
-            lblMake100.Text = newMake.Substring(1, 1);
+            lblMake1.Text = newMake.Substring(2, 1);
+            lblMake10.Text = newMake.Substring(1, 1);
+            lblMake100.Text = newMake.Substring(0, 1);
         }
 
         private void SetNewCaram(string newCaram)
         {
-                lbl1.Text = newCaram.Substring(3, 1);
-                lbl10.Text = newCaram.Substring(2, 1);
-                lbl100.Text = newCaram.Substring(1, 1);
+                lbl1.Text = newCaram.Substring(2, 1);
+                lbl10.Text = newCaram.Substring(1, 1);
+                lbl100.Text = newCaram.Substring(0, 1);
         }
 
         public void SetFontFamily()
         {
-            //lbl1.Font = new System.Drawing.Font(digital-7 (mono).fa)
         }
 
-      
+      public string calcMoyenne(double Innings) 
+        {
+            double caroms;
+            //float moyenne;
+
+            caroms = CalcCaram();
+
+            if (Innings > 0 && caroms > 0)
+            {
+               double moyenne = caroms / Innings;
+
+                return string.Format("{0:0.000}", moyenne);
+            }
+            return "0.00%";
+        }
 
     } 
 }

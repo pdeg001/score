@@ -10,14 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Text;
 
-
-
-
-
-
 namespace peter
 {
-   
     public partial class SCORE_44 : Form
     {
         //public string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
@@ -25,6 +19,7 @@ namespace peter
         public int p2Caromboles = 0;
         ClsBord p1Bord = new ClsBord();
         ClsBord p2Bord = new ClsBord();
+        ClsInnings innings = new ClsInnings();
 
         public SCORE_44()
         {
@@ -236,28 +231,8 @@ namespace peter
 
         private void InitBoard()
         {
-
-
-            string familyName = "";
-            string familyNameAndStyle;
-            FontFamily[] fontFamilies;
-            PrivateFontCollection privateFontCollection = new PrivateFontCollection();
-            privateFontCollection.AddFontFile("L:\\GITHUB\\score\\Properties\\digital-7.ttf");
-            lbl_p1_car_1.Font = new Font(privateFontCollection.Families[0], 250);
-            lbl_p1_car_10.Font = new Font(privateFontCollection.Families[0], 250);
-            lbl_p1_car_100.Font = new Font(privateFontCollection.Families[0], 250);
-            lbl_p2_car_1.Font = new Font(privateFontCollection.Families[0], 250);
-            lbl_p2_car_10.Font = new Font(privateFontCollection.Families[0], 250);
-            lbl_p2_car_100.Font = new Font(privateFontCollection.Families[0], 250);
-
-            p1_make_1.Font = new Font(privateFontCollection.Families[0], 180);
-            p1_make_10.Font = new Font(privateFontCollection.Families[0], 180);
-            p1_make_100.Font = new Font(privateFontCollection.Families[0], 180);
-            p2_make_1.Font = new Font(privateFontCollection.Families[0], 180);
-            p2_make_10.Font = new Font(privateFontCollection.Families[0], 180);
-            p2_make_100.Font = new Font(privateFontCollection.Families[0], 180);
-
-           
+            innings.lblInnings = lbl_innings;
+            innings.ResetInning();
 
             p1Bord.lbl1 = lbl_p1_car_1;
             p1Bord.lbl10 = lbl_p1_car_10;
@@ -265,6 +240,7 @@ namespace peter
             p1Bord.lblMake1 = p1_make_1;
             p1Bord.lblMake10 = p1_make_10;
             p1Bord.lblMake100 = p1_make_100;
+            p1Bord.lblMoyenne = lbl_p1_moyenne;
             
            
             p2Bord.lbl1 = lbl_p2_car_1;
@@ -315,6 +291,12 @@ namespace peter
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p2Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
+        }
+
+        private void SetInning(object sender, MouseEventArgs e)
+        {
+            innings.setInnings(e.Button == MouseButtons.Left);
+            lbl_p1_moyenne.Text = p1Bord.calcMoyenne(innings.inningsCount);
         }
     }
 
