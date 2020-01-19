@@ -297,6 +297,16 @@ namespace peter
             innings.setInnings(e.Button == MouseButtons.Left);
             lbl_p1_moyenne.Text = p1Bord.calcMoyenne(innings.inningsCount);
         }
+
+        private void tmrRealTime(object sender, EventArgs e)
+        {
+            lblRealClock.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
    

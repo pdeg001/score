@@ -14,14 +14,14 @@ namespace peter
 {
     class ClsBord
     {
-        public System.Windows.Forms.Label lbl1;
-        public System.Windows.Forms.Label lblMake1;
-        public System.Windows.Forms.Label lbl10;
-        public System.Windows.Forms.Label lblMake10;
-        public System.Windows.Forms.Label lbl100;
-        public System.Windows.Forms.Label lblMake100;
+        public Label lbl1;
+        public Label lblMake1;
+        public Label lbl10;
+        public Label lblMake10;
+        public Label lbl100;
+        public Label lblMake100;
 
-        public System.Windows.Forms.Label lblMoyenne;
+        public Label lblMoyenne;
 
         public int caroms;
         public double avg;
@@ -29,8 +29,8 @@ namespace peter
         public void ResetBoard()
         {
 
-            PrivateFontCollection privateFontCollection = new PrivateFontCollection();
-            privateFontCollection.AddFontFile(Functions.GetFontFile());
+          //  PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+          //  privateFontCollection.AddFontFile(Functions.GetFontFile());
 
             lbl1.Text       = "0";
             lbl10.Text      = "0";
@@ -40,12 +40,12 @@ namespace peter
             lblMake100.Text = "0";
 
 
-            lbl1.Font       = new Font(privateFontCollection.Families[0], 250);
-            lbl10.Font      = new Font(privateFontCollection.Families[0], 250);
-            lbl100.Font     = new Font(privateFontCollection.Families[0], 250);
-            lblMake1.Font   = new Font(privateFontCollection.Families[0], 180);
-            lblMake10.Font  = new Font(privateFontCollection.Families[0], 180);
-            lblMake100.Font = new Font(privateFontCollection.Families[0], 180);
+          //  lbl1.Font       = new Font(privateFontCollection.Families[0], 250);
+          //  lbl10.Font      = new Font(privateFontCollection.Families[0], 250);
+          //  lbl100.Font     = new Font(privateFontCollection.Families[0], 250);
+          //  lblMake1.Font   = new Font(privateFontCollection.Families[0], 180);
+          //  lblMake10.Font  = new Font(privateFontCollection.Families[0], 180);
+          //  lblMake100.Font = new Font(privateFontCollection.Families[0], 180);
 
 
             caroms = 0;
@@ -123,9 +123,10 @@ namespace peter
             {
                double moyenne = caroms / Innings;
 
+                Console.WriteLine(moyenne);
                 return string.Format("{0:0.000}", moyenne);
             }
-            return "0.00%";
+            return "0.00";
         }
 
     } 

@@ -33,10 +33,14 @@ namespace peter
         {
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
             return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
-
+           //return Path.Combine(projectDirectory, @"fonts\", "dsdigi.ttf");
         }
 
+        public static string GetMoyenne(string moyenne)
+        {
 
+            return moyenne;
+        }
 
 
     }

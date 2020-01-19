@@ -14,15 +14,16 @@ namespace peter
 {
     class ClsInnings
     {
-        public System.Windows.Forms.Label lblInnings;
+        public Label lblInnings;
         public int inningsCount;
 
         public void ResetInning()
          {
-            PrivateFontCollection privateFontCollection = new PrivateFontCollection();
-             privateFontCollection.AddFontFile(Functions.GetFontFile());
+          //    PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+           //   privateFontCollection.AddFontFile(Functions.GetFontFile());
 
-            lblInnings.Font = new Font(privateFontCollection.Families[0], 225);
+           // lblInnings.Font = new Font(privateFontCollection.Families[0], 225);
+           
             lblInnings.Text = "000";
 
         }

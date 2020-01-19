@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl_exit = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +49,8 @@
             this.lbl_bg = new System.Windows.Forms.Label();
             this.lbl_innings = new System.Windows.Forms.Label();
             this.lbl_p1_moyenne = new System.Windows.Forms.Label();
+            this.tmrClock = new System.Windows.Forms.Timer(this.components);
+            this.lblRealClock = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_exit
@@ -85,6 +88,7 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Speler 1";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -101,14 +105,17 @@
             // 
             // lbl_p1_car_1
             // 
+            this.lbl_p1_car_1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_p1_car_1.BackColor = System.Drawing.Color.Blue;
             this.lbl_p1_car_1.Font = new System.Drawing.Font("Arial", 200F);
             this.lbl_p1_car_1.ForeColor = System.Drawing.Color.Yellow;
             this.lbl_p1_car_1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_p1_car_1.Location = new System.Drawing.Point(387, 331);
+            this.lbl_p1_car_1.Location = new System.Drawing.Point(401, 327);
             this.lbl_p1_car_1.Name = "lbl_p1_car_1";
             this.lbl_p1_car_1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.lbl_p1_car_1.Size = new System.Drawing.Size(180, 290);
+            this.lbl_p1_car_1.Size = new System.Drawing.Size(186, 255);
             this.lbl_p1_car_1.TabIndex = 8;
             this.lbl_p1_car_1.Tag = "1";
             this.lbl_p1_car_1.Text = "9";
@@ -373,12 +380,34 @@
             this.lbl_p1_moyenne.Text = "0.00";
             this.lbl_p1_moyenne.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // tmrClock
+            // 
+            this.tmrClock.Enabled = true;
+            this.tmrClock.Interval = 1000;
+            this.tmrClock.Tick += new System.EventHandler(this.tmrRealTime);
+            // 
+            // lblRealClock
+            // 
+            this.lblRealClock.BackColor = System.Drawing.Color.Transparent;
+            this.lblRealClock.Font = new System.Drawing.Font("DejaVu Sans Mono", 42F, System.Drawing.FontStyle.Italic);
+            this.lblRealClock.ForeColor = System.Drawing.Color.Red;
+            this.lblRealClock.Location = new System.Drawing.Point(20, 894);
+            this.lblRealClock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRealClock.Name = "lblRealClock";
+            this.lblRealClock.Size = new System.Drawing.Size(320, 67);
+            this.lblRealClock.TabIndex = 25;
+            this.lblRealClock.Text = "0.00";
+            this.lblRealClock.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // SCORE_44
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ControlBox = false;
+            this.Controls.Add(this.lblRealClock);
             this.Controls.Add(this.lbl_p1_moyenne);
             this.Controls.Add(this.lbl_innings);
             this.Controls.Add(this.p2_make_100);
@@ -399,8 +428,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_exit);
             this.Controls.Add(this.lbl_bg);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SCORE_44";
             this.Text = "bord";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
@@ -427,6 +458,8 @@
         public System.Windows.Forms.Label lbl_bg;
         public System.Windows.Forms.Label lbl_innings;
         private System.Windows.Forms.Label lbl_p1_moyenne;
+        private System.Windows.Forms.Timer tmrClock;
+        private System.Windows.Forms.Label lblRealClock;
     }
 
     

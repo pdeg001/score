@@ -159,5 +159,15 @@ namespace peter.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DS_DIGI {
+            get {
+                object obj = ResourceManager.GetObject("DS_DIGI", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
