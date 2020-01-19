@@ -74,7 +74,7 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Caramboles";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -290,7 +290,7 @@
             this.p2_make_100.Location = new System.Drawing.Point(1204, 105);
             this.p2_make_100.Name = "p2_make_100";
             this.p2_make_100.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.p2_make_100.Size = new System.Drawing.Size(170, 190);
+            this.p2_make_100.Size = new System.Drawing.Size(170, 200);
             this.p2_make_100.TabIndex = 21;
             this.p2_make_100.Tag = "100";
             this.p2_make_100.Text = "1";
@@ -308,7 +308,7 @@
             this.p2_make_10.Location = new System.Drawing.Point(1379, 105);
             this.p2_make_10.Name = "p2_make_10";
             this.p2_make_10.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.p2_make_10.Size = new System.Drawing.Size(170, 190);
+            this.p2_make_10.Size = new System.Drawing.Size(170, 200);
             this.p2_make_10.TabIndex = 20;
             this.p2_make_10.Tag = "10";
             this.p2_make_10.Text = "4";
@@ -326,7 +326,7 @@
             this.p2_make_1.Location = new System.Drawing.Point(1554, 105);
             this.p2_make_1.Name = "p2_make_1";
             this.p2_make_1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.p2_make_1.Size = new System.Drawing.Size(170, 190);
+            this.p2_make_1.Size = new System.Drawing.Size(170, 200);
             this.p2_make_1.TabIndex = 19;
             this.p2_make_1.Tag = "1";
             this.p2_make_1.Text = "9";
@@ -384,12 +384,12 @@
             // 
             this.tmrClock.Enabled = true;
             this.tmrClock.Interval = 1000;
-            this.tmrClock.Tick += new System.EventHandler(this.tmrRealTime);
+            this.tmrClock.Tick += new System.EventHandler(this.TmrRealTime);
             // 
             // lblRealClock
             // 
             this.lblRealClock.BackColor = System.Drawing.Color.Transparent;
-            this.lblRealClock.Font = new System.Drawing.Font("DejaVu Sans Mono", 42F, System.Drawing.FontStyle.Italic);
+            this.lblRealClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 42F, System.Drawing.FontStyle.Italic);
             this.lblRealClock.ForeColor = System.Drawing.Color.Red;
             this.lblRealClock.Location = new System.Drawing.Point(20, 894);
             this.lblRealClock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);

@@ -211,43 +211,39 @@ namespace peter
         private void genHover(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            lbl.BackColor = System.Drawing.Color.LightBlue;
-            lbl.ForeColor = System.Drawing.Color.Black;
+          //  lbl.BackColor = System.Drawing.Color.LightBlue;
+            lbl.ForeColor = System.Drawing.Color.Red;
 
         }
 
         private void restoreHover(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            lbl.BackColor = System.Drawing.Color.Blue;
+           // lbl.BackColor = System.Drawing.Color.Blue;
             lbl.ForeColor = System.Drawing.Color.Yellow;
         }
 
-        private void setP1Carom(object sender, EventArgs e)
-        {
-           
-        }
-
+       
         private void InitBoard()
         {
             innings.lblInnings = lbl_innings;
             innings.ResetInning();
 
-            p1Bord.lbl1 = lbl_p1_car_1;
-            p1Bord.lbl10 = lbl_p1_car_10;
-            p1Bord.lbl100 = lbl_p1_car_100;
-            p1Bord.lblMake1 = p1_make_1;
-            p1Bord.lblMake10 = p1_make_10;
-            p1Bord.lblMake100 = p1_make_100;
-            p1Bord.lblMoyenne = lbl_p1_moyenne;
+            p1Bord.lbl1         = lbl_p1_car_1;
+            p1Bord.lbl10        = lbl_p1_car_10;
+            p1Bord.lbl100       = lbl_p1_car_100;
+            p1Bord.lblMake1     = p1_make_1;
+            p1Bord.lblMake10    = p1_make_10;
+            p1Bord.lblMake100   = p1_make_100;
+            p1Bord.lblMoyenne   = lbl_p1_moyenne;
             
            
-            p2Bord.lbl1 = lbl_p2_car_1;
-            p2Bord.lbl10 = lbl_p2_car_10;
-            p2Bord.lbl100 = lbl_p2_car_100;
-            p2Bord.lblMake1 = p2_make_1;
-            p2Bord.lblMake10 = p2_make_10;
-            p2Bord.lblMake100 = p2_make_100;
+            p2Bord.lbl1         = lbl_p2_car_1;
+            p2Bord.lbl10        = lbl_p2_car_10;
+            p2Bord.lbl100       = lbl_p2_car_100;
+            p2Bord.lblMake1     = p2_make_1;
+            p2Bord.lblMake10    = p2_make_10;
+            p2Bord.lblMake100   = p2_make_100;
 
             p1Bord.ResetBoard();
             p2Bord.ResetBoard();
@@ -257,11 +253,6 @@ namespace peter
         {
             p1Bord.ResetBoard();
             p2Bord.ResetBoard();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void P1Caram(object sender, MouseEventArgs e)
@@ -298,7 +289,7 @@ namespace peter
             lbl_p1_moyenne.Text = p1Bord.calcMoyenne(innings.inningsCount);
         }
 
-        private void tmrRealTime(object sender, EventArgs e)
+        private void TmrRealTime(object sender, EventArgs e)
         {
             lblRealClock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
