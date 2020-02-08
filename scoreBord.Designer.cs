@@ -89,7 +89,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Percentage";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbl_p1_name
             // 
@@ -133,7 +132,7 @@
             this.lbl_p1_car_1.Size = new System.Drawing.Size(186, 221);
             this.lbl_p1_car_1.TabIndex = 8;
             this.lbl_p1_car_1.Tag = "1";
-            this.lbl_p1_car_1.Text = "9";
+            this.lbl_p1_car_1.Text = "0";
             this.lbl_p1_car_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p1_car_1.UseMnemonic = false;
             this.lbl_p1_car_1.MouseEnter += new System.EventHandler(this.genHover);
@@ -152,7 +151,7 @@
             this.lbl_p1_car_10.Size = new System.Drawing.Size(180, 221);
             this.lbl_p1_car_10.TabIndex = 9;
             this.lbl_p1_car_10.Tag = "10";
-            this.lbl_p1_car_10.Text = "4";
+            this.lbl_p1_car_10.Text = "0";
             this.lbl_p1_car_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p1_car_10.MouseEnter += new System.EventHandler(this.genHover);
             this.lbl_p1_car_10.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -170,7 +169,7 @@
             this.lbl_p1_car_100.Size = new System.Drawing.Size(180, 221);
             this.lbl_p1_car_100.TabIndex = 10;
             this.lbl_p1_car_100.Tag = "100";
-            this.lbl_p1_car_100.Text = "1";
+            this.lbl_p1_car_100.Text = "0";
             this.lbl_p1_car_100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p1_car_100.MouseEnter += new System.EventHandler(this.genHover);
             this.lbl_p1_car_100.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -188,7 +187,7 @@
             this.lbl_p2_car_100.Size = new System.Drawing.Size(186, 221);
             this.lbl_p2_car_100.TabIndex = 13;
             this.lbl_p2_car_100.Tag = "100";
-            this.lbl_p2_car_100.Text = "2";
+            this.lbl_p2_car_100.Text = "0";
             this.lbl_p2_car_100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p2_car_100.MouseEnter += new System.EventHandler(this.genHover);
             this.lbl_p2_car_100.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -206,7 +205,7 @@
             this.lbl_p2_car_10.Size = new System.Drawing.Size(186, 221);
             this.lbl_p2_car_10.TabIndex = 12;
             this.lbl_p2_car_10.Tag = "10";
-            this.lbl_p2_car_10.Text = "3";
+            this.lbl_p2_car_10.Text = "0";
             this.lbl_p2_car_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p2_car_10.MouseEnter += new System.EventHandler(this.genHover);
             this.lbl_p2_car_10.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -224,7 +223,7 @@
             this.lbl_p2_car_1.Size = new System.Drawing.Size(186, 221);
             this.lbl_p2_car_1.TabIndex = 11;
             this.lbl_p2_car_1.Tag = "1";
-            this.lbl_p2_car_1.Text = "6";
+            this.lbl_p2_car_1.Text = "0";
             this.lbl_p2_car_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p2_car_1.MouseEnter += new System.EventHandler(this.genHover);
             this.lbl_p2_car_1.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -255,7 +254,7 @@
             this.p1_make_100.Size = new System.Drawing.Size(170, 182);
             this.p1_make_100.TabIndex = 18;
             this.p1_make_100.Tag = "100";
-            this.p1_make_100.Text = "1";
+            this.p1_make_100.Text = "0";
             this.p1_make_100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p1_make_100.MouseEnter += new System.EventHandler(this.genHover);
             this.p1_make_100.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -273,7 +272,7 @@
             this.p1_make_10.Size = new System.Drawing.Size(170, 182);
             this.p1_make_10.TabIndex = 17;
             this.p1_make_10.Tag = "10";
-            this.p1_make_10.Text = "4";
+            this.p1_make_10.Text = "0";
             this.p1_make_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p1_make_10.MouseEnter += new System.EventHandler(this.genHover);
             this.p1_make_10.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -291,7 +290,7 @@
             this.p1_make_1.Size = new System.Drawing.Size(170, 182);
             this.p1_make_1.TabIndex = 16;
             this.p1_make_1.Tag = "1";
-            this.p1_make_1.Text = "9";
+            this.p1_make_1.Text = "0";
             this.p1_make_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p1_make_1.MouseEnter += new System.EventHandler(this.genHover);
             this.p1_make_1.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -309,7 +308,7 @@
             this.p2_make_100.Size = new System.Drawing.Size(170, 182);
             this.p2_make_100.TabIndex = 21;
             this.p2_make_100.Tag = "100";
-            this.p2_make_100.Text = "1";
+            this.p2_make_100.Text = "0";
             this.p2_make_100.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.p2_make_100.MouseEnter += new System.EventHandler(this.genHover);
             this.p2_make_100.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -327,7 +326,7 @@
             this.p2_make_10.Size = new System.Drawing.Size(170, 190);
             this.p2_make_10.TabIndex = 20;
             this.p2_make_10.Tag = "10";
-            this.p2_make_10.Text = "4";
+            this.p2_make_10.Text = "0";
             this.p2_make_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p2_make_10.MouseEnter += new System.EventHandler(this.genHover);
             this.p2_make_10.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -345,7 +344,7 @@
             this.p2_make_1.Size = new System.Drawing.Size(170, 190);
             this.p2_make_1.TabIndex = 19;
             this.p2_make_1.Tag = "1";
-            this.p2_make_1.Text = "9";
+            this.p2_make_1.Text = "0";
             this.p2_make_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.p2_make_1.MouseEnter += new System.EventHandler(this.genHover);
             this.p2_make_1.MouseLeave += new System.EventHandler(this.restoreHover);
@@ -368,7 +367,7 @@
             // lbl_innings
             // 
             this.lbl_innings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lbl_innings.Font = new System.Drawing.Font("Arial Narrow", 150.25F);
+            this.lbl_innings.Font = new System.Drawing.Font("Microsoft Sans Serif", 150.25F);
             this.lbl_innings.ForeColor = System.Drawing.Color.Yellow;
             this.lbl_innings.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbl_innings.Location = new System.Drawing.Point(678, 469);
@@ -419,7 +418,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(1533, 942);
             this.button1.Name = "button1";
@@ -431,7 +430,7 @@
             // lbl_beurten
             // 
             this.lbl_beurten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lbl_beurten.Font = new System.Drawing.Font("Arial Narrow", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_beurten.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_beurten.ForeColor = System.Drawing.Color.White;
             this.lbl_beurten.Location = new System.Drawing.Point(817, 391);
             this.lbl_beurten.Name = "lbl_beurten";

@@ -12,10 +12,10 @@ using System.Drawing.Text;
 
 namespace peter
 {
-    class ClsInnings
+    public class ClsInnings
     {
         public Label lblInnings;
-        public int inningsCount;
+        public static int inningsCount;
 
         public void ResetInning()
          {
@@ -25,7 +25,7 @@ namespace peter
             //lblInnings.Font = new Font(privateFontCollection.Families[0], 225);
            
             lblInnings.Text = "001";
-
+            inningsCount = 1;
         }
 
         public void setInnings(Boolean leftMouse)
@@ -45,7 +45,12 @@ namespace peter
             }
 
             inningsCount = Value;
-            
+        }
+
+        public static int RetInnings()
+        {
+            return inningsCount;
         }
     }
+
 }

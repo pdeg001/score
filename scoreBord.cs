@@ -18,6 +18,8 @@ namespace peter
         //public int p2Caromboles = 0;
         ClsBord p1Bord = new ClsBord();
         ClsBord p2Bord = new ClsBord();
+        ProcesScore P1ProcessScore = new ProcesScore();
+        ProcesScore P2ProcessScore = new ProcesScore();
         ClsInnings innings = new ClsInnings();
 
         public SCORE_44()
@@ -290,7 +292,8 @@ namespace peter
         private void SetInning(object sender, MouseEventArgs e)
         {
             innings.setInnings(e.Button == MouseButtons.Left);
-            lbl_p1_moyenne1.Text = p1Bord.calcMoyenne(innings.inningsCount);
+          //  lbl_p1_moyenne1.Text = p1Bord.calcMoyenne(inningsCount);
+            
         }
 
         private void TmrRealTime(object sender, EventArgs e)

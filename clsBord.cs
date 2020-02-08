@@ -65,6 +65,7 @@ namespace peter
             if (currCaram <= 999 && currCaram > -1)
             {
                 SetNewCaram(Functions.GenPadding(currCaram));
+                ProcesScore.CalcMoyenne(currCaram);
             }
         }
 
