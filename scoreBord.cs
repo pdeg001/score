@@ -23,7 +23,7 @@ namespace peter
         public SCORE_44()
         {
             InitializeComponent();
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,89 +31,89 @@ namespace peter
             InitBoard();
         }
 
-        
+
         private void Form1_MouseDownCp1(object sender, MouseEventArgs e)
         {
-        //    int lblVal = 0;
-        //    int points = 0;
-        //    int pointsPassed = 0;
-        //    int carom = 0;
-        //    double test = 0000;
-        //    string newCarom;
-        //    string oldCarom;
-        //    string labelPoints;
-        //    string playerNumber;
-        //    Label lbl1000, lbl100, lbl10, lbl1;
+            //    int lblVal = 0;
+            //    int points = 0;
+            //    int pointsPassed = 0;
+            //    int carom = 0;
+            //    double test = 0000;
+            //    string newCarom;
+            //    string oldCarom;
+            //    string labelPoints;
+            //    string playerNumber;
+            //    Label lbl1000, lbl100, lbl10, lbl1;
 
-        //    Label lbl = sender as Label;
-        //    object tag = lbl.Tag;
+            //    Label lbl = sender as Label;
+            //    object tag = lbl.Tag;
 
 
-        //    string[] labelValue = lbl.Name.Split('_');
-        //    pointsPassed = Int32.Parse(labelValue.GetValue(labelValue.Length-1).ToString());
-        //    playerNumber = labelValue.GetValue(1).ToString();
+            //    string[] labelValue = lbl.Name.Split('_');
+            //    pointsPassed = Int32.Parse(labelValue.GetValue(labelValue.Length-1).ToString());
+            //    playerNumber = labelValue.GetValue(1).ToString();
 
-        //    lbl1000 = Controls.Find("lbl_"+playerNumber+"_1000", true).FirstOrDefault() as Label;
-        //    lbl100 = Controls.Find("lbl_"+playerNumber+"_100", true).FirstOrDefault() as Label;
-        //    lbl10 = Controls.Find("lbl_"+playerNumber+"_10", true).FirstOrDefault() as Label;
-        //    lbl1 = Controls.Find("lbl_"+playerNumber+"_1", true).FirstOrDefault() as Label;
-          
-        //    lblVal = Int32.Parse(lbl.Text);
-        //    pointsPassed = Convert.ToInt32(lbl.Tag);
-        //    oldCarom = lbl1000.Text + lbl100.Text + lbl10.Text + lbl1.Text;
-        //    carom = Int32.Parse(oldCarom);
+            //    lbl1000 = Controls.Find("lbl_"+playerNumber+"_1000", true).FirstOrDefault() as Label;
+            //    lbl100 = Controls.Find("lbl_"+playerNumber+"_100", true).FirstOrDefault() as Label;
+            //    lbl10 = Controls.Find("lbl_"+playerNumber+"_10", true).FirstOrDefault() as Label;
+            //    lbl1 = Controls.Find("lbl_"+playerNumber+"_1", true).FirstOrDefault() as Label;
 
-        //    if (e.Button == MouseButtons.Left)
-        //    {
-        //        carom += pointsPassed;
+            //    lblVal = Int32.Parse(lbl.Text);
+            //    pointsPassed = Convert.ToInt32(lbl.Tag);
+            //    oldCarom = lbl1000.Text + lbl100.Text + lbl10.Text + lbl1.Text;
+            //    carom = Int32.Parse(oldCarom);
 
-        //        if (carom > 9999)
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    if (e.Button == MouseButtons.Right)
-        //    {
-        //        carom -= pointsPassed;
-        //        if (carom <= -1)
-        //        {
-        //            return;
-        //        }
+            //    if (e.Button == MouseButtons.Left)
+            //    {
+            //        carom += pointsPassed;
 
-        //    }
-           
-        //    Console.WriteLine(carom);
+            //        if (carom > 9999)
+            //        {
+            //            return;
+            //        }
+            //    }
+            //    if (e.Button == MouseButtons.Right)
+            //    {
+            //        carom -= pointsPassed;
+            //        if (carom <= -1)
+            //        {
+            //            return;
+            //        }
 
-        //    PadStr padstr = new PadStr();
-        //    // padstr.carom = carom;
-        //    newCarom = padstr.GenPad(carom);
-        //    points = lblVal + carom;
-        //    lbl1.Text = newCarom.Substring(3, 1);
-        //    lbl10.Text = newCarom.Substring(2, 1);
-        //    lbl100.Text = newCarom.Substring(1, 1);
-        //    lbl1000.Text = newCarom.Substring(0, 1);
-        //    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-        //    string fileName = lbl.Text+".png";
-        //    string path = Path.Combine(projectDirectory, @"images\", fileName);
-        //    Image img = Image.FromFile(path);
-        // //   pic_p1_1000.Image = img; // Image.FromFile(path);
-        //    PictureBox pic;
-        //    pic = Controls.Find("pic_" + playerNumber + "_" + pointsPassed, true).FirstOrDefault() as PictureBox;
-        //    pic.Image = img;
-        //    pic.Tag = lbl.Text;
-        //    //pic_p1_1
+            //    }
+
+            //    Console.WriteLine(carom);
+
+            //    PadStr padstr = new PadStr();
+            //    // padstr.carom = carom;
+            //    newCarom = padstr.GenPad(carom);
+            //    points = lblVal + carom;
+            //    lbl1.Text = newCarom.Substring(3, 1);
+            //    lbl10.Text = newCarom.Substring(2, 1);
+            //    lbl100.Text = newCarom.Substring(1, 1);
+            //    lbl1000.Text = newCarom.Substring(0, 1);
+            //    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            //    string fileName = lbl.Text+".png";
+            //    string path = Path.Combine(projectDirectory, @"images\", fileName);
+            //    Image img = Image.FromFile(path);
+            // //   pic_p1_1000.Image = img; // Image.FromFile(path);
+            //    PictureBox pic;
+            //    pic = Controls.Find("pic_" + playerNumber + "_" + pointsPassed, true).FirstOrDefault() as PictureBox;
+            //    pic.Image = img;
+            //    pic.Tag = lbl.Text;
+            //    //pic_p1_1
 
         }
 
 
 
-        
+
         private PictureBox ComposeElemName(PictureBox elemPic, string picValue)
         { // Create pictureBox 
             string picName = elemPic.Name;
             string[] picNameSplit = picName.Split('_');
             string pNum = picNameSplit.GetValue(1).ToString();
-            string pElem  = "pic_"+pNum+"_"+picValue;
+            string pElem = "pic_" + pNum + "_" + picValue;
 
 
             return Controls.Find(pElem, true).FirstOrDefault() as PictureBox;
@@ -127,13 +127,13 @@ namespace peter
 
         private void Form1_MouseDownImgClick(object sender, MouseEventArgs e)
         {
-                  
+
             PictureBox pic = sender as PictureBox;
             int passedValue = GetPassedValue(pic);
             PictureBox pic100 = ComposeElemName(pic, "100");
             PictureBox pic10 = ComposeElemName(pic, "10");
             PictureBox pic1 = ComposeElemName(pic, "1");
-            
+
             string p1Carom = pic100.Tag.ToString() + pic10.Tag.ToString() + pic1.Tag.ToString();
             var car = int.Parse(p1Carom);
             if (e.Button == MouseButtons.Left)
@@ -155,7 +155,7 @@ namespace peter
                 GlobalVars.p1Caroms -= passedValue;
             }
 
-            
+
             var newCarom = Functions.GenPadding(car);
 
             //pic1000.Tag = newCarom.Substring(0, 1);
@@ -166,7 +166,7 @@ namespace peter
             pic1.Image = GetPic(pic1.Tag.ToString() + ".png");
             pic10.Image = GetPic(pic10.Tag.ToString() + ".png");
             pic100.Image = GetPic(pic100.Tag.ToString() + ".png");
-         //   pic1000.Image = GetPic(pic1000.Tag.ToString() + ".png");
+            //   pic1000.Image = GetPic(pic1000.Tag.ToString() + ".png");
         }
 
 
@@ -175,7 +175,7 @@ namespace peter
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
             //return Image.FromFile(Path.Combine(projectDirectory, @"images\", imgName));
             return Image.FromFile(Path.Combine(GlobalVars.projectDirectory, @"images\", imgName));
-            
+
         }
 
         private void MouseHideLbl(object sender, EventArgs e)
@@ -211,21 +211,21 @@ namespace peter
         private void genHover(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            lbl.BackColor = System.Drawing.Color.LightBlue;
-            lbl.ForeColor = System.Drawing.Color.Black;
+            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF"); //System.Drawing.Color.LightBlue;
+            lbl.ForeColor = System.Drawing.Color.Yellow;
 
         }
 
         private void restoreHover(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            lbl.BackColor = System.Drawing.Color.Blue;
+            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");//#FF00FF System.Drawing.Color.Blue;
             lbl.ForeColor = System.Drawing.Color.Yellow;
         }
 
         private void setP1Carom(object sender, EventArgs e)
         {
-           
+
         }
 
         private void InitBoard()
@@ -239,9 +239,9 @@ namespace peter
             p1Bord.lblMake1 = p1_make_1;
             p1Bord.lblMake10 = p1_make_10;
             p1Bord.lblMake100 = p1_make_100;
-            p1Bord.lblMoyenne = lbl_p1_moyenne;
-            
-           
+            p1Bord.lblMoyenne = lbl_p1_moyenne1;
+
+
             p2Bord.lbl1 = lbl_p2_car_1;
             p2Bord.lbl10 = lbl_p2_car_10;
             p2Bord.lbl100 = lbl_p2_car_100;
@@ -282,7 +282,7 @@ namespace peter
         {
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
-           p1Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
+            p1Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
         }
 
         private void P2Make(object sender, MouseEventArgs e)
@@ -295,7 +295,7 @@ namespace peter
         private void SetInning(object sender, MouseEventArgs e)
         {
             innings.setInnings(e.Button == MouseButtons.Left);
-            lbl_p1_moyenne.Text = p1Bord.calcMoyenne(innings.inningsCount);
+            lbl_p1_moyenne1.Text = p1Bord.calcMoyenne(innings.inningsCount);
         }
 
         private void tmrRealTime(object sender, EventArgs e)
@@ -307,7 +307,18 @@ namespace peter
         {
             Application.Exit();
         }
-    }
 
+        private void label2_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SpelerBorder(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, label1.DisplayRectangle, Color.Blue, ButtonBorderStyle.Solid);
+        }
+
+
+    }
    
 }

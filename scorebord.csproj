@@ -89,7 +89,7 @@
       <DependentUpon>scoreBord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -111,8 +111,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="Resources\digital-7.ttf" />
-    <EmbeddedResource Include="Resources\DS-DIGI.TTF" />
+    <None Include="Resources\digital-7.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
