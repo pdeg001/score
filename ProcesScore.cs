@@ -14,8 +14,6 @@ namespace peter
             Double perc;
 
             perc = caroms / ClsInnings.RetInnings();
-
-            Console.WriteLine("MOYENNE : " + perc);
             return "";
         }
     }

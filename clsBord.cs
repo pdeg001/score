@@ -22,6 +22,8 @@ namespace peter
         public Label lblMake100;
 
         public Label lblMoyenne;
+        public Label lblPercentage;
+        public ProgressBar progressBar;
 
         public int caroms;
         public double avg;
@@ -32,12 +34,16 @@ namespace peter
             //PrivateFontCollection privateFontCollection = new PrivateFontCollection();
             //privateFontCollection.AddFontFile(Functions.GetFontFile());
 
-            //lbl1.Text = "0";
-            //lbl10.Text = "0";
-            //lbl100.Text = "0";
-            //lblMake1.Text = "0";
-            //lblMake10.Text = "0";
-            //lblMake100.Text = "0";
+            lbl1.Text           = "0";
+            lbl10.Text          = "0";
+            lbl100.Text         = "0";
+            lblMake1.Text       = "0";
+            lblMake10.Text      = "0";
+            lblMake100.Text     = "0";
+            lblPercentage.Text  = "0.000 %";
+            lblMoyenne.Text     = "0.000";
+            progressBar.Value   = 0;
+
 
 
             //lbl1.Font = new Font(privateFontCollection.Families[0], 250);
@@ -61,11 +67,11 @@ namespace peter
 
             int currCaram = CalcCaram();
             currCaram += Value;
-            Console.WriteLine(value: currCaram);
             if (currCaram <= 999 && currCaram > -1)
             {
                 SetNewCaram(Functions.GenPadding(currCaram));
                 ProcesScore.CalcMoyenne(currCaram);
+                caroms = currCaram;
             }
         }
 
@@ -113,21 +119,40 @@ namespace peter
         {
         }
 
-      public string calcMoyenne(double Innings) 
+      public void CalcMoyenne() 
         {
             double caroms;
-            //float moyenne;
+            double Innings = ClsInnings.inningsCount;
+            string mMoyenne;
 
             caroms = CalcCaram();
 
             if (Innings > 0 && caroms > 0)
             {
                double moyenne = caroms / Innings;
-
-                Console.WriteLine(moyenne);
-                return string.Format("{0:0.000}", moyenne);
+                mMoyenne = string.Format("{0:0.000}", moyenne);
+                lblMoyenne.Text = mMoyenne.Replace(",", ".");
+                CalcPercentage();
             }
-            return "0.00";
+        }
+
+        public void CalcPercentage()
+        {
+            double percentage;
+            double mCarom, mMake;
+            string mPerc;
+
+            mCarom = caroms;
+            mMake = CalcMake();
+
+            percentage = (mCarom / mMake) * 100;
+
+            if (percentage > 100)
+                return;
+            mPerc = string.Format("{0:0.000} %", percentage);
+            
+            lblPercentage.Text = mPerc.Replace(",", ".");
+            progressBar.Value = Convert.ToInt32(percentage);
         }
 
     } 

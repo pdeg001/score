@@ -241,7 +241,9 @@ namespace peter
             p1Bord.lblMake1 = p1_make_1;
             p1Bord.lblMake10 = p1_make_10;
             p1Bord.lblMake100 = p1_make_100;
-            p1Bord.lblMoyenne = lbl_p1_moyenne1;
+            p1Bord.lblMoyenne = lbl_p1_moyenne;
+            p1Bord.lblPercentage = lbl_p1_prec;
+            p1Bord.progressBar = p1_progress;
 
 
             p2Bord.lbl1 = lbl_p2_car_1;
@@ -250,7 +252,9 @@ namespace peter
             p2Bord.lblMake1 = p2_make_1;
             p2Bord.lblMake10 = p2_make_10;
             p2Bord.lblMake100 = p2_make_100;
-
+            p2Bord.lblMoyenne = lbl_p2_moyenne;
+            p2Bord.lblPercentage = lbl_p2_perc;
+            p2Bord.progressBar = p2_progress;
             p1Bord.ResetBoard();
             p2Bord.ResetBoard();
         }
@@ -266,6 +270,7 @@ namespace peter
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p1Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
+            p1Bord.CalcMoyenne();
         }
 
         private void P2Caram(object sender, MouseEventArgs e)
@@ -273,6 +278,8 @@ namespace peter
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p2Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
+            p2Bord.CalcMoyenne();
+
         }
 
         private void P1Make(object sender, MouseEventArgs e)
@@ -280,6 +287,7 @@ namespace peter
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p1Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
+            p1Bord.CalcMoyenne();
         }
 
         private void P2Make(object sender, MouseEventArgs e)
@@ -287,12 +295,15 @@ namespace peter
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p2Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
+            p2Bord.CalcMoyenne();
         }
 
         private void SetInning(object sender, MouseEventArgs e)
         {
             innings.setInnings(e.Button == MouseButtons.Left);
-          //  lbl_p1_moyenne1.Text = p1Bord.calcMoyenne(inningsCount);
+            //  lbl_p1_moyenne1.Text = p1Bord.calcMoyenne(inningsCount);
+            p1Bord.CalcMoyenne();
+            p2Bord.CalcMoyenne();
             
         }
 
@@ -311,12 +322,17 @@ namespace peter
 
         }
 
-        private void SpelerBorder(object sender, PaintEventArgs e)
+        private void btn_nieuwe_partij_Click(object sender, EventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, label1.DisplayRectangle, Color.Blue, ButtonBorderStyle.Solid);
+            p1Bord.ResetBoard();
+            p2Bord.ResetBoard();
+            innings.ResetInning();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
    
 }

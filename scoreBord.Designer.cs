@@ -52,7 +52,7 @@
             this.lbl_p1_moyenne1 = new System.Windows.Forms.Label();
             this.tmrClock = new System.Windows.Forms.Timer(this.components);
             this.lblRealClock = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_nieuwe_partij = new System.Windows.Forms.Button();
             this.lbl_beurten = new System.Windows.Forms.Label();
             this.p1_progress = new System.Windows.Forms.ProgressBar();
             this.p2_progress = new System.Windows.Forms.ProgressBar();
@@ -414,25 +414,26 @@
             this.lblRealClock.Text = "0.00";
             this.lblRealClock.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // button1
+            // btn_nieuwe_partij
             // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1533, 942);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(385, 93);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Nieuwe Partij";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_nieuwe_partij.BackColor = System.Drawing.Color.Green;
+            this.btn_nieuwe_partij.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_nieuwe_partij.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nieuwe_partij.ForeColor = System.Drawing.Color.White;
+            this.btn_nieuwe_partij.Location = new System.Drawing.Point(1533, 942);
+            this.btn_nieuwe_partij.Name = "btn_nieuwe_partij";
+            this.btn_nieuwe_partij.Size = new System.Drawing.Size(385, 93);
+            this.btn_nieuwe_partij.TabIndex = 26;
+            this.btn_nieuwe_partij.Text = "Nieuwe Partij";
+            this.btn_nieuwe_partij.UseVisualStyleBackColor = false;
+            this.btn_nieuwe_partij.Click += new System.EventHandler(this.btn_nieuwe_partij_Click);
             // 
             // lbl_beurten
             // 
             this.lbl_beurten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
             this.lbl_beurten.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_beurten.ForeColor = System.Drawing.Color.White;
-            this.lbl_beurten.Location = new System.Drawing.Point(817, 391);
+            this.lbl_beurten.Location = new System.Drawing.Point(795, 391);
             this.lbl_beurten.Name = "lbl_beurten";
             this.lbl_beurten.Size = new System.Drawing.Size(346, 73);
             this.lbl_beurten.TabIndex = 27;
@@ -441,29 +442,31 @@
             // 
             // p1_progress
             // 
+            this.p1_progress.BackColor = System.Drawing.Color.Maroon;
+            this.p1_progress.ForeColor = System.Drawing.Color.Lime;
             this.p1_progress.Location = new System.Drawing.Point(3, 699);
             this.p1_progress.Name = "p1_progress";
             this.p1_progress.Size = new System.Drawing.Size(570, 36);
             this.p1_progress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.p1_progress.TabIndex = 32;
-            this.p1_progress.Value = 59;
             // 
             // p2_progress
             // 
-            this.p2_progress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.p2_progress.Location = new System.Drawing.Point(1332, 699);
+            this.p2_progress.BackColor = System.Drawing.Color.Maroon;
+            this.p2_progress.ForeColor = System.Drawing.Color.Lime;
+            this.p2_progress.Location = new System.Drawing.Point(1330, 699);
             this.p2_progress.Name = "p2_progress";
             this.p2_progress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.p2_progress.RightToLeftLayout = true;
             this.p2_progress.Size = new System.Drawing.Size(590, 36);
             this.p2_progress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.p2_progress.TabIndex = 33;
-            this.p2_progress.Value = 26;
             // 
             // lbl_p1_moyenne
             // 
             this.lbl_p1_moyenne.BackColor = System.Drawing.Color.White;
             this.lbl_p1_moyenne.Font = new System.Drawing.Font("Arial", 70F);
+            this.lbl_p1_moyenne.ForeColor = System.Drawing.Color.Black;
             this.lbl_p1_moyenne.Location = new System.Drawing.Point(2, 740);
             this.lbl_p1_moyenne.Name = "lbl_p1_moyenne";
             this.lbl_p1_moyenne.Size = new System.Drawing.Size(571, 95);
@@ -475,28 +478,31 @@
             // 
             this.lbl_p1_prec.BackColor = System.Drawing.Color.White;
             this.lbl_p1_prec.Font = new System.Drawing.Font("Arial", 70F);
+            this.lbl_p1_prec.ForeColor = System.Drawing.Color.Black;
             this.lbl_p1_prec.Location = new System.Drawing.Point(1, 839);
             this.lbl_p1_prec.Name = "lbl_p1_prec";
             this.lbl_p1_prec.Size = new System.Drawing.Size(572, 95);
             this.lbl_p1_prec.TabIndex = 35;
-            this.lbl_p1_prec.Text = "23.689%";
+            this.lbl_p1_prec.Text = "0.000 %";
             this.lbl_p1_prec.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_p2_perc
             // 
             this.lbl_p2_perc.BackColor = System.Drawing.Color.White;
             this.lbl_p2_perc.Font = new System.Drawing.Font("Arial", 70F);
+            this.lbl_p2_perc.ForeColor = System.Drawing.Color.Black;
             this.lbl_p2_perc.Location = new System.Drawing.Point(1332, 839);
             this.lbl_p2_perc.Name = "lbl_p2_perc";
             this.lbl_p2_perc.Size = new System.Drawing.Size(586, 95);
             this.lbl_p2_perc.TabIndex = 37;
-            this.lbl_p2_perc.Text = "23.689%";
+            this.lbl_p2_perc.Text = "0.000 %";
             this.lbl_p2_perc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_p2_moyenne
             // 
             this.lbl_p2_moyenne.BackColor = System.Drawing.Color.White;
             this.lbl_p2_moyenne.Font = new System.Drawing.Font("Arial", 70F);
+            this.lbl_p2_moyenne.ForeColor = System.Drawing.Color.Black;
             this.lbl_p2_moyenne.Location = new System.Drawing.Point(1332, 740);
             this.lbl_p2_moyenne.Name = "lbl_p2_moyenne";
             this.lbl_p2_moyenne.Size = new System.Drawing.Size(586, 95);
@@ -509,9 +515,9 @@
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
             this.label13.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(2, 104);
+            this.label13.Location = new System.Drawing.Point(45, 104);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(550, 73);
+            this.label13.Size = new System.Drawing.Size(496, 73);
             this.label13.TabIndex = 38;
             this.label13.Text = "Te maken";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -521,7 +527,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
             this.label5.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(2, 379);
+            this.label5.Location = new System.Drawing.Point(18, 379);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(550, 73);
             this.label5.TabIndex = 39;
@@ -533,9 +539,9 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
             this.label6.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(1372, 391);
+            this.label6.Location = new System.Drawing.Point(1406, 391);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(550, 73);
+            this.label6.Size = new System.Drawing.Size(421, 73);
             this.label6.TabIndex = 40;
             this.label6.Text = "Caramboles";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -545,9 +551,9 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
             this.label7.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(1367, 104);
+            this.label7.Location = new System.Drawing.Point(1347, 104);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(550, 73);
+            this.label7.Size = new System.Drawing.Size(482, 73);
             this.label7.TabIndex = 41;
             this.label7.Text = "Te maken";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -557,12 +563,14 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(558, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(774, 388);
+            this.pictureBox1.Size = new System.Drawing.Size(761, 332);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // SCORE_44
             // 
@@ -584,7 +592,7 @@
             this.Controls.Add(this.p2_progress);
             this.Controls.Add(this.p1_progress);
             this.Controls.Add(this.lbl_beurten);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_nieuwe_partij);
             this.Controls.Add(this.lblRealClock);
             this.Controls.Add(this.lbl_p1_moyenne1);
             this.Controls.Add(this.lbl_innings);
@@ -641,7 +649,7 @@
         private System.Windows.Forms.Label lbl_p1_moyenne1;
         private System.Windows.Forms.Timer tmrClock;
         private System.Windows.Forms.Label lblRealClock;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_nieuwe_partij;
         private System.Windows.Forms.Label lbl_beurten;
         private System.Windows.Forms.ProgressBar p1_progress;
         private System.Windows.Forms.ProgressBar p2_progress;
