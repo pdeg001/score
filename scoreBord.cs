@@ -225,7 +225,7 @@ namespace peter
 
         private void setP1Carom(object sender, EventArgs e)
         {
-
+           
         }
 
         private void InitBoard()
@@ -257,11 +257,6 @@ namespace peter
         {
             p1Bord.ResetBoard();
             p2Bord.ResetBoard();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void P1Caram(object sender, MouseEventArgs e)
@@ -298,7 +293,7 @@ namespace peter
             lbl_p1_moyenne1.Text = p1Bord.calcMoyenne(innings.inningsCount);
         }
 
-        private void tmrRealTime(object sender, EventArgs e)
+        private void TmrRealTime(object sender, EventArgs e)
         {
             lblRealClock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
