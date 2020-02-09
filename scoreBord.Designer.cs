@@ -553,7 +553,7 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "mouse.png");
+            this.imageList1.Images.SetKeyName(0, "mouse1.jpg");
             // 
             // scorebord
             // 
