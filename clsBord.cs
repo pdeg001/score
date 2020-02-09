@@ -20,9 +20,9 @@ namespace peter
         public Label lblMake10;
         public Label lbl100;
         public Label lblMake100;
-
         public Label lblMoyenne;
         public Label lblPercentage;
+        
         public ProgressBar progressBar;
 
         public int caroms;

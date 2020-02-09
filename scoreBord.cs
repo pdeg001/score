@@ -12,20 +12,40 @@ using System.Drawing.Text;
 
 namespace peter
 {
-    public partial class SCORE_44 : Form
+    //public class Methods
+    //{
+    //    private static Button btn_nieuwe_partij;
+    //    private static class spelDuurTimer
+    //    {
+    //        internal static void EnableGameTime(bool v)
+    //        {
+    //            throw new NotImplementedException();
+    //        }
+    //    };
+
+    //    public static void ClearForm()
+    //    {
+    //        btn_nieuwe_partij.Text = "Nieuwe Partij";
+    //        btn_nieuwe_partij.BackColor = Color.Green;
+    //        spelDuurTimer.EnableGameTime(false);
+    //    }
+    //}
+    public partial class scorebord : Form
     {
-        //public int p1Caromboles = 0;
-        //public int p2Caromboles = 0;
         ClsBord p1Bord = new ClsBord();
         ClsBord p2Bord = new ClsBord();
         ProcesScore P1ProcessScore = new ProcesScore();
         ProcesScore P2ProcessScore = new ProcesScore();
         ClsInnings innings = new ClsInnings();
+        GameTime spelDuurTimer = new GameTime();
 
-        public SCORE_44()
+        Form frmNewGame = new NieuwePartij();
+        
+        
+
+        public scorebord()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -232,6 +252,10 @@ namespace peter
 
         private void InitBoard()
         {
+            
+
+            spelDuurTimer.lblSpelDuur = lbl_game_timer;
+            spelDuurTimer.GameTimer();
             innings.lblInnings = lbl_innings;
             innings.ResetInning();
 
@@ -324,14 +348,39 @@ namespace peter
 
         private void btn_nieuwe_partij_Click(object sender, EventArgs e)
         {
+            if (btn_nieuwe_partij.Text == "Nieuwe Partij")
+            {
+                p1Bord.ResetBoard();
+                p2Bord.ResetBoard();
+                innings.ResetInning();
+                spelDuurTimer.EnableGameTime(true);
+                btn_nieuwe_partij.Text = "Partij Beëindigen";
+                btn_nieuwe_partij.BackColor = Color.Red;
+            } else
+            {
+                frmNewGame.StartPosition = FormStartPosition.Manual;
+                frmNewGame.Location = Location;
+                frmNewGame.Show(this);
+                //btn_nieuwe_partij.Text = "Nieuwe Partij";
+                //btn_nieuwe_partij.BackColor = Color.Green;
+                //spelDuurTimer.EnableGameTime(false);
+            }
+        }
+
+       public void ResetGame()
+        {
+            spelDuurTimer.EnableGameTime(false);
             p1Bord.ResetBoard();
             p2Bord.ResetBoard();
             innings.ResetInning();
+            btn_nieuwe_partij.Text = "Nieuwe Partij";
+            btn_nieuwe_partij.BackColor = Color.Green;
+            lbl_game_timer.Text = "00:00";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+           
         }
     }
    

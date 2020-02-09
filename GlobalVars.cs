@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-
+using System.Timers;
+using System.Reflection.Emit;
+using System.Windows.Forms;
 
 namespace peter
 {
     public class GlobalVars
     {
+        
         public static string str = "peter";
         public static int p1Caroms = 0;
         public static int p2Caroms = 0;
@@ -19,6 +22,8 @@ namespace peter
 
     public class Functions
     {
+        public static System.Timers.Timer aTimer = new System.Timers.Timer();
+        public static int mMinute, mHour = 0;
         public static string GenPadding(int car)
         {
             return car.ToString().PadLeft(3, '0');
@@ -38,11 +43,11 @@ namespace peter
 
         public static string GetMoyenne(string moyenne)
         {
-
             return moyenne;
         }
+       
 
-
+       
     }
 
 }

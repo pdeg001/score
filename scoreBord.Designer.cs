@@ -1,6 +1,6 @@
 ﻿namespace peter
 {
-    partial class SCORE_44
+    partial class scorebord
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SCORE_44));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(scorebord));
             this.lbl_exit = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_p1_name = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbl_game_timer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +95,7 @@
             // 
             this.lbl_p1_name.BackColor = System.Drawing.Color.Transparent;
             this.lbl_p1_name.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_p1_name.ForeColor = System.Drawing.Color.Red;
+            this.lbl_p1_name.ForeColor = System.Drawing.Color.White;
             this.lbl_p1_name.Location = new System.Drawing.Point(2, 0);
             this.lbl_p1_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_p1_name.Name = "lbl_p1_name";
@@ -109,7 +110,7 @@
             // 
             this.lbl_p2_name.BackColor = System.Drawing.Color.Transparent;
             this.lbl_p2_name.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_p2_name.ForeColor = System.Drawing.Color.Red;
+            this.lbl_p2_name.ForeColor = System.Drawing.Color.White;
             this.lbl_p2_name.Location = new System.Drawing.Point(1332, 1);
             this.lbl_p2_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_p2_name.Name = "lbl_p2_name";
@@ -420,9 +421,9 @@
             this.btn_nieuwe_partij.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_nieuwe_partij.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nieuwe_partij.ForeColor = System.Drawing.Color.White;
-            this.btn_nieuwe_partij.Location = new System.Drawing.Point(1533, 942);
+            this.btn_nieuwe_partij.Location = new System.Drawing.Point(1330, 942);
             this.btn_nieuwe_partij.Name = "btn_nieuwe_partij";
-            this.btn_nieuwe_partij.Size = new System.Drawing.Size(385, 93);
+            this.btn_nieuwe_partij.Size = new System.Drawing.Size(588, 93);
             this.btn_nieuwe_partij.TabIndex = 26;
             this.btn_nieuwe_partij.Text = "Nieuwe Partij";
             this.btn_nieuwe_partij.UseVisualStyleBackColor = false;
@@ -572,7 +573,19 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // SCORE_44
+            // lbl_game_timer
+            // 
+            this.lbl_game_timer.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_game_timer.Font = new System.Drawing.Font("Arial", 70F);
+            this.lbl_game_timer.ForeColor = System.Drawing.Color.Silver;
+            this.lbl_game_timer.Location = new System.Drawing.Point(671, 951);
+            this.lbl_game_timer.Name = "lbl_game_timer";
+            this.lbl_game_timer.Size = new System.Drawing.Size(571, 95);
+            this.lbl_game_timer.TabIndex = 43;
+            this.lbl_game_timer.Text = "00:00";
+            this.lbl_game_timer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // scorebord
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -580,6 +593,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_game_timer);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -616,7 +630,7 @@
             this.Controls.Add(this.lbl_bg);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "SCORE_44";
+            this.Name = "scorebord";
             this.Text = "bord";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -662,6 +676,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl_game_timer;
     }
 
     
