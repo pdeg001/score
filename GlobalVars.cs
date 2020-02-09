@@ -7,6 +7,7 @@ using System.IO;
 using System.Timers;
 using System.Reflection.Emit;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace peter
 {
@@ -45,9 +46,67 @@ namespace peter
         {
             return moyenne;
         }
-       
 
-       
+        public static Image GetImgCheckMark()
+        {
+            int p = (int)Environment.OSVersion.Platform;
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+
+            if (p == 4 || p == 6 || p == 128)
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "check.jpg"));
+            }
+            else
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"images\", "check.jpg"));
+            }
+        }
+
+        public static Image GetImgLogo()
+        {
+            int p = (int)Environment.OSVersion.Platform;
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+
+            if (p == 4 || p == 6 || p == 128)
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "biljarter.png"));
+            }
+            else
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"images\", "biljarter.png"));
+            }
+        }
+
+        public static Image GetImgStartPartij()
+        {
+            int p = (int)Environment.OSVersion.Platform;
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+
+            if (p == 4 || p == 6 || p == 128)
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "start_partij.png"));
+            }
+            else
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"images\", "start_partij.png"));
+            }
+        }
+
+        public static Image GetMouseCoursorImg()
+        {
+            int p = (int)Environment.OSVersion.Platform;
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+
+            if (p == 4 || p == 6 || p == 128)
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "mouse.png"));
+            }
+            else
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"images\", "mouse.png"));
+            }
+        }
+
     }
 
 }

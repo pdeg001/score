@@ -49,9 +49,6 @@
             this.p2_make_1 = new System.Windows.Forms.Label();
             this.lbl_bg = new System.Windows.Forms.Label();
             this.lbl_innings = new System.Windows.Forms.Label();
-            this.lbl_p1_moyenne1 = new System.Windows.Forms.Label();
-            this.tmrClock = new System.Windows.Forms.Timer(this.components);
-            this.lblRealClock = new System.Windows.Forms.Label();
             this.btn_nieuwe_partij = new System.Windows.Forms.Button();
             this.lbl_beurten = new System.Windows.Forms.Label();
             this.p1_progress = new System.Windows.Forms.ProgressBar();
@@ -64,9 +61,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lbl_game_timer = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_exit
@@ -383,38 +381,6 @@
             this.lbl_innings.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_innings.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SetInning);
             // 
-            // lbl_p1_moyenne1
-            // 
-            this.lbl_p1_moyenne1.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_p1_moyenne1.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_p1_moyenne1.ForeColor = System.Drawing.Color.Red;
-            this.lbl_p1_moyenne1.Location = new System.Drawing.Point(133, 978);
-            this.lbl_p1_moyenne1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_p1_moyenne1.Name = "lbl_p1_moyenne1";
-            this.lbl_p1_moyenne1.Size = new System.Drawing.Size(709, 67);
-            this.lbl_p1_moyenne1.TabIndex = 24;
-            this.lbl_p1_moyenne1.Text = "0.00";
-            this.lbl_p1_moyenne1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // tmrClock
-            // 
-            this.tmrClock.Enabled = true;
-            this.tmrClock.Interval = 1000;
-            this.tmrClock.Tick += new System.EventHandler(this.TmrRealTime);
-            // 
-            // lblRealClock
-            // 
-            this.lblRealClock.BackColor = System.Drawing.Color.Transparent;
-            this.lblRealClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 42F, System.Drawing.FontStyle.Italic);
-            this.lblRealClock.ForeColor = System.Drawing.Color.Red;
-            this.lblRealClock.Location = new System.Drawing.Point(11, 1004);
-            this.lblRealClock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRealClock.Name = "lblRealClock";
-            this.lblRealClock.Size = new System.Drawing.Size(320, 67);
-            this.lblRealClock.TabIndex = 25;
-            this.lblRealClock.Text = "0.00";
-            this.lblRealClock.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
             // btn_nieuwe_partij
             // 
             this.btn_nieuwe_partij.BackColor = System.Drawing.Color.Green;
@@ -559,19 +525,17 @@
             this.label7.Text = "Te maken";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // imgLogo
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(558, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(761, 332);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 42;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.imgLogo.BackColor = System.Drawing.Color.White;
+            this.imgLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgLogo.Location = new System.Drawing.Point(558, 0);
+            this.imgLogo.Name = "imgLogo";
+            this.imgLogo.Size = new System.Drawing.Size(761, 332);
+            this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgLogo.TabIndex = 42;
+            this.imgLogo.TabStop = false;
+            this.imgLogo.Click += new System.EventHandler(this.imgLogo_Click);
             // 
             // lbl_game_timer
             // 
@@ -585,6 +549,12 @@
             this.lbl_game_timer.Text = "00:00";
             this.lbl_game_timer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "mouse.png");
+            // 
             // scorebord
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -594,7 +564,7 @@
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
             this.Controls.Add(this.lbl_game_timer);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.imgLogo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -607,8 +577,6 @@
             this.Controls.Add(this.p1_progress);
             this.Controls.Add(this.lbl_beurten);
             this.Controls.Add(this.btn_nieuwe_partij);
-            this.Controls.Add(this.lblRealClock);
-            this.Controls.Add(this.lbl_p1_moyenne1);
             this.Controls.Add(this.lbl_innings);
             this.Controls.Add(this.p2_make_100);
             this.Controls.Add(this.p2_make_10);
@@ -634,9 +602,8 @@
             this.Text = "bord";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -660,9 +627,6 @@
         public System.Windows.Forms.Label p2_make_1;
         public System.Windows.Forms.Label lbl_bg;
         public System.Windows.Forms.Label lbl_innings;
-        private System.Windows.Forms.Label lbl_p1_moyenne1;
-        private System.Windows.Forms.Timer tmrClock;
-        private System.Windows.Forms.Label lblRealClock;
         private System.Windows.Forms.Button btn_nieuwe_partij;
         private System.Windows.Forms.Label lbl_beurten;
         private System.Windows.Forms.ProgressBar p1_progress;
@@ -675,8 +639,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Label lbl_game_timer;
+        private System.Windows.Forms.ImageList imageList1;
     }
 
     

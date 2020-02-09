@@ -15,12 +15,14 @@ namespace peter
             lblSpelDuur.Text = "00:00";
             //System.Timers.Timer aTimer = new System.Timers.Timer();
             aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            aTimer.Interval = 1*1000;
+            aTimer.Interval = 60*1000;
             aTimer.Enabled = false;
         }
 
         public void EnableGameTime(Boolean enable)
         {
+            mHour = 0;
+            mMinute = 0;
             aTimer.Enabled = enable;
         }
 
@@ -37,6 +39,7 @@ namespace peter
             string minute = mMinute.ToString();
             lblSpelDuur.Invoke(new Action(()=>
             lblSpelDuur.Text = $"{hour.PadLeft(2, '0')}:{minute.PadLeft(2, '0')}"));
+            
         }
 
 

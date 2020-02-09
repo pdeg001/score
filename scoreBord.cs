@@ -12,24 +12,7 @@ using System.Drawing.Text;
 
 namespace peter
 {
-    //public class Methods
-    //{
-    //    private static Button btn_nieuwe_partij;
-    //    private static class spelDuurTimer
-    //    {
-    //        internal static void EnableGameTime(bool v)
-    //        {
-    //            throw new NotImplementedException();
-    //        }
-    //    };
-
-    //    public static void ClearForm()
-    //    {
-    //        btn_nieuwe_partij.Text = "Nieuwe Partij";
-    //        btn_nieuwe_partij.BackColor = Color.Green;
-    //        spelDuurTimer.EnableGameTime(false);
-    //    }
-    //}
+    
     public partial class scorebord : Form
     {
         ClsBord p1Bord = new ClsBord();
@@ -38,9 +21,12 @@ namespace peter
         ProcesScore P2ProcessScore = new ProcesScore();
         ClsInnings innings = new ClsInnings();
         GameTime spelDuurTimer = new GameTime();
-
         Form frmNewGame = new NieuwePartij();
-        
+        Form frmEndGame = new EindePartij();
+
+        Boolean startNewGame = false;
+
+        public Boolean autoInnings = false;
         
 
         public scorebord()
@@ -50,181 +36,30 @@ namespace peter
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            imgLogo.Image = Functions.GetImgLogo();
+            // System.Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor;
+            //  Cursor.Current = new Cursor(@"images\mouse.cur");
+            // this.Cursor = new Cursor(Application.StartupPath + "\\mouse.cur");
+            // this.Cursor = new Cursor(@"\mouse.cur");
+            SetCursor();
             InitBoard();
         }
 
 
-        private void Form1_MouseDownCp1(object sender, MouseEventArgs e)
+        public static Cursor CreateCursor(Bitmap bm, Size size)
         {
-            //    int lblVal = 0;
-            //    int points = 0;
-            //    int pointsPassed = 0;
-            //    int carom = 0;
-            //    double test = 0000;
-            //    string newCarom;
-            //    string oldCarom;
-            //    string labelPoints;
-            //    string playerNumber;
-            //    Label lbl1000, lbl100, lbl10, lbl1;
-
-            //    Label lbl = sender as Label;
-            //    object tag = lbl.Tag;
-
-
-            //    string[] labelValue = lbl.Name.Split('_');
-            //    pointsPassed = Int32.Parse(labelValue.GetValue(labelValue.Length-1).ToString());
-            //    playerNumber = labelValue.GetValue(1).ToString();
-
-            //    lbl1000 = Controls.Find("lbl_"+playerNumber+"_1000", true).FirstOrDefault() as Label;
-            //    lbl100 = Controls.Find("lbl_"+playerNumber+"_100", true).FirstOrDefault() as Label;
-            //    lbl10 = Controls.Find("lbl_"+playerNumber+"_10", true).FirstOrDefault() as Label;
-            //    lbl1 = Controls.Find("lbl_"+playerNumber+"_1", true).FirstOrDefault() as Label;
-
-            //    lblVal = Int32.Parse(lbl.Text);
-            //    pointsPassed = Convert.ToInt32(lbl.Tag);
-            //    oldCarom = lbl1000.Text + lbl100.Text + lbl10.Text + lbl1.Text;
-            //    carom = Int32.Parse(oldCarom);
-
-            //    if (e.Button == MouseButtons.Left)
-            //    {
-            //        carom += pointsPassed;
-
-            //        if (carom > 9999)
-            //        {
-            //            return;
-            //        }
-            //    }
-            //    if (e.Button == MouseButtons.Right)
-            //    {
-            //        carom -= pointsPassed;
-            //        if (carom <= -1)
-            //        {
-            //            return;
-            //        }
-
-            //    }
-
-            //    Console.WriteLine(carom);
-
-            //    PadStr padstr = new PadStr();
-            //    // padstr.carom = carom;
-            //    newCarom = padstr.GenPad(carom);
-            //    points = lblVal + carom;
-            //    lbl1.Text = newCarom.Substring(3, 1);
-            //    lbl10.Text = newCarom.Substring(2, 1);
-            //    lbl100.Text = newCarom.Substring(1, 1);
-            //    lbl1000.Text = newCarom.Substring(0, 1);
-            //    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-            //    string fileName = lbl.Text+".png";
-            //    string path = Path.Combine(projectDirectory, @"images\", fileName);
-            //    Image img = Image.FromFile(path);
-            // //   pic_p1_1000.Image = img; // Image.FromFile(path);
-            //    PictureBox pic;
-            //    pic = Controls.Find("pic_" + playerNumber + "_" + pointsPassed, true).FirstOrDefault() as PictureBox;
-            //    pic.Image = img;
-            //    pic.Tag = lbl.Text;
-            //    //pic_p1_1
-
+            bm = new Bitmap(bm, size);
+           return new Cursor(bm.GetHicon());
         }
 
-
-
-
-        private PictureBox ComposeElemName(PictureBox elemPic, string picValue)
-        { // Create pictureBox 
-            string picName = elemPic.Name;
-            string[] picNameSplit = picName.Split('_');
-            string pNum = picNameSplit.GetValue(1).ToString();
-            string pElem = "pic_" + pNum + "_" + picValue;
-
-
-            return Controls.Find(pElem, true).FirstOrDefault() as PictureBox;
-        }
-
-        private int GetPassedValue(PictureBox pic)
+        public void SetCursor()
         {
-            string[] picNameSplit = pic.Name.Split('_');
-            return int.Parse(picNameSplit.GetValue(2).ToString());
+            Bitmap bm = (Bitmap)imageList1.Images[0];
+           // bm.SetResolution(100, 100);
+           // bm.
+           // this.Cursor = CreateCursor((Bitmap)imageList1.Images[0], new Size(100, 100));
+            this.Cursor = CreateCursor(bm, new Size(48, 48));
         }
-
-        private void Form1_MouseDownImgClick(object sender, MouseEventArgs e)
-        {
-
-            PictureBox pic = sender as PictureBox;
-            int passedValue = GetPassedValue(pic);
-            PictureBox pic100 = ComposeElemName(pic, "100");
-            PictureBox pic10 = ComposeElemName(pic, "10");
-            PictureBox pic1 = ComposeElemName(pic, "1");
-
-            string p1Carom = pic100.Tag.ToString() + pic10.Tag.ToString() + pic1.Tag.ToString();
-            var car = int.Parse(p1Carom);
-            if (e.Button == MouseButtons.Left)
-            {
-                car += passedValue;
-                if (car > 999)
-                {
-                    return;
-                }
-                GlobalVars.p1Caroms += passedValue;
-            }
-            if (e.Button == MouseButtons.Right)
-            {
-                car -= passedValue;
-                if (car <= -1)
-                {
-                    return;
-                }
-                GlobalVars.p1Caroms -= passedValue;
-            }
-
-
-            var newCarom = Functions.GenPadding(car);
-
-            //pic1000.Tag = newCarom.Substring(0, 1);
-            pic100.Tag = newCarom.Substring(1, 1);
-            pic10.Tag = newCarom.Substring(2, 1);
-            pic1.Tag = newCarom.Substring(3, 1);
-
-            pic1.Image = GetPic(pic1.Tag.ToString() + ".png");
-            pic10.Image = GetPic(pic10.Tag.ToString() + ".png");
-            pic100.Image = GetPic(pic100.Tag.ToString() + ".png");
-            //   pic1000.Image = GetPic(pic1000.Tag.ToString() + ".png");
-        }
-
-
-        private static Image GetPic(string imgName)
-        {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-            //return Image.FromFile(Path.Combine(projectDirectory, @"images\", imgName));
-            return Image.FromFile(Path.Combine(GlobalVars.projectDirectory, @"images\", imgName));
-
-        }
-
-        private void MouseHideLbl(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MouseOverImg(object sender, EventArgs e)
-        {
-            PictureBox pic = sender as PictureBox;
-            pic.BackColor = System.Drawing.Color.Beige;
-            string picName = pic.Name;
-            string markerName = picName + "_marker";
-            Label lblMark = Controls.Find(markerName, true).FirstOrDefault() as Label;
-            lblMark.Visible = true;
-        }
-
-        private void MouseOverImgHide(object sender, EventArgs e)
-        {
-            PictureBox pic = sender as PictureBox;
-            pic.BackColor = System.Drawing.Color.Blue;
-            string picName = pic.Name;
-            string markerName = picName + "_marker";
-            Label lblMark = Controls.Find(markerName, true).FirstOrDefault() as Label;
-            lblMark.Visible = false;
-        }
-
         private void ExitApplication(object sender, MouseEventArgs e)
         {
             Application.Exit();
@@ -331,11 +166,6 @@ namespace peter
             
         }
 
-        private void TmrRealTime(object sender, EventArgs e)
-        {
-            lblRealClock.Text = DateTime.Now.ToString("HH:mm:ss");
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -350,24 +180,28 @@ namespace peter
         {
             if (btn_nieuwe_partij.Text == "Nieuwe Partij")
             {
-                p1Bord.ResetBoard();
-                p2Bord.ResetBoard();
-                innings.ResetInning();
-                spelDuurTimer.EnableGameTime(true);
-                btn_nieuwe_partij.Text = "Partij Beëindigen";
-                btn_nieuwe_partij.BackColor = Color.Red;
-            } else
-            {
                 frmNewGame.StartPosition = FormStartPosition.Manual;
                 frmNewGame.Location = Location;
                 frmNewGame.Show(this);
+
+                //p1Bord.ResetBoard();
+                //p2Bord.ResetBoard();
+                //innings.ResetInning();
+                //spelDuurTimer.EnableGameTime(true);
+                //btn_nieuwe_partij.Text = "Partij Beëindigen";
+                //btn_nieuwe_partij.BackColor = Color.Red;
+            } else
+            {
+                frmEndGame.StartPosition = FormStartPosition.Manual;
+                frmEndGame.Location = Location;
+                frmEndGame.Show(this);
                 //btn_nieuwe_partij.Text = "Nieuwe Partij";
                 //btn_nieuwe_partij.BackColor = Color.Green;
                 //spelDuurTimer.EnableGameTime(false);
             }
         }
 
-       public void ResetGame()
+       public void NewGame()
         {
             spelDuurTimer.EnableGameTime(false);
             p1Bord.ResetBoard();
@@ -376,11 +210,33 @@ namespace peter
             btn_nieuwe_partij.Text = "Nieuwe Partij";
             btn_nieuwe_partij.BackColor = Color.Green;
             lbl_game_timer.Text = "00:00";
+            imgLogo.Image = Functions.GetImgStartPartij();
+            startNewGame = true;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void EndGame()
         {
-           
+            imgLogo.Image = Functions.GetImgLogo();
+            spelDuurTimer.EnableGameTime(false);
+            btn_nieuwe_partij.Text = "Nieuwe Partij";
+            btn_nieuwe_partij.BackColor = Color.Green;
+            spelDuurTimer.EnableGameTime(false);
+            p1Bord.ResetBoard();
+            p2Bord.ResetBoard();
+            innings.ResetInning();
+            startNewGame = false;
+        }
+
+        private void imgLogo_Click(object sender, EventArgs e)
+        {
+           if (startNewGame == true)
+            {
+                imgLogo.Image = Functions.GetImgLogo();
+                startNewGame = false;
+                spelDuurTimer.EnableGameTime(true);
+                btn_nieuwe_partij.Text = "Partij Beëindigen";
+                btn_nieuwe_partij.BackColor = Color.Red;
+            }
         }
     }
    
