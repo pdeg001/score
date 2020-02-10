@@ -369,10 +369,10 @@
             this.lbl_innings.Font = new System.Drawing.Font("Microsoft Sans Serif", 150.25F);
             this.lbl_innings.ForeColor = System.Drawing.Color.Yellow;
             this.lbl_innings.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_innings.Location = new System.Drawing.Point(678, 469);
+            this.lbl_innings.Location = new System.Drawing.Point(736, 469);
             this.lbl_innings.Name = "lbl_innings";
             this.lbl_innings.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.lbl_innings.Size = new System.Drawing.Size(580, 221);
+            this.lbl_innings.Size = new System.Drawing.Size(458, 221);
             this.lbl_innings.TabIndex = 23;
             this.lbl_innings.Tag = "1";
             this.lbl_innings.Text = "001";
@@ -400,7 +400,7 @@
             this.lbl_beurten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
             this.lbl_beurten.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_beurten.ForeColor = System.Drawing.Color.White;
-            this.lbl_beurten.Location = new System.Drawing.Point(795, 391);
+            this.lbl_beurten.Location = new System.Drawing.Point(792, 391);
             this.lbl_beurten.Name = "lbl_beurten";
             this.lbl_beurten.Size = new System.Drawing.Size(346, 73);
             this.lbl_beurten.TabIndex = 27;
