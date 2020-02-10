@@ -40,6 +40,8 @@
             this.txtP1Caroms = new System.Windows.Forms.TextBox();
             this.txtP2Caroms = new System.Windows.Forms.TextBox();
             this.txtP2Name = new System.Windows.Forms.TextBox();
+            this.btnP2Start = new System.Windows.Forms.Button();
+            this.btnP1Start = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chkSpelersInvoeren)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_auto_beurten)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +122,7 @@
             this.lbl_spelers_invoeren.TabIndex = 7;
             this.lbl_spelers_invoeren.Text = "Spelers Invoeren";
             this.lbl_spelers_invoeren.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_spelers_invoeren.Click += new System.EventHandler(this.lbl_spelers_invoeren_Click);
             this.lbl_spelers_invoeren.MouseEnter += new System.EventHandler(this.genHover);
             this.lbl_spelers_invoeren.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_spelers_invoeren.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label2_MouseUp);
@@ -143,7 +146,7 @@
             // 
             this.chk_auto_beurten.BackColor = System.Drawing.Color.White;
             this.chk_auto_beurten.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chk_auto_beurten.Location = new System.Drawing.Point(176, 232);
+            this.chk_auto_beurten.Location = new System.Drawing.Point(176, 230);
             this.chk_auto_beurten.Name = "chk_auto_beurten";
             this.chk_auto_beurten.Size = new System.Drawing.Size(110, 110);
             this.chk_auto_beurten.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -161,6 +164,7 @@
             this.txtP1Name.Name = "txtP1Name";
             this.txtP1Name.Size = new System.Drawing.Size(770, 118);
             this.txtP1Name.TabIndex = 10;
+            this.txtP1Name.Visible = false;
             // 
             // txtP1Caroms
             // 
@@ -168,12 +172,13 @@
             this.txtP1Caroms.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP1Caroms.Font = new System.Drawing.Font("Arial", 72F);
             this.txtP1Caroms.ForeColor = System.Drawing.Color.Black;
-            this.txtP1Caroms.Location = new System.Drawing.Point(1073, 760);
+            this.txtP1Caroms.Location = new System.Drawing.Point(1072, 760);
             this.txtP1Caroms.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.txtP1Caroms.Name = "txtP1Caroms";
             this.txtP1Caroms.Size = new System.Drawing.Size(250, 118);
             this.txtP1Caroms.TabIndex = 11;
             this.txtP1Caroms.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtP1Caroms.Visible = false;
             this.txtP1Caroms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtP1Caroms_KeyPress);
             // 
             // txtP2Caroms
@@ -182,12 +187,13 @@
             this.txtP2Caroms.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP2Caroms.Font = new System.Drawing.Font("Arial", 72F);
             this.txtP2Caroms.ForeColor = System.Drawing.Color.Black;
-            this.txtP2Caroms.Location = new System.Drawing.Point(1070, 894);
+            this.txtP2Caroms.Location = new System.Drawing.Point(1072, 894);
             this.txtP2Caroms.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.txtP2Caroms.Name = "txtP2Caroms";
             this.txtP2Caroms.Size = new System.Drawing.Size(250, 118);
             this.txtP2Caroms.TabIndex = 13;
             this.txtP2Caroms.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtP2Caroms.Visible = false;
             // 
             // txtP2Name
             // 
@@ -195,11 +201,40 @@
             this.txtP2Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP2Name.Font = new System.Drawing.Font("Arial", 72F);
             this.txtP2Name.ForeColor = System.Drawing.Color.Black;
-            this.txtP2Name.Location = new System.Drawing.Point(292, 894);
+            this.txtP2Name.Location = new System.Drawing.Point(295, 894);
             this.txtP2Name.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.txtP2Name.Name = "txtP2Name";
             this.txtP2Name.Size = new System.Drawing.Size(770, 118);
             this.txtP2Name.TabIndex = 12;
+            this.txtP2Name.Visible = false;
+            // 
+            // btnP2Start
+            // 
+            this.btnP2Start.BackColor = System.Drawing.Color.White;
+            this.btnP2Start.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnP2Start.Location = new System.Drawing.Point(1329, 894);
+            this.btnP2Start.Name = "btnP2Start";
+            this.btnP2Start.Size = new System.Drawing.Size(448, 118);
+            this.btnP2Start.TabIndex = 14;
+            this.btnP2Start.Text = "Begint";
+            this.btnP2Start.UseVisualStyleBackColor = false;
+            this.btnP2Start.Visible = false;
+            this.btnP2Start.MouseEnter += new System.EventHandler(this.genHoverButton);
+            this.btnP2Start.MouseLeave += new System.EventHandler(this.restoreHoverButton);
+            // 
+            // btnP1Start
+            // 
+            this.btnP1Start.BackColor = System.Drawing.Color.White;
+            this.btnP1Start.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnP1Start.Location = new System.Drawing.Point(1329, 760);
+            this.btnP1Start.Name = "btnP1Start";
+            this.btnP1Start.Size = new System.Drawing.Size(448, 118);
+            this.btnP1Start.TabIndex = 15;
+            this.btnP1Start.Text = "Begint";
+            this.btnP1Start.UseVisualStyleBackColor = false;
+            this.btnP1Start.Visible = false;
+            this.btnP1Start.MouseEnter += new System.EventHandler(this.genHoverButton);
+            this.btnP1Start.MouseLeave += new System.EventHandler(this.restoreHoverButton);
             // 
             // NieuwePartij
             // 
@@ -208,6 +243,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.btnP1Start);
+            this.Controls.Add(this.btnP2Start);
             this.Controls.Add(this.txtP2Caroms);
             this.Controls.Add(this.txtP2Name);
             this.Controls.Add(this.txtP1Caroms);
@@ -246,5 +283,7 @@
         private System.Windows.Forms.TextBox txtP1Caroms;
         private System.Windows.Forms.TextBox txtP2Caroms;
         private System.Windows.Forms.TextBox txtP2Name;
+        private System.Windows.Forms.Button btnP2Start;
+        private System.Windows.Forms.Button btnP1Start;
     }
 }

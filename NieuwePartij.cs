@@ -82,13 +82,27 @@ namespace peter
             {
                 chkSpelersInvoeren.Image = Functions.GetImgCheckMark();
                 addPlayers = true;
+                ShowPlayerObjects();
             }
             else
             {
                 chkSpelersInvoeren.Image = null;
                 addPlayers = false;
+                ShowPlayerObjects();
             }
 
+        }
+
+
+        private void ShowPlayerObjects()
+        {
+            txtP1Name.Visible = addPlayers;
+            txtP1Caroms.Visible = addPlayers;
+            btnP1Start.Visible = addPlayers;
+
+            txtP2Name.Visible = addPlayers;
+            txtP2Caroms.Visible = addPlayers;
+            btnP2Start.Visible = addPlayers;
         }
 
         private void genHover(object sender, EventArgs e)
@@ -117,6 +131,11 @@ namespace peter
             Button btn = sender as Button;
             btn.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffffff");//#FF00FF System.Drawing.Color.Blue;
             btn.ForeColor = System.Drawing.Color.Black;
+        }
+
+        private void lbl_spelers_invoeren_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void txtP1Caroms_KeyPress(object sender, KeyPressEventArgs e)

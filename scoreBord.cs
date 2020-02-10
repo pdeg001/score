@@ -166,10 +166,7 @@ namespace peter
             Application.Exit();
         }
 
-        private void label2_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btn_nieuwe_partij_Click(object sender, EventArgs e)
         {
@@ -232,6 +229,19 @@ namespace peter
                 btn_nieuwe_partij.Text = "Partij Beëindigen";
                 btn_nieuwe_partij.BackColor = Color.Red;
             }
+        }
+
+        private void Lbl_pName_MouseLeave(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            lbl.BackColor = Color.Transparent;
+        }
+
+        private void Lbl_pName_MouseEnter(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            lbl.BackColor = Color.Red;
+
         }
     }
    

@@ -94,29 +94,32 @@
             this.lbl_p1_name.BackColor = System.Drawing.Color.Transparent;
             this.lbl_p1_name.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_p1_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_p1_name.Location = new System.Drawing.Point(2, 0);
+            this.lbl_p1_name.Location = new System.Drawing.Point(0, 0);
             this.lbl_p1_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_p1_name.Name = "lbl_p1_name";
-            this.lbl_p1_name.Size = new System.Drawing.Size(551, 104);
+            this.lbl_p1_name.Size = new System.Drawing.Size(556, 103);
             this.lbl_p1_name.TabIndex = 6;
             this.lbl_p1_name.Text = "Speler 1";
             this.lbl_p1_name.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbl_p1_name.Click += new System.EventHandler(this.label2_Click);
-            this.lbl_p1_name.MouseEnter += new System.EventHandler(this.label2_MouseEnter);
+            this.lbl_p1_name.MouseEnter += new System.EventHandler(this.Lbl_pName_MouseEnter);
+            this.lbl_p1_name.MouseLeave += new System.EventHandler(this.Lbl_pName_MouseLeave);
             // 
             // lbl_p2_name
             // 
             this.lbl_p2_name.BackColor = System.Drawing.Color.Transparent;
             this.lbl_p2_name.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_p2_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_p2_name.Location = new System.Drawing.Point(1332, 1);
+            this.lbl_p2_name.Location = new System.Drawing.Point(1318, 1);
             this.lbl_p2_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_p2_name.Name = "lbl_p2_name";
-            this.lbl_p2_name.Size = new System.Drawing.Size(587, 103);
+            this.lbl_p2_name.Size = new System.Drawing.Size(601, 103);
             this.lbl_p2_name.TabIndex = 6;
             this.lbl_p2_name.Text = "Sjaak van Duivenvoorde";
             this.lbl_p2_name.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbl_p2_name.UseMnemonic = false;
+            this.lbl_p2_name.MouseEnter += new System.EventHandler(this.Lbl_pName_MouseEnter);
+            this.lbl_p2_name.MouseLeave += new System.EventHandler(this.Lbl_pName_MouseLeave);
             // 
             // lbl_p1_car_1
             // 
@@ -482,9 +485,9 @@
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
             this.label13.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(45, 104);
+            this.label13.Location = new System.Drawing.Point(3, 104);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(496, 73);
+            this.label13.Size = new System.Drawing.Size(555, 73);
             this.label13.TabIndex = 38;
             this.label13.Text = "Te maken";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -520,7 +523,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(1347, 104);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(482, 73);
+            this.label7.Size = new System.Drawing.Size(555, 73);
             this.label7.TabIndex = 41;
             this.label7.Text = "Te maken";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
