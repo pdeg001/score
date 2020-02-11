@@ -10,12 +10,17 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Text;
 using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace peter
 {
     
     public partial class scorebord : Form
     {
+        [DllImport("user32.dll")]
+        public static extern IntPtr LoadCursorFromFile(string filename);
+
         ClsBord p1Bord = new ClsBord();
         ClsBord p2Bord = new ClsBord();
         ProcesScore P1ProcessScore = new ProcesScore();
@@ -26,8 +31,8 @@ namespace peter
         Form frmEndGame = new EindePartij();
 
         Boolean startNewGame = false;
-
-        public Boolean autoInnings = false;
+        Boolean disableHoverItems = false;
+        Boolean inningsSet = true;
         
 
         public scorebord()
@@ -38,13 +43,23 @@ namespace peter
         private void Form1_Load(object sender, EventArgs e)
         {
             imgLogo.Image = Functions.GetImgLogo();
-          //  SetCursor();
+            //  SetCursor();
+            //this.Cursor = new Cursor(Application.StartupPath + "\\Cursor(2).cur");
             InitBoard();
+
+            //Cursor mycursor = new Cursor(Cursor.Current.Handle);
+            //Console.WriteLine(Functions.GetMouseCoursorPath());
+            //IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
+            //mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
+            //this.Cursor = mycursor;
+            this.Cursor = Cursors.NoMove2D;
+
         }
 
 
         public static Cursor CreateCursor(Bitmap bm, Size size)
         {
+            
             bm = new Bitmap(bm, size);
            return new Cursor(bm.GetHicon());
         }
@@ -62,6 +77,8 @@ namespace peter
 
         private void genHover(object sender, EventArgs e)
         {
+            if (disableHoverItems)
+                return;
             Label lbl = sender as Label;
             lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF"); //System.Drawing.Color.LightBlue;
             lbl.ForeColor = System.Drawing.Color.Yellow;
@@ -75,15 +92,13 @@ namespace peter
             lbl.ForeColor = System.Drawing.Color.Yellow;
         }
 
-        private void setP1Carom(object sender, EventArgs e)
-        {
+        //private void setP1Carom(object sender, EventArgs e)
+        //{
            
-        }
+        //}
 
         private void InitBoard()
         {
-            
-
             spelDuurTimer.lblSpelDuur = lbl_game_timer;
             spelDuurTimer.GameTimer();
             innings.lblInnings = lbl_innings;
@@ -111,13 +126,38 @@ namespace peter
             p2Bord.progressBar = p2_progress;
             p1Bord.ResetBoard();
             p2Bord.ResetBoard();
+            disableHoverItems = true;
+           // DisableClickItems(false);
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        public void DisableClickItems(Boolean enable)
         {
-            p1Bord.ResetBoard();
-            p2Bord.ResetBoard();
+            lbl_p1_car_1.Enabled = enable;
+            
+            lbl_p1_car_10.Enabled = enable;
+            lbl_p1_car_100.Enabled = enable;
+            p1_make_1.Enabled = enable;
+            p1_make_10.Enabled = enable;
+            p1_make_100.Enabled = enable;
+
+            lbl_p2_car_1.Enabled = enable;
+            lbl_p2_car_10.Enabled = enable;
+            lbl_p2_car_100.Enabled = enable;
+            p2_make_1.Enabled = enable;
+            p2_make_10.Enabled = enable;
+            p2_make_100.Enabled = enable;
+
+            lbl_p1_name.Enabled = enable;
+            lbl_p2_name.Enabled = enable;
+            lbl_innings.Enabled = enable;
+
         }
+
+        //private void Button1_Click(object sender, EventArgs e)
+        //{
+        //    p1Bord.ResetBoard();
+        //    p2Bord.ResetBoard();
+        //}
 
         private void P1Caram(object sender, MouseEventArgs e)
         {
@@ -161,13 +201,6 @@ namespace peter
             
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        
-
         private void btn_nieuwe_partij_Click(object sender, EventArgs e)
         {
             if (btn_nieuwe_partij.Text == "Nieuwe Partij")
@@ -193,11 +226,17 @@ namespace peter
             }
         }
 
-       public void NewGame()
+        public void ResetCounter()
         {
-            spelDuurTimer.EnableGameTime(false);
             p1Bord.ResetBoard();
             p2Bord.ResetBoard();
+        }
+
+        public void NewGame()
+        {
+            spelDuurTimer.EnableGameTime(false);
+            //p1Bord.ResetBoard();
+            //p2Bord.ResetBoard();
             innings.ResetInning();
             btn_nieuwe_partij.Text = "Nieuwe Partij";
             btn_nieuwe_partij.BackColor = Color.Green;
@@ -217,6 +256,24 @@ namespace peter
             p2Bord.ResetBoard();
             innings.ResetInning();
             startNewGame = false;
+        }
+
+        public void SetP1Data(string name, string toMake)
+        {
+            lbl_p1_name.Text = name;
+            p1_make_100.Text = toMake.Substring(0, 1);
+            p1_make_10.Text = toMake.Substring(1, 1);
+            p1_make_1.Text = toMake.Substring(2, 1);
+            disableHoverItems = false;
+        }
+
+        public void SetP2Data(string name, string toMake)
+        {
+            lbl_p2_name.Text = name;
+            p2_make_100.Text = toMake.Substring(0, 1);
+            p2_make_10.Text = toMake.Substring(1, 1);
+            p2_make_1.Text = toMake.Substring(2, 1);
+            disableHoverItems = false;
         }
 
         private void imgLogo_Click(object sender, EventArgs e)
@@ -241,7 +298,41 @@ namespace peter
         {
             Label lbl = sender as Label;
             lbl.BackColor = Color.Red;
+        }
 
+        private void p2_make_100_Paint(object sender, PaintEventArgs e)
+        {
+            Label lbl = sender as Label;
+            if (!lbl.Enabled)
+                lbl.BackColor = Color.Blue;
+                lbl.ForeColor = Color.Yellow;
+        }
+
+        private void lbl_p1_name_Click(object sender, EventArgs e)
+        {
+            if (GlobalVars.autoInnings && inningsSet == false)
+            {
+                innings.setInnings(true);
+                inningsSet = true;
+            }
+
+            lbl_p1_highlight.BackColor = Color.White;
+            lbl_p1_name.BackColor = Color.White;
+            lbl_p1_name.ForeColor = Color.Black;
+
+            lbl_p2_name.BackColor = Color.Transparent;
+            lbl_p2_name.ForeColor = Color.White;
+        }
+
+        private void lbl_p2_name_Click(object sender, EventArgs e)
+        {
+            inningsSet = false;
+            lbl_p1_highlight.BackColor = Color.Transparent;
+            lbl_p1_name.BackColor = Color.Transparent;
+            lbl_p1_name.ForeColor = Color.White;
+
+            lbl_p2_name.BackColor = Color.White;
+            lbl_p2_name.ForeColor = Color.Black;
         }
     }
    

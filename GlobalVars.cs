@@ -19,6 +19,8 @@ namespace peter
         public static int p2Caroms = 0;
         public static int carom;
         public static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+        public static Boolean autoInnings;
+
     }
 
     public class Functions
@@ -92,19 +94,27 @@ namespace peter
             }
         }
 
-        public static Image GetMouseCoursorImg()
+        public static string GetMouseCoursorPath()
         {
             int p = (int)Environment.OSVersion.Platform;
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
 
             if (p == 4 || p == 6 || p == 128)
             {
-                return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "mouse.png"));
+                //return Path.Combine(projectDirectory, @"/home/pi/score/images/", "mouse.cur");
+                return "/home/pi/score/images/mouse.cur";
             }
             else
             {
-                return Image.FromFile(Path.Combine(projectDirectory, @"images\", "mouse.png"));
+               // return Path.Combine(projectDirectory, @"images\", "mouse.cur");
+                return Path.Combine(projectDirectory, @"images\", "mouse.cur");
             }
+        }
+
+        public static Form GetScoreBordForm()
+        {
+            scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
+            return f1;
         }
 
     }

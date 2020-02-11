@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Text;
 
+
+//TODO: add function comment for all classes
+
 namespace peter
 {
     class ClsBord
@@ -129,7 +132,8 @@ namespace peter
 
             if (Innings > 0 && caroms > 0)
             {
-               double moyenne = caroms / Innings;
+                double moyenne = caroms / Innings;
+                moyenne = Math.Truncate(moyenne * 1000) / 1000;
                 mMoyenne = string.Format("{0:0.000}", moyenne);
                 lblMoyenne.Text = mMoyenne.Replace(",", ".");
                 CalcPercentage();

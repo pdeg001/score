@@ -42,6 +42,7 @@
             this.txtP2Name = new System.Windows.Forms.TextBox();
             this.btnP2Start = new System.Windows.Forms.Button();
             this.btnP1Start = new System.Windows.Forms.Button();
+            this.lblExitApplication = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chkSpelersInvoeren)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_auto_beurten)).BeginInit();
             this.SuspendLayout();
@@ -138,6 +139,7 @@
             this.lbl_buerten_automatisch.TabIndex = 8;
             this.lbl_buerten_automatisch.Text = "Beurten Automatisch";
             this.lbl_buerten_automatisch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_buerten_automatisch.Click += new System.EventHandler(this.lbl_buerten_automatisch_Click);
             this.lbl_buerten_automatisch.MouseEnter += new System.EventHandler(this.genHover);
             this.lbl_buerten_automatisch.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_buerten_automatisch.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lbl_buerten_automatisch_MouseUp);
@@ -219,6 +221,7 @@
             this.btnP2Start.Text = "Begint";
             this.btnP2Start.UseVisualStyleBackColor = false;
             this.btnP2Start.Visible = false;
+            this.btnP2Start.Click += new System.EventHandler(this.btnP2Start_Click);
             this.btnP2Start.MouseEnter += new System.EventHandler(this.genHoverButton);
             this.btnP2Start.MouseLeave += new System.EventHandler(this.restoreHoverButton);
             // 
@@ -233,8 +236,19 @@
             this.btnP1Start.Text = "Begint";
             this.btnP1Start.UseVisualStyleBackColor = false;
             this.btnP1Start.Visible = false;
+            this.btnP1Start.Click += new System.EventHandler(this.btnP1Start_Click);
             this.btnP1Start.MouseEnter += new System.EventHandler(this.genHoverButton);
             this.btnP1Start.MouseLeave += new System.EventHandler(this.restoreHoverButton);
+            // 
+            // lblExitApplication
+            // 
+            this.lblExitApplication.Location = new System.Drawing.Point(1893, 2);
+            this.lblExitApplication.Name = "lblExitApplication";
+            this.lblExitApplication.Size = new System.Drawing.Size(24, 23);
+            this.lblExitApplication.TabIndex = 16;
+            this.lblExitApplication.Text = "      ";
+            this.lblExitApplication.Click += new System.EventHandler(this.lblExitApplication_Click);
+            this.lblExitApplication.DoubleClick += new System.EventHandler(this.lblExitApplication_DoubleClick);
             // 
             // NieuwePartij
             // 
@@ -243,6 +257,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.lblExitApplication);
             this.Controls.Add(this.btnP1Start);
             this.Controls.Add(this.btnP2Start);
             this.Controls.Add(this.txtP2Caroms);
@@ -285,5 +300,6 @@
         private System.Windows.Forms.TextBox txtP2Name;
         private System.Windows.Forms.Button btnP2Start;
         private System.Windows.Forms.Button btnP1Start;
+        private System.Windows.Forms.Label lblExitApplication;
     }
 }

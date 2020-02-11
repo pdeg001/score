@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
+using System.Text.RegularExpressions;
 
 namespace peter
 {
     public partial class NieuwePartij : Form
     {
+    scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
         Boolean autoInnings = true, addPlayers = false;
         public NieuwePartij()
         {
@@ -28,6 +30,7 @@ namespace peter
             {
                 chk_auto_beurten.Image = Functions.GetImgCheckMark();
                 autoInnings = true;
+                GlobalVars.autoInnings = true;
                
             }
         }
@@ -134,6 +137,48 @@ namespace peter
         }
 
         private void lbl_spelers_invoeren_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnP1Start_Click(object sender, EventArgs e)
+        {
+            scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
+            
+            f1.ResetCounter();
+            f1.SetP1Data(ReplaceFirstSpaceNameWithCr(txtP1Name.Text).ToUpper(), txtP1Caroms.Text.PadLeft(3, '0'));
+            f1.SetP2Data(ReplaceFirstSpaceNameWithCr(txtP2Name.Text).ToUpper(), txtP2Caroms.Text.PadLeft(3, '0'));
+            f1.NewGame();
+            Hide();
+        }
+
+        private void btnP2Start_Click(object sender, EventArgs e)
+        {
+            scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
+            
+            f1.ResetCounter();
+            f1.SetP1Data(ReplaceFirstSpaceNameWithCr(txtP2Name.Text).ToUpper(), txtP2Caroms.Text.PadLeft(3, '0'));
+            f1.SetP2Data(ReplaceFirstSpaceNameWithCr(txtP1Name.Text).ToUpper(), txtP1Caroms.Text.PadLeft(3, '0'));
+            f1.NewGame();
+            Hide();
+        }
+
+        private string ReplaceFirstSpaceNameWithCr(string name)
+        {
+            var regex = new Regex(Regex.Escape(" "));
+            return regex.Replace(name, "\n", 1);
+        }
+
+        private void lblExitApplication_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void lblExitApplication_DoubleClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void lbl_buerten_automatisch_Click(object sender, EventArgs e)
         {
 
         }
