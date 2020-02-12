@@ -8,6 +8,9 @@ using System.Timers;
 using System.Reflection.Emit;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Net;
 
 namespace peter
 {
@@ -110,6 +113,35 @@ namespace peter
                 return Path.Combine(projectDirectory, @"images\", "mouse.cur");
             }
         }
+
+        public static Image GetImgKraai()
+        {
+            int p = (int)Environment.OSVersion.Platform;
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+
+            if (p == 4 || p == 6 || p == 128)
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "ODT0.gif"));
+            }
+            else
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"images\", "ODT0.gif"));
+            }
+        }
+
+        public static string GetIP()
+        {
+            string hostName = Dns.GetHostName(); // Retrive the Name of HOST  
+            Console.WriteLine(hostName);
+            // Get the IP  
+            string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
+           // string myIP = Dns.GetHostEntry(hostName).AddressList[1].ToString();
+            Console.WriteLine("My IP Address is :" + myIP);
+
+            return $"{myIP}";
+
+        }
+
 
         public static Form GetScoreBordForm()
         {

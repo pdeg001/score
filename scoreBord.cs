@@ -12,6 +12,8 @@ using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Reflection;
+using System.Threading;
+using System.Net.NetworkInformation;
 
 namespace peter
 {
@@ -33,6 +35,8 @@ namespace peter
         Boolean startNewGame = false;
         Boolean disableHoverItems = false;
         Boolean inningsSet = true;
+        Boolean gameStarted = false;
+        bool changeBorder;
         
 
         public scorebord()
@@ -77,9 +81,9 @@ namespace peter
 
         private void genHover(object sender, EventArgs e)
         {
-            if (disableHoverItems)
-                return;
             Label lbl = sender as Label;
+            if (disableHoverItems && lbl.Name.IndexOf("make") == -1)
+                return;
             lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF"); //System.Drawing.Color.LightBlue;
             lbl.ForeColor = System.Drawing.Color.Yellow;
 
@@ -99,6 +103,9 @@ namespace peter
 
         private void InitBoard()
         {
+            Console.WriteLine(Functions.GetIP());
+            lblIpNumber.Text = Functions.GetIP();
+
             spelDuurTimer.lblSpelDuur = lbl_game_timer;
             spelDuurTimer.GameTimer();
             innings.lblInnings = lbl_innings;
@@ -244,6 +251,7 @@ namespace peter
             imgLogo.Image = Functions.GetImgStartPartij();
             startNewGame = true;
         }
+        
 
         public void EndGame()
         {
@@ -285,19 +293,50 @@ namespace peter
                 spelDuurTimer.EnableGameTime(true);
                 btn_nieuwe_partij.Text = "Partij Beëindigen";
                 btn_nieuwe_partij.BackColor = Color.Red;
+                gameStarted = true;
+                disableHoverItems = false;
+                P1NameClick();
             }
         }
 
         private void Lbl_pName_MouseLeave(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            lbl.BackColor = Color.Transparent;
+            changeBorder = false;
+            lbl.Refresh();
+            //if (gameStarted)
+            //{
+            //    lbl.BackColor = Color.White;
+            //}
+            //else
+            //{
+            //    lbl.BackColor = Color.Transparent;
+            //}
         }
 
         private void Lbl_pName_MouseEnter(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            lbl.BackColor = Color.Red;
+            changeBorder = true;
+            lbl.Refresh();
+
+           // lbl.BackColor = Color.Red;
+        }
+
+        private void lbl_name_Paint(object sender, PaintEventArgs e)
+        {
+            int width = 8;
+
+            if (changeBorder)
+            {
+                ControlPaint.DrawBorder(e.Graphics, e.ClipRectangle,
+                              Color.Red, width, ButtonBorderStyle.Solid, //left
+                              Color.Red, width, ButtonBorderStyle.Solid, //top
+                              Color.Red, width, ButtonBorderStyle.Solid, //right 
+                              Color.Red, width, ButtonBorderStyle.Solid); //bottomwidth
+            }
+            else
+                ControlPaint.DrawBorder(e.Graphics, e.ClipRectangle, this.BackColor, ButtonBorderStyle.None);
         }
 
         private void p2_make_100_Paint(object sender, PaintEventArgs e)
@@ -310,30 +349,71 @@ namespace peter
 
         private void lbl_p1_name_Click(object sender, EventArgs e)
         {
+            P1NameClick();
+        }
+
+        private void lbl_p2_name_Click(object sender, EventArgs e)
+        {
+            P2NameClick();
+        }
+
+        private void P1NameClick()
+        {
             if (GlobalVars.autoInnings && inningsSet == false)
             {
                 innings.setInnings(true);
                 inningsSet = true;
             }
 
-            lbl_p1_highlight.BackColor = Color.White;
             lbl_p1_name.BackColor = Color.White;
             lbl_p1_name.ForeColor = Color.Black;
 
             lbl_p2_name.BackColor = Color.Transparent;
             lbl_p2_name.ForeColor = Color.White;
+            lbl_p1_name.Refresh();
         }
 
-        private void lbl_p2_name_Click(object sender, EventArgs e)
+        private void P2NameClick()
         {
             inningsSet = false;
-            lbl_p1_highlight.BackColor = Color.Transparent;
             lbl_p1_name.BackColor = Color.Transparent;
             lbl_p1_name.ForeColor = Color.White;
 
             lbl_p2_name.BackColor = Color.White;
             lbl_p2_name.ForeColor = Color.Black;
+            lbl_p2_name.Refresh();
+        }
+
+        private void lbl_game_timer_Click(object sender, EventArgs e)
+        {
+            imgLogo.Image = Functions.GetImgKraai();
+            imgLogo.Refresh();
+            WaitTimer(3000);
+            imgLogo.Image = Functions.GetImgLogo();
+        }
+
+        public void WaitTimer(int milliseconds)
+        {
+            System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
+            if (milliseconds == 0 || milliseconds < 0) return;
+            //Console.WriteLine("start wait timer");
+            timer1.Interval = milliseconds;
+            timer1.Enabled = true;
+            timer1.Start();
+            timer1.Tick += (s, e) =>
+            {
+                timer1.Enabled = false;
+                timer1.Stop();
+                //Console.WriteLine("stop wait timer");
+            };
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
+            }
         }
     }
-   
+
+    
+
+
 }

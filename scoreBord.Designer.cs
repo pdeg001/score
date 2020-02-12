@@ -66,7 +66,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_p1_highlight = new System.Windows.Forms.Label();
+            this.lblIpNumber = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -91,7 +92,7 @@
             this.lbl_p1_name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_p1_name.Font = new System.Drawing.Font("Arial", 40F);
             this.lbl_p1_name.ForeColor = System.Drawing.Color.White;
-            this.lbl_p1_name.Location = new System.Drawing.Point(51, 0);
+            this.lbl_p1_name.Location = new System.Drawing.Point(0, 0);
             this.lbl_p1_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_p1_name.Name = "lbl_p1_name";
             this.lbl_p1_name.Size = new System.Drawing.Size(600, 124);
@@ -99,6 +100,7 @@
             this.lbl_p1_name.Text = "Speler 1";
             this.lbl_p1_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p1_name.Click += new System.EventHandler(this.lbl_p1_name_Click);
+            this.lbl_p1_name.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_name_Paint);
             this.lbl_p1_name.MouseEnter += new System.EventHandler(this.Lbl_pName_MouseEnter);
             this.lbl_p1_name.MouseLeave += new System.EventHandler(this.Lbl_pName_MouseLeave);
             // 
@@ -116,6 +118,7 @@
             this.lbl_p2_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p2_name.UseMnemonic = false;
             this.lbl_p2_name.Click += new System.EventHandler(this.lbl_p2_name_Click);
+            this.lbl_p2_name.Paint += new System.Windows.Forms.PaintEventHandler(this.lbl_name_Paint);
             this.lbl_p2_name.MouseEnter += new System.EventHandler(this.Lbl_pName_MouseEnter);
             this.lbl_p2_name.MouseLeave += new System.EventHandler(this.Lbl_pName_MouseLeave);
             // 
@@ -552,6 +555,7 @@
             this.lbl_game_timer.TabIndex = 43;
             this.lbl_game_timer.Text = "00:00";
             this.lbl_game_timer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_game_timer.Click += new System.EventHandler(this.lbl_game_timer_Click);
             // 
             // imageList1
             // 
@@ -603,17 +607,27 @@
             this.panel2.Size = new System.Drawing.Size(600, 610);
             this.panel2.TabIndex = 46;
             // 
-            // lbl_p1_highlight
+            // lblIpNumber
             // 
-            this.lbl_p1_highlight.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_p1_highlight.Font = new System.Drawing.Font("Arial", 40F);
-            this.lbl_p1_highlight.ForeColor = System.Drawing.Color.White;
-            this.lbl_p1_highlight.Location = new System.Drawing.Point(0, 0);
-            this.lbl_p1_highlight.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_p1_highlight.Name = "lbl_p1_highlight";
-            this.lbl_p1_highlight.Size = new System.Drawing.Size(600, 124);
-            this.lbl_p1_highlight.TabIndex = 47;
-            this.lbl_p1_highlight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblIpNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIpNumber.ForeColor = System.Drawing.Color.LightGray;
+            this.lblIpNumber.Location = new System.Drawing.Point(1796, 1047);
+            this.lblIpNumber.Name = "lblIpNumber";
+            this.lblIpNumber.Size = new System.Drawing.Size(117, 24);
+            this.lblIpNumber.TabIndex = 47;
+            this.lblIpNumber.Text = "0.0.0.0";
+            this.lblIpNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.LightGray;
+            this.label8.Location = new System.Drawing.Point(1330, 1047);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 24);
+            this.label8.TabIndex = 47;
+            this.label8.Text = "V1.0.1";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // scorebord
             // 
@@ -623,6 +637,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblIpNumber);
             this.Controls.Add(this.lbl_p1_name);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
@@ -640,7 +656,6 @@
             this.Controls.Add(this.lbl_p2_name);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_bg);
-            this.Controls.Add(this.lbl_p1_highlight);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "scorebord";
@@ -691,7 +706,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lbl_p1_highlight;
+        private System.Windows.Forms.Label lblIpNumber;
+        private System.Windows.Forms.Label label8;
     }
 
     
