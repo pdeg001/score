@@ -43,6 +43,7 @@
             this.btnP2Start = new System.Windows.Forms.Button();
             this.btnP1Start = new System.Windows.Forms.Button();
             this.lblExitApplication = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chkSpelersInvoeren)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_auto_beurten)).BeginInit();
             this.SuspendLayout();
@@ -123,7 +124,6 @@
             this.lbl_spelers_invoeren.TabIndex = 7;
             this.lbl_spelers_invoeren.Text = "Spelers Invoeren";
             this.lbl_spelers_invoeren.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_spelers_invoeren.Click += new System.EventHandler(this.lbl_spelers_invoeren_Click);
             this.lbl_spelers_invoeren.MouseEnter += new System.EventHandler(this.genHover);
             this.lbl_spelers_invoeren.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_spelers_invoeren.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label2_MouseUp);
@@ -176,6 +176,7 @@
             this.txtP1Caroms.ForeColor = System.Drawing.Color.Black;
             this.txtP1Caroms.Location = new System.Drawing.Point(1072, 760);
             this.txtP1Caroms.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.txtP1Caroms.MaxLength = 3;
             this.txtP1Caroms.Name = "txtP1Caroms";
             this.txtP1Caroms.Size = new System.Drawing.Size(250, 118);
             this.txtP1Caroms.TabIndex = 11;
@@ -191,11 +192,13 @@
             this.txtP2Caroms.ForeColor = System.Drawing.Color.Black;
             this.txtP2Caroms.Location = new System.Drawing.Point(1072, 894);
             this.txtP2Caroms.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.txtP2Caroms.MaxLength = 3;
             this.txtP2Caroms.Name = "txtP2Caroms";
             this.txtP2Caroms.Size = new System.Drawing.Size(250, 118);
             this.txtP2Caroms.TabIndex = 13;
             this.txtP2Caroms.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtP2Caroms.Visible = false;
+            this.txtP2Caroms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtP2Caroms_KeyPress);
             // 
             // txtP2Name
             // 
@@ -242,13 +245,25 @@
             // 
             // lblExitApplication
             // 
-            this.lblExitApplication.Location = new System.Drawing.Point(1893, 2);
+            this.lblExitApplication.Location = new System.Drawing.Point(1710, 2);
             this.lblExitApplication.Name = "lblExitApplication";
-            this.lblExitApplication.Size = new System.Drawing.Size(24, 23);
+            this.lblExitApplication.Size = new System.Drawing.Size(207, 23);
             this.lblExitApplication.TabIndex = 16;
             this.lblExitApplication.Text = "      ";
             this.lblExitApplication.Click += new System.EventHandler(this.lblExitApplication_Click);
             this.lblExitApplication.DoubleClick += new System.EventHandler(this.lblExitApplication_DoubleClick);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1587, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(330, 84);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Afsluiten";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // NieuwePartij
             // 
@@ -257,6 +272,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblExitApplication);
             this.Controls.Add(this.btnP1Start);
             this.Controls.Add(this.btnP2Start);
@@ -301,5 +317,6 @@
         private System.Windows.Forms.Button btnP2Start;
         private System.Windows.Forms.Button btnP1Start;
         private System.Windows.Forms.Label lblExitApplication;
+        private System.Windows.Forms.Button button1;
     }
 }

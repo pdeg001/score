@@ -30,6 +30,7 @@ namespace peter
 
         public int caroms;
         public double avg;
+        
 
         public void ResetBoard()
         {
@@ -46,8 +47,6 @@ namespace peter
             lblPercentage.Text  = "0.000 %";
             lblMoyenne.Text     = "0.000";
             progressBar.Value   = 0;
-
-
 
             //lbl1.Font = new Font(privateFontCollection.Families[0], 250);
             //lbl10.Font = new Font(privateFontCollection.Families[0], 250);
@@ -157,6 +156,63 @@ namespace peter
             
             lblPercentage.Text = mPerc.Replace(",", ".");
             progressBar.Value = Convert.ToInt32(percentage);
+        }
+
+
+        public void EnableMakeHover()
+        {
+            lblMake1.MouseEnter += new EventHandler(genHover);
+            lblMake1.MouseLeave += new EventHandler(restoreHover);
+            lblMake10.MouseEnter += new EventHandler(genHover);
+            lblMake10.MouseLeave += new EventHandler(restoreHover); 
+            lblMake100.MouseEnter += new EventHandler(genHover);
+            lblMake100.MouseLeave += new EventHandler(restoreHover);
+        }
+
+        public void DisableMakeHover()
+        {
+            lblMake1.MouseEnter -= new EventHandler(genHover);
+            lblMake1.MouseLeave -= new EventHandler(restoreHover);
+            lblMake10.MouseEnter -= new EventHandler(genHover);
+            lblMake10.MouseLeave -= new EventHandler(restoreHover);
+            lblMake100.MouseEnter -= new EventHandler(genHover);
+            lblMake100.MouseLeave -= new EventHandler(restoreHover);
+        }
+        
+        public void EnableCaromHover()
+        {
+            lbl1.MouseEnter += new EventHandler(genHover);
+            lbl1.MouseLeave += new EventHandler(restoreHover);
+            lbl10.MouseEnter += new EventHandler(genHover);
+            lbl10.MouseLeave += new EventHandler(restoreHover);
+            lbl100.MouseEnter += new EventHandler(genHover);
+            lbl100.MouseLeave += new EventHandler(restoreHover);
+        }
+
+        public void DisableCaromHover()
+        {
+            lbl1.MouseEnter -= new EventHandler(genHover);
+            lbl1.MouseLeave -= new EventHandler(restoreHover);
+            lbl10.MouseEnter -= new EventHandler(genHover);
+            lbl10.MouseLeave -= new EventHandler(restoreHover);
+            lbl100.MouseEnter -= new EventHandler(genHover);
+            lbl100.MouseLeave -= new EventHandler(restoreHover);
+        }
+
+        private void genHover(object sender, EventArgs e)
+        {
+           
+            Label lbl = sender as Label;
+
+            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF"); //System.Drawing.Color.LightBlue;
+            lbl.ForeColor = System.Drawing.Color.Yellow;
+        }
+
+        private void restoreHover(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");//#FF00FF System.Drawing.Color.Blue;
+            lbl.ForeColor = System.Drawing.Color.Yellow;
         }
 
     } 

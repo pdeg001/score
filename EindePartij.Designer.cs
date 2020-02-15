@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_ja = new System.Windows.Forms.Button();
             this.btn_nee = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -57,6 +58,8 @@
             this.btn_ja.Text = "Ja";
             this.btn_ja.UseVisualStyleBackColor = false;
             this.btn_ja.Click += new System.EventHandler(this.btn_ja_Click);
+            this.btn_ja.MouseEnter += new System.EventHandler(this.genHoverButton);
+            this.btn_ja.MouseLeave += new System.EventHandler(this.restoreHoverButton);
             // 
             // btn_nee
             // 
@@ -69,6 +72,21 @@
             this.btn_nee.Text = "Nee";
             this.btn_nee.UseVisualStyleBackColor = false;
             this.btn_nee.Click += new System.EventHandler(this.btn_nee_Click);
+            this.btn_nee.MouseEnter += new System.EventHandler(this.genHoverButton);
+            this.btn_nee.MouseLeave += new System.EventHandler(this.restoreHoverButton);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.White;
+            this.btnClose.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1, -1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(460, 111);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "Afsluiten";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnClose_MouseUp);
             // 
             // EindePartij
             // 
@@ -77,6 +95,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btn_ja);
             this.Controls.Add(this.btn_nee);
             this.Controls.Add(this.label1);
@@ -93,5 +112,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_ja;
         private System.Windows.Forms.Button btn_nee;
+        private System.Windows.Forms.Button btnClose;
     }
 }

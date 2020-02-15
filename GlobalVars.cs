@@ -34,12 +34,7 @@ namespace peter
         {
             return car.ToString().PadLeft(3, '0');
         }
-
-        public static string GetP1Carom(int lblTag)
-        {
-            return "00";
-        }
-
+        
         public static string GetFontFile()
         {
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;

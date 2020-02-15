@@ -49,7 +49,7 @@ namespace peter
         private void btn_ja_Click(object sender, EventArgs e)
         {
             scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
-            f1.NewGame();
+            f1.NewGame(false);
             Owner.Show();
             Hide();
             
@@ -86,6 +86,7 @@ namespace peter
                 chkSpelersInvoeren.Image = Functions.GetImgCheckMark();
                 addPlayers = true;
                 ShowPlayerObjects();
+                txtP1Name.Select();
             }
             else
             {
@@ -145,10 +146,10 @@ namespace peter
         {
             scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
             
+            f1.NewGame(true);
             f1.ResetCounter();
             f1.SetP1Data(ReplaceFirstSpaceNameWithCr(txtP1Name.Text).ToUpper(), txtP1Caroms.Text.PadLeft(3, '0'));
             f1.SetP2Data(ReplaceFirstSpaceNameWithCr(txtP2Name.Text).ToUpper(), txtP2Caroms.Text.PadLeft(3, '0'));
-            f1.NewGame();
             Hide();
         }
 
@@ -156,10 +157,10 @@ namespace peter
         {
             scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
             
+            f1.NewGame(true);
             f1.ResetCounter();
             f1.SetP1Data(ReplaceFirstSpaceNameWithCr(txtP2Name.Text).ToUpper(), txtP2Caroms.Text.PadLeft(3, '0'));
             f1.SetP2Data(ReplaceFirstSpaceNameWithCr(txtP1Name.Text).ToUpper(), txtP1Caroms.Text.PadLeft(3, '0'));
-            f1.NewGame();
             Hide();
         }
 
@@ -183,12 +184,21 @@ namespace peter
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void txtP1Caroms_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
-        
+        private void txtP2Caroms_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
 
 
     }

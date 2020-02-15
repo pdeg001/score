@@ -37,6 +37,11 @@ namespace peter
         Boolean inningsSet = true;
         Boolean gameStarted = false;
         bool changeBorder;
+        bool p1Play =false, p2Play = false;
+        bool firstShow = true;
+        bool playerNameSet = false;
+        bool statusSetToMake = false;
+
         
 
         public scorebord()
@@ -79,14 +84,30 @@ namespace peter
             Application.Exit();
         }
 
-        private void genHover(object sender, EventArgs e)
+        private void genHoverMake(object sender, EventArgs e)
+        {
+
+        }
+
+        private void restoreHoverMake(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            if (disableHoverItems && lbl.Name.IndexOf("make") == -1)
+            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");//#FF00FF System.Drawing.Color.Blue;
+            lbl.ForeColor = System.Drawing.Color.Yellow;
+        }
+
+        private void genHover(object sender, EventArgs e)
+        {
+            if (firstShow)
                 return;
+
+            if (startNewGame)
+                return;
+
+            Label lbl = sender as Label;
+            
             lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF"); //System.Drawing.Color.LightBlue;
             lbl.ForeColor = System.Drawing.Color.Yellow;
-
         }
 
         private void restoreHover(object sender, EventArgs e)
@@ -96,15 +117,11 @@ namespace peter
             lbl.ForeColor = System.Drawing.Color.Yellow;
         }
 
-        //private void setP1Carom(object sender, EventArgs e)
-        //{
-           
-        //}
 
         private void InitBoard()
         {
-            Console.WriteLine(Functions.GetIP());
-            lblIpNumber.Text = Functions.GetIP();
+         //   Console.WriteLine(Functions.GetIP());
+         //   lblIpNumber.Text = Functions.GetIP();
 
             spelDuurTimer.lblSpelDuur = lbl_game_timer;
             spelDuurTimer.GameTimer();
@@ -160,14 +177,11 @@ namespace peter
 
         }
 
-        //private void Button1_Click(object sender, EventArgs e)
-        //{
-        //    p1Bord.ResetBoard();
-        //    p2Bord.ResetBoard();
-        //}
-
         private void P1Caram(object sender, MouseEventArgs e)
         {
+            if (p2Play || firstShow)
+                return;
+
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p1Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
@@ -176,6 +190,9 @@ namespace peter
 
         private void P2Caram(object sender, MouseEventArgs e)
         {
+            if (p1Play || firstShow)
+                return;
+
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p2Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
@@ -185,6 +202,9 @@ namespace peter
 
         private void P1Make(object sender, MouseEventArgs e)
         {
+            if (firstShow && playerNameSet)
+                return;
+
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p1Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
@@ -193,6 +213,9 @@ namespace peter
 
         private void P2Make(object sender, MouseEventArgs e)
         {
+            if (firstShow && playerNameSet)
+                return;
+
             Label lbl = sender as Label;
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p2Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
@@ -201,8 +224,12 @@ namespace peter
 
         private void SetInning(object sender, MouseEventArgs e)
         {
+            if (firstShow)
+                return;
             innings.setInnings(e.Button == MouseButtons.Left);
             //  lbl_p1_moyenne1.Text = p1Bord.calcMoyenne(inningsCount);
+           // innings.setInnings(true);
+            inningsSet = true;
             p1Bord.CalcMoyenne();
             p2Bord.CalcMoyenne();
             
@@ -239,19 +266,26 @@ namespace peter
             p2Bord.ResetBoard();
         }
 
-        public void NewGame()
+        public void NewGame(bool players)
         {
             spelDuurTimer.EnableGameTime(false);
-            //p1Bord.ResetBoard();
-            //p2Bord.ResetBoard();
+            p1Bord.ResetBoard();
+            p2Bord.ResetBoard();
             innings.ResetInning();
             btn_nieuwe_partij.Text = "Nieuwe Partij";
             btn_nieuwe_partij.BackColor = Color.Green;
             lbl_game_timer.Text = "00:00";
             imgLogo.Image = Functions.GetImgStartPartij();
             startNewGame = true;
+            firstShow = true;
+            if (players == false)
+                lbl_p1_name.Text = "SPELER 1"; 
+                lbl_p2_name.Text = "SPELER 2"; 
+                p1Bord.EnableMakeHover();
+                p2Bord.EnableMakeHover();
+                playerNameSet = players;
         }
-        
+
 
         public void EndGame()
         {
@@ -259,29 +293,33 @@ namespace peter
             spelDuurTimer.EnableGameTime(false);
             btn_nieuwe_partij.Text = "Nieuwe Partij";
             btn_nieuwe_partij.BackColor = Color.Green;
-            spelDuurTimer.EnableGameTime(false);
-            p1Bord.ResetBoard();
-            p2Bord.ResetBoard();
-            innings.ResetInning();
             startNewGame = false;
+            firstShow = true;
+            p1Play = true;
+            p2Play = true;
+            p1Bord.DisableMakeHover();
+            p1Bord.DisableCaromHover();
+            p2Bord.DisableCaromHover();
+            p2Bord.DisableMakeHover();
+
         }
 
         public void SetP1Data(string name, string toMake)
         {
-            lbl_p1_name.Text = name;
-            p1_make_100.Text = toMake.Substring(0, 1);
-            p1_make_10.Text = toMake.Substring(1, 1);
-            p1_make_1.Text = toMake.Substring(2, 1);
-            disableHoverItems = false;
+            lbl_p1_name.Text    = name;
+            p1_make_100.Text    = toMake.Substring(0, 1);
+            p1_make_10.Text     = toMake.Substring(1, 1);
+            p1_make_1.Text      = toMake.Substring(2, 1);
+           
         }
 
         public void SetP2Data(string name, string toMake)
         {
-            lbl_p2_name.Text = name;
-            p2_make_100.Text = toMake.Substring(0, 1);
-            p2_make_10.Text = toMake.Substring(1, 1);
-            p2_make_1.Text = toMake.Substring(2, 1);
-            disableHoverItems = false;
+            lbl_p2_name.Text    = name;
+            p2_make_100.Text    = toMake.Substring(0, 1);
+            p2_make_10.Text     = toMake.Substring(1, 1);
+            p2_make_1.Text      = toMake.Substring(2, 1);
+            
         }
 
         private void imgLogo_Click(object sender, EventArgs e)
@@ -295,7 +333,11 @@ namespace peter
                 btn_nieuwe_partij.BackColor = Color.Red;
                 gameStarted = true;
                 disableHoverItems = false;
+                firstShow = false;
+                p1Bord.EnableMakeHover();
+                p2Bord.EnableMakeHover();
                 P1NameClick();
+               
             }
         }
 
@@ -316,6 +358,9 @@ namespace peter
 
         private void Lbl_pName_MouseEnter(object sender, EventArgs e)
         {
+            if (firstShow)
+                return;
+
             Label lbl = sender as Label;
             changeBorder = true;
             lbl.Refresh();
@@ -349,38 +394,54 @@ namespace peter
 
         private void lbl_p1_name_Click(object sender, EventArgs e)
         {
+            if (firstShow)
+                return;
             P1NameClick();
         }
 
         private void lbl_p2_name_Click(object sender, EventArgs e)
         {
+            if (firstShow)
+                return;
             P2NameClick();
         }
 
         private void P1NameClick()
         {
+            p2Bord.DisableCaromHover();
+            p1Bord.EnableCaromHover();
             if (GlobalVars.autoInnings && inningsSet == false)
             {
                 innings.setInnings(true);
                 inningsSet = true;
             }
+            p1Play = true;
+            p2Play = false;
 
             lbl_p1_name.BackColor = Color.White;
             lbl_p1_name.ForeColor = Color.Black;
 
             lbl_p2_name.BackColor = Color.Transparent;
             lbl_p2_name.ForeColor = Color.White;
+
+            changeBorder = true;
             lbl_p1_name.Refresh();
         }
 
         private void P2NameClick()
         {
+            p1Bord.DisableCaromHover();
+            p2Bord.EnableCaromHover();
+
             inningsSet = false;
+            p1Play = false;
+            p2Play = true;
             lbl_p1_name.BackColor = Color.Transparent;
             lbl_p1_name.ForeColor = Color.White;
 
             lbl_p2_name.BackColor = Color.White;
             lbl_p2_name.ForeColor = Color.Black;
+            changeBorder = true;
             lbl_p2_name.Refresh();
         }
 

@@ -68,9 +68,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblIpNumber = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.p1Ball = new System.Windows.Forms.PictureBox();
+            this.p2Ball = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.p1Ball)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.p2Ball)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -114,7 +118,7 @@
             this.lbl_p2_name.Name = "lbl_p2_name";
             this.lbl_p2_name.Size = new System.Drawing.Size(600, 124);
             this.lbl_p2_name.TabIndex = 6;
-            this.lbl_p2_name.Text = "Sjaak van Duivenvoorde";
+            this.lbl_p2_name.Text = "Speler 2";
             this.lbl_p2_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p2_name.UseMnemonic = false;
             this.lbl_p2_name.Click += new System.EventHandler(this.lbl_p2_name_Click);
@@ -137,8 +141,6 @@
             this.lbl_p1_car_1.Text = "0";
             this.lbl_p1_car_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_p1_car_1.UseMnemonic = false;
-            this.lbl_p1_car_1.MouseEnter += new System.EventHandler(this.genHover);
-            this.lbl_p1_car_1.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_p1_car_1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P1Caram);
             // 
             // lbl_p1_car_10
@@ -155,8 +157,6 @@
             this.lbl_p1_car_10.Tag = "10";
             this.lbl_p1_car_10.Text = "0";
             this.lbl_p1_car_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_p1_car_10.MouseEnter += new System.EventHandler(this.genHover);
-            this.lbl_p1_car_10.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_p1_car_10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P1Caram);
             // 
             // lbl_p1_car_100
@@ -173,8 +173,6 @@
             this.lbl_p1_car_100.Tag = "100";
             this.lbl_p1_car_100.Text = "0";
             this.lbl_p1_car_100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_p1_car_100.MouseEnter += new System.EventHandler(this.genHover);
-            this.lbl_p1_car_100.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_p1_car_100.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P1Caram);
             // 
             // lbl_p2_car_100
@@ -192,8 +190,6 @@
             this.lbl_p2_car_100.Tag = "100";
             this.lbl_p2_car_100.Text = "0";
             this.lbl_p2_car_100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_p2_car_100.MouseEnter += new System.EventHandler(this.genHover);
-            this.lbl_p2_car_100.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_p2_car_100.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P2Caram);
             // 
             // lbl_p2_car_10
@@ -211,8 +207,6 @@
             this.lbl_p2_car_10.Tag = "10";
             this.lbl_p2_car_10.Text = "0";
             this.lbl_p2_car_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_p2_car_10.MouseEnter += new System.EventHandler(this.genHover);
-            this.lbl_p2_car_10.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_p2_car_10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P2Caram);
             // 
             // lbl_p2_car_1
@@ -230,8 +224,6 @@
             this.lbl_p2_car_1.Tag = "1";
             this.lbl_p2_car_1.Text = "0";
             this.lbl_p2_car_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_p2_car_1.MouseEnter += new System.EventHandler(this.genHover);
-            this.lbl_p2_car_1.MouseLeave += new System.EventHandler(this.restoreHover);
             this.lbl_p2_car_1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P2Caram);
             // 
             // label3
@@ -261,8 +253,6 @@
             this.p1_make_100.Tag = "100";
             this.p1_make_100.Text = "0";
             this.p1_make_100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p1_make_100.MouseEnter += new System.EventHandler(this.genHover);
-            this.p1_make_100.MouseLeave += new System.EventHandler(this.restoreHover);
             this.p1_make_100.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P1Make);
             // 
             // p1_make_10
@@ -279,8 +269,6 @@
             this.p1_make_10.Tag = "10";
             this.p1_make_10.Text = "0";
             this.p1_make_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p1_make_10.MouseEnter += new System.EventHandler(this.genHover);
-            this.p1_make_10.MouseLeave += new System.EventHandler(this.restoreHover);
             this.p1_make_10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P1Make);
             // 
             // p1_make_1
@@ -297,8 +285,6 @@
             this.p1_make_1.Tag = "1";
             this.p1_make_1.Text = "0";
             this.p1_make_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p1_make_1.MouseEnter += new System.EventHandler(this.genHover);
-            this.p1_make_1.MouseLeave += new System.EventHandler(this.restoreHover);
             this.p1_make_1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P1Make);
             // 
             // p2_make_100
@@ -316,8 +302,6 @@
             this.p2_make_100.Text = "0";
             this.p2_make_100.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.p2_make_100.Paint += new System.Windows.Forms.PaintEventHandler(this.p2_make_100_Paint);
-            this.p2_make_100.MouseEnter += new System.EventHandler(this.genHover);
-            this.p2_make_100.MouseLeave += new System.EventHandler(this.restoreHover);
             this.p2_make_100.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P2Make);
             // 
             // p2_make_10
@@ -334,8 +318,6 @@
             this.p2_make_10.Tag = "10";
             this.p2_make_10.Text = "0";
             this.p2_make_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p2_make_10.MouseEnter += new System.EventHandler(this.genHover);
-            this.p2_make_10.MouseLeave += new System.EventHandler(this.restoreHover);
             this.p2_make_10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P2Make);
             // 
             // p2_make_1
@@ -352,8 +334,6 @@
             this.p2_make_1.Tag = "1";
             this.p2_make_1.Text = "0";
             this.p2_make_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p2_make_1.MouseEnter += new System.EventHandler(this.genHover);
-            this.p2_make_1.MouseLeave += new System.EventHandler(this.restoreHover);
             this.p2_make_1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P2Make);
             // 
             // lbl_bg
@@ -376,10 +356,10 @@
             this.lbl_innings.Font = new System.Drawing.Font("Microsoft Sans Serif", 150.25F);
             this.lbl_innings.ForeColor = System.Drawing.Color.Yellow;
             this.lbl_innings.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lbl_innings.Location = new System.Drawing.Point(730, 452);
+            this.lbl_innings.Location = new System.Drawing.Point(733, 452);
             this.lbl_innings.Name = "lbl_innings";
             this.lbl_innings.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.lbl_innings.Size = new System.Drawing.Size(458, 221);
+            this.lbl_innings.Size = new System.Drawing.Size(455, 221);
             this.lbl_innings.TabIndex = 23;
             this.lbl_innings.Tag = "1";
             this.lbl_innings.Text = "001";
@@ -617,6 +597,7 @@
             this.lblIpNumber.TabIndex = 47;
             this.lblIpNumber.Text = "0.0.0.0";
             this.lblIpNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblIpNumber.Visible = false;
             // 
             // label8
             // 
@@ -629,6 +610,30 @@
             this.label8.Text = "V1.0.1";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // p1Ball
+            // 
+            this.p1Ball.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.p1Ball.Image = ((System.Drawing.Image)(resources.GetObject("p1Ball.Image")));
+            this.p1Ball.Location = new System.Drawing.Point(602, 501);
+            this.p1Ball.Name = "p1Ball";
+            this.p1Ball.Size = new System.Drawing.Size(130, 132);
+            this.p1Ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p1Ball.TabIndex = 48;
+            this.p1Ball.TabStop = false;
+            this.p1Ball.Visible = false;
+            // 
+            // p2Ball
+            // 
+            this.p2Ball.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.p2Ball.Image = ((System.Drawing.Image)(resources.GetObject("p2Ball.Image")));
+            this.p2Ball.Location = new System.Drawing.Point(1189, 501);
+            this.p2Ball.Name = "p2Ball";
+            this.p2Ball.Size = new System.Drawing.Size(130, 132);
+            this.p2Ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.p2Ball.TabIndex = 49;
+            this.p2Ball.TabStop = false;
+            this.p2Ball.Visible = false;
+            // 
             // scorebord
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -637,6 +642,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.p2Ball);
+            this.Controls.Add(this.p1Ball);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblIpNumber);
             this.Controls.Add(this.lbl_p1_name);
@@ -665,6 +672,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.p1Ball)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.p2Ball)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -708,6 +717,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblIpNumber;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox p1Ball;
+        private System.Windows.Forms.PictureBox p2Ball;
     }
 
     
