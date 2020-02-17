@@ -433,11 +433,11 @@
             this.lbl_p1_prec.BackColor = System.Drawing.Color.White;
             this.lbl_p1_prec.Font = new System.Drawing.Font("Arial", 70F);
             this.lbl_p1_prec.ForeColor = System.Drawing.Color.Black;
-            this.lbl_p1_prec.Location = new System.Drawing.Point(10, 839);
+            this.lbl_p1_prec.Location = new System.Drawing.Point(10, 840);
             this.lbl_p1_prec.Name = "lbl_p1_prec";
             this.lbl_p1_prec.Size = new System.Drawing.Size(580, 95);
             this.lbl_p1_prec.TabIndex = 35;
-            this.lbl_p1_prec.Text = "0.000 %";
+            this.lbl_p1_prec.Text = "0.000";
             this.lbl_p1_prec.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_p2_perc
@@ -449,7 +449,7 @@
             this.lbl_p2_perc.Name = "lbl_p2_perc";
             this.lbl_p2_perc.Size = new System.Drawing.Size(580, 95);
             this.lbl_p2_perc.TabIndex = 37;
-            this.lbl_p2_perc.Text = "0.000 %";
+            this.lbl_p2_perc.Text = "0.000";
             this.lbl_p2_perc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_p2_moyenne

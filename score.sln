@@ -7,6 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scorebord", "scorebord.cspr
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		ComfilePi|Any CPU = ComfilePi|Any CPU
+		ComfilePi|x64 = ComfilePi|x64
+		ComfilePi|x86 = ComfilePi|x86
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -15,6 +18,12 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1227A12-A567-4C4C-8F26-40EF06CAF4C3}.ComfilePi|Any CPU.ActiveCfg = ComfilePi|Any CPU
+		{A1227A12-A567-4C4C-8F26-40EF06CAF4C3}.ComfilePi|Any CPU.Build.0 = ComfilePi|Any CPU
+		{A1227A12-A567-4C4C-8F26-40EF06CAF4C3}.ComfilePi|x64.ActiveCfg = ComfilePi|x64
+		{A1227A12-A567-4C4C-8F26-40EF06CAF4C3}.ComfilePi|x64.Build.0 = ComfilePi|x64
+		{A1227A12-A567-4C4C-8F26-40EF06CAF4C3}.ComfilePi|x86.ActiveCfg = ComfilePi|x86
+		{A1227A12-A567-4C4C-8F26-40EF06CAF4C3}.ComfilePi|x86.Build.0 = ComfilePi|x86
 		{A1227A12-A567-4C4C-8F26-40EF06CAF4C3}.Debug|Any CPU.ActiveCfg = Release|Any CPU
 		{A1227A12-A567-4C4C-8F26-40EF06CAF4C3}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{A1227A12-A567-4C4C-8F26-40EF06CAF4C3}.Debug|x64.ActiveCfg = Debug|x64

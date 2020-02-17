@@ -49,6 +49,7 @@ namespace peter
         private void btn_ja_Click(object sender, EventArgs e)
         {
             scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
+            
             f1.NewGame(false);
             Owner.Show();
             Hide();
@@ -66,11 +67,13 @@ namespace peter
             {
                 chk_auto_beurten.Image = Functions.GetImgCheckMark();
                 autoInnings = true;
+                GlobalVars.autoInnings = true;
             }
             else
             {
                 chk_auto_beurten.Image = null;
                 autoInnings = false;
+                GlobalVars.autoInnings = false;
             }
         }
 
@@ -192,6 +195,18 @@ namespace peter
         private void txtP1Caroms_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void Name_Enter(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            txt.BackColor = Color.Aquamarine;
+        }
+
+        private void Name_Leave(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            txt.BackColor = Color.White;
         }
 
         private void txtP2Caroms_KeyPress(object sender, KeyPressEventArgs e)

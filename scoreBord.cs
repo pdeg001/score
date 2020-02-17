@@ -15,12 +15,13 @@ using System.Reflection;
 using System.Threading;
 using System.Net.NetworkInformation;
 
+
 namespace peter
 {
     
     public partial class scorebord : Form
     {
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
         public static extern IntPtr LoadCursorFromFile(string filename);
 
         ClsBord p1Bord = new ClsBord();
@@ -56,21 +57,21 @@ namespace peter
             //this.Cursor = new Cursor(Application.StartupPath + "\\Cursor(2).cur");
             InitBoard();
 
-            //Cursor mycursor = new Cursor(Cursor.Current.Handle);
+            Cursor mycursor = new Cursor(Cursor.Current.Handle);
             //Console.WriteLine(Functions.GetMouseCoursorPath());
-            //IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
-            //mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
-            //this.Cursor = mycursor;
-            this.Cursor = Cursors.NoMove2D;
+            IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
+            mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
+            this.Cursor = mycursor;
+            //this.Cursor = Cursors.NoMove2D;
 
         }
 
 
         public static Cursor CreateCursor(Bitmap bm, Size size)
         {
-            
+
             bm = new Bitmap(bm, size);
-           return new Cursor(bm.GetHicon());
+            return new Cursor(bm.GetHicon());
         }
 
         public void SetCursor()
@@ -424,7 +425,7 @@ namespace peter
             lbl_p2_name.BackColor = Color.Transparent;
             lbl_p2_name.ForeColor = Color.White;
 
-            changeBorder = true;
+            changeBorder = false;
             lbl_p1_name.Refresh();
         }
 
@@ -441,7 +442,7 @@ namespace peter
 
             lbl_p2_name.BackColor = Color.White;
             lbl_p2_name.ForeColor = Color.Black;
-            changeBorder = true;
+            changeBorder = false;
             lbl_p2_name.Refresh();
         }
 

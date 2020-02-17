@@ -44,7 +44,7 @@ namespace peter
             lblMake1.Text       = "0";
             lblMake10.Text      = "0";
             lblMake100.Text     = "0";
-            lblPercentage.Text  = "0.000 %";
+            lblPercentage.Text  = "0.000";
             lblMoyenne.Text     = "0.000";
             progressBar.Value   = 0;
 
@@ -152,7 +152,7 @@ namespace peter
 
             if (percentage > 100)
                 return;
-            mPerc = string.Format("{0:0.000} %", percentage);
+            mPerc = string.Format("{0:0.000}", percentage);
             
             lblPercentage.Text = mPerc.Replace(",", ".");
             progressBar.Value = Convert.ToInt32(percentage);

@@ -167,6 +167,8 @@
             this.txtP1Name.Size = new System.Drawing.Size(770, 118);
             this.txtP1Name.TabIndex = 10;
             this.txtP1Name.Visible = false;
+            this.txtP1Name.Enter += new System.EventHandler(this.Name_Enter);
+            this.txtP1Name.Leave += new System.EventHandler(this.Name_Leave);
             // 
             // txtP1Caroms
             // 
@@ -182,7 +184,9 @@
             this.txtP1Caroms.TabIndex = 11;
             this.txtP1Caroms.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtP1Caroms.Visible = false;
+            this.txtP1Caroms.Enter += new System.EventHandler(this.Name_Enter);
             this.txtP1Caroms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtP1Caroms_KeyPress);
+            this.txtP1Caroms.Leave += new System.EventHandler(this.Name_Leave);
             // 
             // txtP2Caroms
             // 
@@ -198,7 +202,9 @@
             this.txtP2Caroms.TabIndex = 13;
             this.txtP2Caroms.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtP2Caroms.Visible = false;
+            this.txtP2Caroms.Enter += new System.EventHandler(this.Name_Enter);
             this.txtP2Caroms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtP2Caroms_KeyPress);
+            this.txtP2Caroms.Leave += new System.EventHandler(this.Name_Leave);
             // 
             // txtP2Name
             // 
@@ -212,6 +218,8 @@
             this.txtP2Name.Size = new System.Drawing.Size(770, 118);
             this.txtP2Name.TabIndex = 12;
             this.txtP2Name.Visible = false;
+            this.txtP2Name.Enter += new System.EventHandler(this.Name_Enter);
+            this.txtP2Name.Leave += new System.EventHandler(this.Name_Leave);
             // 
             // btnP2Start
             // 
