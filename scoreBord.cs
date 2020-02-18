@@ -21,8 +21,8 @@ namespace peter
     
     public partial class scorebord : Form
     {
-        [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
-        public static extern IntPtr LoadCursorFromFile(string filename);
+      //  [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
+      //  public static extern IntPtr LoadCursorFromFile(string filename);
 
         ClsBord p1Bord = new ClsBord();
         ClsBord p2Bord = new ClsBord();
@@ -38,6 +38,7 @@ namespace peter
         Boolean inningsSet = true;
         Boolean gameStarted = false;
         bool changeBorder;
+        bool hasInternet = false;
         bool p1Play =false, p2Play = false;
         bool firstShow = true;
         bool playerNameSet = false;
@@ -57,13 +58,24 @@ namespace peter
             //this.Cursor = new Cursor(Application.StartupPath + "\\Cursor(2).cur");
             InitBoard();
 
-            Cursor mycursor = new Cursor(Cursor.Current.Handle);
+        //    Cursor mycursor = new Cursor(Cursor.Current.Handle);
             //Console.WriteLine(Functions.GetMouseCoursorPath());
-            IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
-            mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
-            this.Cursor = mycursor;
-            //this.Cursor = Cursors.NoMove2D;
+        //    IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
+        //    mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
+        //    this.Cursor = mycursor;
+            this.Cursor = Cursors.NoMove2D;
 
+            hasInternet =  Functions.CheckForInternetConnection();
+            if (hasInternet)
+            {
+                LblTijd.Text = DateTime.Now.ToString("HH:mm");
+                LblDag.Text = DateTime.Now.ToString("dddd") + " " + DateTime.Now.ToString("dd MMMM yyyy");
+            }
+            else
+            {
+                PnlTijd.Visible = false;
+                TmrTijd.Enabled = false;
+            }
         }
 
 
@@ -203,7 +215,7 @@ namespace peter
 
         private void P1Make(object sender, MouseEventArgs e)
         {
-            if (firstShow && playerNameSet)
+            if (firstShow || playerNameSet)
                 return;
 
             Label lbl = sender as Label;
@@ -452,6 +464,12 @@ namespace peter
             imgLogo.Refresh();
             WaitTimer(3000);
             imgLogo.Image = Functions.GetImgLogo();
+        }
+
+        private void TmrTijd_Tick(object sender, EventArgs e)
+        {
+            LblTijd.Text = DateTime.Now.ToString("HH:mm");
+            LblDag.Text = DateTime.Now.ToString("dddd") + " " + DateTime.Now.ToString("dd MMMM yyyy");
         }
 
         public void WaitTimer(int milliseconds)

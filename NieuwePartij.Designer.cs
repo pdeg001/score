@@ -44,6 +44,9 @@
             this.btnP1Start = new System.Windows.Forms.Button();
             this.lblExitApplication = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.LblNaam = new System.Windows.Forms.Label();
+            this.LblMaken = new System.Windows.Forms.Label();
+            this.LblBeginnen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chkSpelersInvoeren)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_auto_beurten)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +68,7 @@
             // 
             this.btn_nee.BackColor = System.Drawing.Color.White;
             this.btn_nee.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_nee.Location = new System.Drawing.Point(295, 471);
+            this.btn_nee.Location = new System.Drawing.Point(295, 499);
             this.btn_nee.Name = "btn_nee";
             this.btn_nee.Size = new System.Drawing.Size(448, 164);
             this.btn_nee.TabIndex = 1;
@@ -79,7 +82,7 @@
             // 
             this.btn_ja.BackColor = System.Drawing.Color.White;
             this.btn_ja.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ja.Location = new System.Drawing.Point(1070, 471);
+            this.btn_ja.Location = new System.Drawing.Point(1070, 499);
             this.btn_ja.Name = "btn_ja";
             this.btn_ja.Size = new System.Drawing.Size(448, 164);
             this.btn_ja.TabIndex = 2;
@@ -94,7 +97,7 @@
             this.checkBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.checkBox3.Font = new System.Drawing.Font("Arial", 72F);
             this.checkBox3.ForeColor = System.Drawing.Color.Yellow;
-            this.checkBox3.Location = new System.Drawing.Point(292, 344);
+            this.checkBox3.Location = new System.Drawing.Point(292, 376);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(1221, 110);
             this.checkBox3.TabIndex = 5;
@@ -106,19 +109,20 @@
             // 
             this.chkSpelersInvoeren.BackColor = System.Drawing.Color.White;
             this.chkSpelersInvoeren.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chkSpelersInvoeren.Location = new System.Drawing.Point(176, 116);
+            this.chkSpelersInvoeren.Location = new System.Drawing.Point(176, 148);
             this.chkSpelersInvoeren.Name = "chkSpelersInvoeren";
             this.chkSpelersInvoeren.Size = new System.Drawing.Size(110, 110);
             this.chkSpelersInvoeren.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.chkSpelersInvoeren.TabIndex = 6;
             this.chkSpelersInvoeren.TabStop = false;
+            this.chkSpelersInvoeren.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label2_MouseUp);
             // 
             // lbl_spelers_invoeren
             // 
             this.lbl_spelers_invoeren.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.lbl_spelers_invoeren.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_spelers_invoeren.ForeColor = System.Drawing.Color.Yellow;
-            this.lbl_spelers_invoeren.Location = new System.Drawing.Point(292, 116);
+            this.lbl_spelers_invoeren.Location = new System.Drawing.Point(292, 148);
             this.lbl_spelers_invoeren.Name = "lbl_spelers_invoeren";
             this.lbl_spelers_invoeren.Size = new System.Drawing.Size(1221, 110);
             this.lbl_spelers_invoeren.TabIndex = 7;
@@ -133,7 +137,7 @@
             this.lbl_buerten_automatisch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.lbl_buerten_automatisch.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_buerten_automatisch.ForeColor = System.Drawing.Color.Yellow;
-            this.lbl_buerten_automatisch.Location = new System.Drawing.Point(292, 230);
+            this.lbl_buerten_automatisch.Location = new System.Drawing.Point(292, 262);
             this.lbl_buerten_automatisch.Name = "lbl_buerten_automatisch";
             this.lbl_buerten_automatisch.Size = new System.Drawing.Size(1221, 110);
             this.lbl_buerten_automatisch.TabIndex = 8;
@@ -148,12 +152,13 @@
             // 
             this.chk_auto_beurten.BackColor = System.Drawing.Color.White;
             this.chk_auto_beurten.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chk_auto_beurten.Location = new System.Drawing.Point(176, 230);
+            this.chk_auto_beurten.Location = new System.Drawing.Point(176, 262);
             this.chk_auto_beurten.Name = "chk_auto_beurten";
             this.chk_auto_beurten.Size = new System.Drawing.Size(110, 110);
             this.chk_auto_beurten.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.chk_auto_beurten.TabIndex = 9;
             this.chk_auto_beurten.TabStop = false;
+            this.chk_auto_beurten.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label2_MouseUp);
             // 
             // txtP1Name
             // 
@@ -161,7 +166,7 @@
             this.txtP1Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP1Name.Font = new System.Drawing.Font("Arial", 72F);
             this.txtP1Name.ForeColor = System.Drawing.Color.Black;
-            this.txtP1Name.Location = new System.Drawing.Point(295, 760);
+            this.txtP1Name.Location = new System.Drawing.Point(164, 776);
             this.txtP1Name.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.txtP1Name.Name = "txtP1Name";
             this.txtP1Name.Size = new System.Drawing.Size(770, 118);
@@ -176,7 +181,7 @@
             this.txtP1Caroms.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP1Caroms.Font = new System.Drawing.Font("Arial", 72F);
             this.txtP1Caroms.ForeColor = System.Drawing.Color.Black;
-            this.txtP1Caroms.Location = new System.Drawing.Point(1072, 760);
+            this.txtP1Caroms.Location = new System.Drawing.Point(941, 776);
             this.txtP1Caroms.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.txtP1Caroms.MaxLength = 3;
             this.txtP1Caroms.Name = "txtP1Caroms";
@@ -194,7 +199,7 @@
             this.txtP2Caroms.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP2Caroms.Font = new System.Drawing.Font("Arial", 72F);
             this.txtP2Caroms.ForeColor = System.Drawing.Color.Black;
-            this.txtP2Caroms.Location = new System.Drawing.Point(1072, 894);
+            this.txtP2Caroms.Location = new System.Drawing.Point(941, 903);
             this.txtP2Caroms.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.txtP2Caroms.MaxLength = 3;
             this.txtP2Caroms.Name = "txtP2Caroms";
@@ -212,7 +217,7 @@
             this.txtP2Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP2Name.Font = new System.Drawing.Font("Arial", 72F);
             this.txtP2Name.ForeColor = System.Drawing.Color.Black;
-            this.txtP2Name.Location = new System.Drawing.Point(295, 894);
+            this.txtP2Name.Location = new System.Drawing.Point(164, 903);
             this.txtP2Name.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.txtP2Name.Name = "txtP2Name";
             this.txtP2Name.Size = new System.Drawing.Size(770, 118);
@@ -225,7 +230,7 @@
             // 
             this.btnP2Start.BackColor = System.Drawing.Color.White;
             this.btnP2Start.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnP2Start.Location = new System.Drawing.Point(1329, 894);
+            this.btnP2Start.Location = new System.Drawing.Point(1198, 903);
             this.btnP2Start.Name = "btnP2Start";
             this.btnP2Start.Size = new System.Drawing.Size(448, 118);
             this.btnP2Start.TabIndex = 14;
@@ -240,7 +245,7 @@
             // 
             this.btnP1Start.BackColor = System.Drawing.Color.White;
             this.btnP1Start.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnP1Start.Location = new System.Drawing.Point(1329, 760);
+            this.btnP1Start.Location = new System.Drawing.Point(1198, 776);
             this.btnP1Start.Name = "btnP1Start";
             this.btnP1Start.Size = new System.Drawing.Size(448, 118);
             this.btnP1Start.TabIndex = 15;
@@ -273,6 +278,45 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // LblNaam
+            // 
+            this.LblNaam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.LblNaam.Font = new System.Drawing.Font("Arial", 48F);
+            this.LblNaam.ForeColor = System.Drawing.Color.Yellow;
+            this.LblNaam.Location = new System.Drawing.Point(164, 688);
+            this.LblNaam.Name = "LblNaam";
+            this.LblNaam.Size = new System.Drawing.Size(770, 81);
+            this.LblNaam.TabIndex = 18;
+            this.LblNaam.Text = "Naam";
+            this.LblNaam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblNaam.Visible = false;
+            // 
+            // LblMaken
+            // 
+            this.LblMaken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.LblMaken.Font = new System.Drawing.Font("Arial", 48F);
+            this.LblMaken.ForeColor = System.Drawing.Color.Yellow;
+            this.LblMaken.Location = new System.Drawing.Point(940, 688);
+            this.LblMaken.Name = "LblMaken";
+            this.LblMaken.Size = new System.Drawing.Size(251, 81);
+            this.LblMaken.TabIndex = 19;
+            this.LblMaken.Text = "Maken";
+            this.LblMaken.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblMaken.Visible = false;
+            // 
+            // LblBeginnen
+            // 
+            this.LblBeginnen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.LblBeginnen.Font = new System.Drawing.Font("Arial", 48F);
+            this.LblBeginnen.ForeColor = System.Drawing.Color.Yellow;
+            this.LblBeginnen.Location = new System.Drawing.Point(1198, 688);
+            this.LblBeginnen.Name = "LblBeginnen";
+            this.LblBeginnen.Size = new System.Drawing.Size(448, 81);
+            this.LblBeginnen.TabIndex = 20;
+            this.LblBeginnen.Text = "Beginnen";
+            this.LblBeginnen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblBeginnen.Visible = false;
+            // 
             // NieuwePartij
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -280,6 +324,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.LblBeginnen);
+            this.Controls.Add(this.LblMaken);
+            this.Controls.Add(this.LblNaam);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblExitApplication);
             this.Controls.Add(this.btnP1Start);
@@ -296,6 +343,7 @@
             this.Controls.Add(this.btn_ja);
             this.Controls.Add(this.btn_nee);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NieuwePartij";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -326,5 +374,8 @@
         private System.Windows.Forms.Button btnP1Start;
         private System.Windows.Forms.Label lblExitApplication;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label LblNaam;
+        private System.Windows.Forms.Label LblMaken;
+        private System.Windows.Forms.Label LblBeginnen;
     }
 }

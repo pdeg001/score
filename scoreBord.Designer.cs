@@ -63,18 +63,22 @@
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lbl_game_timer = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblIpNumber = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.p1Ball = new System.Windows.Forms.PictureBox();
             this.p2Ball = new System.Windows.Forms.PictureBox();
+            this.PnlTijd = new System.Windows.Forms.Panel();
+            this.LblTijd = new System.Windows.Forms.Label();
+            this.TmrTijd = new System.Windows.Forms.Timer(this.components);
+            this.LblDag = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball)).BeginInit();
+            this.PnlTijd.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -543,16 +547,6 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "mouse1.jpg");
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 1004);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(252, 42);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
@@ -634,6 +628,41 @@
             this.p2Ball.TabStop = false;
             this.p2Ball.Visible = false;
             // 
+            // PnlTijd
+            // 
+            this.PnlTijd.Controls.Add(this.LblDag);
+            this.PnlTijd.Controls.Add(this.LblTijd);
+            this.PnlTijd.Location = new System.Drawing.Point(10, 937);
+            this.PnlTijd.Name = "PnlTijd";
+            this.PnlTijd.Size = new System.Drawing.Size(580, 132);
+            this.PnlTijd.TabIndex = 50;
+            // 
+            // LblTijd
+            // 
+            this.LblTijd.Font = new System.Drawing.Font("Segoe UI", 36F);
+            this.LblTijd.ForeColor = System.Drawing.Color.Silver;
+            this.LblTijd.Location = new System.Drawing.Point(2, 4);
+            this.LblTijd.Name = "LblTijd";
+            this.LblTijd.Size = new System.Drawing.Size(214, 53);
+            this.LblTijd.TabIndex = 0;
+            this.LblTijd.Text = "label2";
+            // 
+            // TmrTijd
+            // 
+            this.TmrTijd.Enabled = true;
+            this.TmrTijd.Interval = 10000;
+            this.TmrTijd.Tick += new System.EventHandler(this.TmrTijd_Tick);
+            // 
+            // LblDag
+            // 
+            this.LblDag.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDag.ForeColor = System.Drawing.Color.Silver;
+            this.LblDag.Location = new System.Drawing.Point(8, 65);
+            this.LblDag.Name = "LblDag";
+            this.LblDag.Size = new System.Drawing.Size(540, 46);
+            this.LblDag.TabIndex = 1;
+            this.LblDag.Text = "label2";
+            // 
             // scorebord
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -647,7 +676,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblIpNumber);
             this.Controls.Add(this.lbl_p1_name);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_game_timer);
@@ -663,6 +691,7 @@
             this.Controls.Add(this.lbl_p2_name);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_bg);
+            this.Controls.Add(this.PnlTijd);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "scorebord";
@@ -674,6 +703,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball)).EndInit();
+            this.PnlTijd.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -712,13 +742,16 @@
         private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Label lbl_game_timer;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblIpNumber;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox p1Ball;
         private System.Windows.Forms.PictureBox p2Ball;
+        private System.Windows.Forms.Panel PnlTijd;
+        private System.Windows.Forms.Label LblTijd;
+        private System.Windows.Forms.Timer TmrTijd;
+        private System.Windows.Forms.Label LblDag;
     }
 
     

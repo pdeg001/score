@@ -35,9 +35,15 @@ namespace peter
         public void ResetBoard()
         {
 
-            //PrivateFontCollection privateFontCollection = new PrivateFontCollection();
-            //privateFontCollection.AddFontFile(Functions.GetFontFile());
-
+            //  PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+            //  privateFontCollection.AddFontFile(Functions.GetFontFile());
+            //  lbl1.Font = new Font(privateFontCollection.Families[0], 150);
+            //  lbl10.Font = new Font(privateFontCollection.Families[0], 150);
+            //  lbl100.Font = new Font(privateFontCollection.Families[0], 250);
+            //  lblMake1.Font = new Font(privateFontCollection.Families[0], 180);
+            //  lblMake10.Font = new Font(privateFontCollection.Families[0], 180);
+            //  lblMake100.Font = new Font(privateFontCollection.Families[0], 180);
+            
             lbl1.Text           = "0";
             lbl10.Text          = "0";
             lbl100.Text         = "0";
@@ -48,16 +54,8 @@ namespace peter
             lblMoyenne.Text     = "0.000";
             progressBar.Value   = 0;
 
-            //lbl1.Font = new Font(privateFontCollection.Families[0], 250);
-            //lbl10.Font = new Font(privateFontCollection.Families[0], 250);
-            //lbl100.Font = new Font(privateFontCollection.Families[0], 250);
-            //lblMake1.Font = new Font(privateFontCollection.Families[0], 180);
-            //lblMake10.Font = new Font(privateFontCollection.Families[0], 180);
-            //lblMake100.Font = new Font(privateFontCollection.Families[0], 180);
-
-
-            caroms = 0;
-            avg = 0.0;
+            caroms  = 0;
+            avg     = 0.0;
         }
 
         public void SetCaramBoles(Boolean LeftMouse, int Value)

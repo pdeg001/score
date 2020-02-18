@@ -103,6 +103,10 @@ namespace peter
 
         private void ShowPlayerObjects()
         {
+            LblNaam.Visible = addPlayers;
+            LblMaken.Visible = addPlayers;
+            LblBeginnen.Visible = addPlayers;
+
             txtP1Name.Visible = addPlayers;
             txtP1Caroms.Visible = addPlayers;
             btnP1Start.Visible = addPlayers;

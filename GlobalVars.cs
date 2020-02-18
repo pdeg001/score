@@ -37,9 +37,21 @@ namespace peter
         
         public static string GetFontFile()
         {
+         ///   string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+         ///   return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
+            //return Path.Combine(projectDirectory, @"fonts\", "dsdigi.ttf");
+
+            int p = (int)Environment.OSVersion.Platform;
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-            return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
-           //return Path.Combine(projectDirectory, @"fonts\", "dsdigi.ttf");
+
+            if (p == 4 || p == 6 || p == 128)
+            {
+                return @"/home/pi/score/fonts/digital-7.ttf";
+            }
+            else
+            {
+                return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
+            }
         }
 
         public static string GetMoyenne(string moyenne)
@@ -144,6 +156,28 @@ namespace peter
             return f1;
         }
 
+
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                Ping myPing = new Ping();
+                String host = "google.com";
+                byte[] buffer = new byte[32];
+                int timeout = 1000;
+                PingOptions pingOptions = new PingOptions();
+                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                Console.WriteLine("INTERNET");
+                return (reply.Status == IPStatus.Success);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("NO INTERNET");
+                return false;
+            }
+        }
     }
+
+    
 
 }
