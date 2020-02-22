@@ -21,8 +21,8 @@ namespace peter
     
     public partial class scorebord : Form
     {
-      //  [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
-      //  public static extern IntPtr LoadCursorFromFile(string filename);
+     //   [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
+     //   public static extern IntPtr LoadCursorFromFile(string filename);
 
         ClsBord p1Bord = new ClsBord();
         ClsBord p2Bord = new ClsBord();
@@ -32,6 +32,7 @@ namespace peter
         GameTime spelDuurTimer = new GameTime();
         Form frmNewGame = new NieuwePartij();
         Form frmEndGame = new EindePartij();
+        Form frmPromo = new FrmPromo();
 
         Boolean startNewGame = false;
         Boolean disableHoverItems = false;
@@ -43,6 +44,9 @@ namespace peter
         bool firstShow = true;
         bool playerNameSet = false;
         bool statusSetToMake = false;
+
+        int promoX = 35;
+        int promoY = 35;
 
         
 
@@ -58,11 +62,11 @@ namespace peter
             //this.Cursor = new Cursor(Application.StartupPath + "\\Cursor(2).cur");
             InitBoard();
 
-        //    Cursor mycursor = new Cursor(Cursor.Current.Handle);
+         //   Cursor mycursor = new Cursor(Cursor.Current.Handle);
             //Console.WriteLine(Functions.GetMouseCoursorPath());
-        //    IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
-        //    mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
-        //    this.Cursor = mycursor;
+         //   IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
+         //   mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
+         //   this.Cursor = mycursor;
             this.Cursor = Cursors.NoMove2D;
 
             hasInternet =  Functions.CheckForInternetConnection();
@@ -471,6 +475,65 @@ namespace peter
             LblTijd.Text = DateTime.Now.ToString("HH:mm");
             LblDag.Text = DateTime.Now.ToString("dddd") + " " + DateTime.Now.ToString("dd MMMM yyyy");
         }
+
+
+        public void EndPromo()
+        {
+            TmrPromo.Enabled = false;
+        }
+        private void TmrInactive_Tick(object sender, EventArgs e)
+        {
+            if (TmrPromo.Enabled)
+                return;
+            TmrPromo.Enabled = true;
+
+        }
+
+        private void TmrPromo_Tick(object sender, EventArgs e)
+        {
+            if (frmPromo.Visible == false)
+            {
+                frmPromo.Visible = true;
+                frmPromo.Top = 70;
+                frmPromo.Left = 70;
+            }
+            SHowScreenSaver();
+        }
+
+        private void SHowScreenSaver()
+        {
+            //HORIZONTAL
+            if (frmPromo.Left == 0 || frmPromo.Right == this.ClientRectangle.Width)
+                promoX = -promoX;
+
+            if (promoX > 0)
+                frmPromo.Left = Math.Min(frmPromo.Left + promoX, this.ClientRectangle.Width - frmPromo.Width);
+            else
+                frmPromo.Left = Math.Max(frmPromo.Left + promoX, 0);
+
+            //GET PROMO TOP
+            if (frmPromo.Top - 35 <= 0)
+                promoY = 35; // -promoY;
+
+            if (frmPromo.Bottom + 35 >= 1050)
+                promoY = -Math.Abs(promoY);
+//            Console.WriteLine($"BOTTOM {frmPromo.Bottom} promoY = {promoY}");
+
+            frmPromo.Top += promoY;
+        }
+
+        private void scorebord_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (TmrPromo.Enabled)
+            {
+                TmrPromo.Enabled = false;
+                frmPromo.Hide();
+
+            }
+
+        }
+
+        
 
         public void WaitTimer(int milliseconds)
         {

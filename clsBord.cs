@@ -148,11 +148,13 @@ namespace peter
 
             percentage = (mCarom / mMake) * 100;
 
-            if (percentage > 100)
-                return;
+            //if (percentage > 100)
+            //    return;
             mPerc = string.Format("{0:0.000}", percentage);
             
             lblPercentage.Text = mPerc.Replace(",", ".");
+            if (percentage > 100)
+                return;
             progressBar.Value = Convert.ToInt32(percentage);
         }
 

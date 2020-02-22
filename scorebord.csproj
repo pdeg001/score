@@ -121,6 +121,12 @@
     <Compile Include="EindePartij.Designer.cs">
       <DependentUpon>EindePartij.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPromo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPromo.Designer.cs">
+      <DependentUpon>FrmPromo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameTime.cs" />
     <Compile Include="GlobalVars.cs" />
     <Compile Include="NieuwePartij.cs">
@@ -140,6 +146,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EindePartij.resx">
       <DependentUpon>EindePartij.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPromo.resx">
+      <DependentUpon>FrmPromo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NieuwePartij.resx">
       <DependentUpon>NieuwePartij.cs</DependentUpon>

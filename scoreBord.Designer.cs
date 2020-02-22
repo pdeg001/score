@@ -70,9 +70,11 @@
             this.p1Ball = new System.Windows.Forms.PictureBox();
             this.p2Ball = new System.Windows.Forms.PictureBox();
             this.PnlTijd = new System.Windows.Forms.Panel();
+            this.LblDag = new System.Windows.Forms.Label();
             this.LblTijd = new System.Windows.Forms.Label();
             this.TmrTijd = new System.Windows.Forms.Timer(this.components);
-            this.LblDag = new System.Windows.Forms.Label();
+            this.TmrPromo = new System.Windows.Forms.Timer(this.components);
+            this.TmrInactive = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -637,6 +639,16 @@
             this.PnlTijd.Size = new System.Drawing.Size(580, 132);
             this.PnlTijd.TabIndex = 50;
             // 
+            // LblDag
+            // 
+            this.LblDag.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDag.ForeColor = System.Drawing.Color.Silver;
+            this.LblDag.Location = new System.Drawing.Point(8, 65);
+            this.LblDag.Name = "LblDag";
+            this.LblDag.Size = new System.Drawing.Size(540, 46);
+            this.LblDag.TabIndex = 1;
+            this.LblDag.Text = "label2";
+            // 
             // LblTijd
             // 
             this.LblTijd.Font = new System.Drawing.Font("Segoe UI", 36F);
@@ -653,15 +665,17 @@
             this.TmrTijd.Interval = 10000;
             this.TmrTijd.Tick += new System.EventHandler(this.TmrTijd_Tick);
             // 
-            // LblDag
+            // TmrPromo
             // 
-            this.LblDag.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDag.ForeColor = System.Drawing.Color.Silver;
-            this.LblDag.Location = new System.Drawing.Point(8, 65);
-            this.LblDag.Name = "LblDag";
-            this.LblDag.Size = new System.Drawing.Size(540, 46);
-            this.LblDag.TabIndex = 1;
-            this.LblDag.Text = "label2";
+            this.TmrPromo.Enabled = true;
+            this.TmrPromo.Interval = 2000;
+            this.TmrPromo.Tick += new System.EventHandler(this.TmrPromo_Tick);
+            // 
+            // TmrInactive
+            // 
+            this.TmrInactive.Enabled = true;
+            this.TmrInactive.Interval = 600000;
+            this.TmrInactive.Tick += new System.EventHandler(this.TmrInactive_Tick);
             // 
             // scorebord
             // 
@@ -698,6 +712,7 @@
             this.Text = "bord";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.scorebord_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -752,6 +767,8 @@
         private System.Windows.Forms.Label LblTijd;
         private System.Windows.Forms.Timer TmrTijd;
         private System.Windows.Forms.Label LblDag;
+        private System.Windows.Forms.Timer TmrPromo;
+        private System.Windows.Forms.Timer TmrInactive;
     }
 
     

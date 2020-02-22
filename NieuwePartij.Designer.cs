@@ -301,7 +301,7 @@
             this.LblMaken.Size = new System.Drawing.Size(251, 81);
             this.LblMaken.TabIndex = 19;
             this.LblMaken.Text = "Maken";
-            this.LblMaken.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LblMaken.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblMaken.Visible = false;
             // 
             // LblBeginnen
