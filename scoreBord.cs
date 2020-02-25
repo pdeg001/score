@@ -14,7 +14,8 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Threading;
 using System.Net.NetworkInformation;
-
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace peter
 {
@@ -57,6 +58,7 @@ namespace peter
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Testjson();
             imgLogo.Image = Functions.GetImgLogo();
             //  SetCursor();
             //this.Cursor = new Cursor(Application.StartupPath + "\\Cursor(2).cur");
@@ -485,6 +487,7 @@ namespace peter
         {
             if (TmrPromo.Enabled)
                 return;
+            
             TmrPromo.Enabled = true;
 
         }
@@ -497,10 +500,10 @@ namespace peter
                 frmPromo.Top = 70;
                 frmPromo.Left = 70;
             }
-            SHowScreenSaver();
+            ShowScreenSaver();
         }
 
-        private void SHowScreenSaver()
+        private void ShowScreenSaver()
         {
             //HORIZONTAL
             if (frmPromo.Left == 0 || frmPromo.Right == this.ClientRectangle.Width)
@@ -554,9 +557,88 @@ namespace peter
                 Application.DoEvents();
             }
         }
+
+        
+
+            
+          
+        
+        public class ShowPromote
+        {
+            public string active { get; set; }
+            public string timeOut { get; set; }
+        }
+
+        public class DigitalFont
+        {
+            public string active { get; set; }
+        }
+
+        public class FontColor
+        {
+            public string colorYellow { get; set; }
+        }
+
+        public class LightSchema
+        {
+            public string useLightSchema { get; set; }
+        }
+
+        public class Message
+        {
+            public string line_1 { get; set; }
+            public string line_2 { get; set; }
+            public string line_3 { get; set; }
+            public string line_4 { get; set; }
+            public string line_5 { get; set; }
+        }
+
+        public class Reclame
+        {
+            public string active { get; set; }
+        }
+
+        public class RootObject
+        {
+            public ShowPromote showPromote { get; set; }
+            public DigitalFont digitalFont { get; set; }
+            public FontColor fontColor { get; set; }
+            public LightSchema lightSchema { get; set; }
+            public Message message { get; set; }
+            public Reclame reclame { get; set; }
+        }
+
+        private void Testjson()
+        {
+            string json = @"{
+  'showPromote': {
+    'active': '1',
+    'timeOut': '10'
+  },
+  'digitalFont': {
+    'active': '1'
+  },
+  'fontColor': {
+    'colorYellow': '1'
+  },
+  'lightSchema': {
+    'useLightSchema': '0'
+  },
+  'message': {
+    'line_1': 'Dit is een test bericht',
+    'line_2': '',
+    'line_3': 'Blijf kalm',
+    'line_4': '',
+    'line_5': 'Neem een versnapering van het huis'
+  },
+  'reclame': {
+    'active': '1'
+  }
+}";
+            
+            var welcome = QuickType.Welcome.FromJson(json);
+            Console.WriteLine(welcome.Reclame.Active);
+        }
     }
-
-    
-
-
+    //END CLASS
 }

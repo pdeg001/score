@@ -35,15 +35,16 @@ namespace peter
         public void ResetBoard()
         {
 
-            //  PrivateFontCollection privateFontCollection = new PrivateFontCollection();
-            //  privateFontCollection.AddFontFile(Functions.GetFontFile());
-            //  lbl1.Font = new Font(privateFontCollection.Families[0], 150);
-            //  lbl10.Font = new Font(privateFontCollection.Families[0], 150);
-            //  lbl100.Font = new Font(privateFontCollection.Families[0], 250);
-            //  lblMake1.Font = new Font(privateFontCollection.Families[0], 180);
-            //  lblMake10.Font = new Font(privateFontCollection.Families[0], 180);
-            //  lblMake100.Font = new Font(privateFontCollection.Families[0], 180);
-            
+            //PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+            //privateFontCollection.AddFontFile(Functions.GetFontFile());
+            //lbl1.Font = new Font(privateFontCollection.Families[0], 150);
+            //lbl10.Font = new Font(privateFontCollection.Families[0], 150);
+            //lbl100.Font = new Font(privateFontCollection.Families[0], 200);
+            //lbl100.TextAlign = ContentAlignment.TopCenter;
+            //lblMake1.Font = new Font(privateFontCollection.Families[0], 180);
+            //lblMake10.Font = new Font(privateFontCollection.Families[0], 180);
+            //lblMake100.Font = new Font(privateFontCollection.Families[0], 180);
+
             lbl1.Text           = "0";
             lbl10.Text          = "0";
             lbl100.Text         = "0";

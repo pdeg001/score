@@ -75,12 +75,14 @@
             this.TmrTijd = new System.Windows.Forms.Timer(this.components);
             this.TmrPromo = new System.Windows.Forms.Timer(this.components);
             this.TmrInactive = new System.Windows.Forms.Timer(this.components);
+            this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball)).BeginInit();
             this.PnlTijd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -141,6 +143,7 @@
             this.lbl_p1_car_1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lbl_p1_car_1.Location = new System.Drawing.Point(384, 335);
             this.lbl_p1_car_1.Name = "lbl_p1_car_1";
+            this.lbl_p1_car_1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.lbl_p1_car_1.Size = new System.Drawing.Size(180, 221);
             this.lbl_p1_car_1.TabIndex = 8;
             this.lbl_p1_car_1.Tag = "1";
@@ -179,6 +182,7 @@
             this.lbl_p1_car_100.Tag = "100";
             this.lbl_p1_car_100.Text = "0";
             this.lbl_p1_car_100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_p1_car_100.UseMnemonic = false;
             this.lbl_p1_car_100.MouseUp += new System.Windows.Forms.MouseEventHandler(this.P1Caram);
             // 
             // lbl_p2_car_100
@@ -667,15 +671,18 @@
             // 
             // TmrPromo
             // 
-            this.TmrPromo.Enabled = true;
             this.TmrPromo.Interval = 2000;
             this.TmrPromo.Tick += new System.EventHandler(this.TmrPromo_Tick);
             // 
             // TmrInactive
             // 
-            this.TmrInactive.Enabled = true;
             this.TmrInactive.Interval = 600000;
             this.TmrInactive.Tick += new System.EventHandler(this.TmrInactive_Tick);
+            // 
+            // fileSystemWatcher
+            // 
+            this.fileSystemWatcher.EnableRaisingEvents = true;
+            this.fileSystemWatcher.SynchronizingObject = this;
             // 
             // scorebord
             // 
@@ -719,6 +726,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.p1Ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.p2Ball)).EndInit();
             this.PnlTijd.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -769,6 +777,7 @@
         private System.Windows.Forms.Label LblDag;
         private System.Windows.Forms.Timer TmrPromo;
         private System.Windows.Forms.Timer TmrInactive;
+        private System.IO.FileSystemWatcher fileSystemWatcher;
     }
 
     
