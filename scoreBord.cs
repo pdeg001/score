@@ -16,6 +16,7 @@ using System.Threading;
 using System.Net.NetworkInformation;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Security.Permissions;
 
 namespace peter
 {
@@ -38,17 +39,18 @@ namespace peter
         Boolean startNewGame = false;
         Boolean disableHoverItems = false;
         Boolean inningsSet = true;
-        Boolean gameStarted = false;
+       Boolean gameStarted = false;
         bool changeBorder;
         bool hasInternet = false;
         bool p1Play =false, p2Play = false;
         bool firstShow = true;
         bool playerNameSet = false;
-        bool statusSetToMake = false;
+      //  bool statusSetToMake = false;
 
         int promoX = 35;
         int promoY = 35;
 
+            [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         
 
         public scorebord()
@@ -58,6 +60,13 @@ namespace peter
 
         private void Form1_Load(object sender, EventArgs e)
         {
+        Functions.CheckOsLinux();
+            Console.WriteLine(File.ReadAllText(Functions.GetConfigFile()));
+            fileSystemWatcher.Path = @"\";
+             fileSystemWatcher.NotifyFilter = NotifyFilters.LastWrite;
+            fileSystemWatcher.Filter = "*.cnf";
+            fileSystemWatcher.EnableRaisingEvents = true;
+
             Testjson();
             imgLogo.Image = Functions.GetImgLogo();
             //  SetCursor();
@@ -608,6 +617,11 @@ namespace peter
             public Reclame reclame { get; set; }
         }
 
+        private void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            Console.WriteLine("FILE CHANGE");
+        }
+
         private void Testjson()
         {
             string json = @"{
@@ -637,7 +651,7 @@ namespace peter
 }";
             
             var welcome = QuickType.Welcome.FromJson(json);
-            Console.WriteLine(welcome.Reclame.Active);
+            Console.WriteLine(welcome.Message.Line5);
         }
     }
     //END CLASS

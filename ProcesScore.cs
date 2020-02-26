@@ -10,7 +10,6 @@ namespace peter
     {
         public static string CalcMoyenne(int caroms)
         {
-            string moyenne;
             Double perc;
 
             perc = caroms / ClsInnings.RetInnings();

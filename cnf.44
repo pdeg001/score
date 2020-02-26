@@ -1,0 +1,29 @@
+{
+  "showPromote": {
+    "active": "1",
+    "timeOut": "15"
+  },
+  "digitalFont": {
+    "active": "1"
+  },
+  "fontColor": {
+    "colorYellow": "1"
+  },
+  "lightSchema": {
+    "useLightSchema": "0"
+  },
+  "message": {
+    "line_1": "Familie Dröge wenst u een voorspoedig",
+    "line_2": "2021, en een sportief biljart jaar toe",
+    "line_3": "d",
+    "line_4": "",
+    "line_5": ""
+  },
+  "reclame": {
+    "active": "1"
+  },
+  "partijDuur": {
+    "active": "1" 
+    "active": "1" 
+  }
+}

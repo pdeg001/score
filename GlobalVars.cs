@@ -21,30 +21,54 @@ namespace peter
         public static int p1Caroms = 0;
         public static int p2Caroms = 0;
         public static int carom;
-        public static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+        //public static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
         public static Boolean autoInnings;
+
 
     }
 
     public class Functions
     {
+        public static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+        public static bool osLinux = false;
         public static System.Timers.Timer aTimer = new System.Timers.Timer();
         public static int mMinute, mHour = 0;
+      
+        
         public static string GenPadding(int car)
         {
             return car.ToString().PadLeft(3, '0');
         }
+
+        public static void CheckOsLinux()
+        {
+            int p = (int)Environment.OSVersion.Platform;
+            if (p == 4 || p == 6 || p == 128)
+            {
+                osLinux = true;
+            }
+        }
         
+
+        public static string GetConfigFile()
+        {
+            if (osLinux)
+            {
+                return @"/home/pi/score/cnf.44";
+            } else
+            {
+                return Path.Combine(projectDirectory,@"","cnf.44");
+            }
+        }
+
         public static string GetFontFile()
         {
          ///   string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
          ///   return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
             //return Path.Combine(projectDirectory, @"fonts\", "dsdigi.ttf");
 
-            int p = (int)Environment.OSVersion.Platform;
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-
-            if (p == 4 || p == 6 || p == 128)
+         
+            if (osLinux)
             {
                 return @"/home/pi/score/fonts/digital-7.ttf";
             }
@@ -52,6 +76,7 @@ namespace peter
             {
                 return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
             }
+
         }
 
         public static string GetMoyenne(string moyenne)
@@ -61,10 +86,7 @@ namespace peter
 
         public static Image GetImgCheckMark()
         {
-            int p = (int)Environment.OSVersion.Platform;
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-
-            if (p == 4 || p == 6 || p == 128)
+            if (osLinux)
             {
                 return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "check.jpg"));
             }
@@ -72,14 +94,12 @@ namespace peter
             {
                 return Image.FromFile(Path.Combine(projectDirectory, @"images\", "check.jpg"));
             }
+
         }
 
         public static Image GetImgLogo()
         {
-            int p = (int)Environment.OSVersion.Platform;
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-
-            if (p == 4 || p == 6 || p == 128)
+            if (osLinux)
             {
                 return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "biljarter.png"));
             }
@@ -91,10 +111,7 @@ namespace peter
 
         public static Image GetImgStartPartij()
         {
-            int p = (int)Environment.OSVersion.Platform;
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-
-            if (p == 4 || p == 6 || p == 128)
+            if (osLinux)
             {
                 return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "start_partij.png"));
             }
@@ -106,27 +123,19 @@ namespace peter
 
         public static string GetMouseCoursorPath()
         {
-            int p = (int)Environment.OSVersion.Platform;
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-
-            if (p == 4 || p == 6 || p == 128)
+            if (osLinux)
             {
-                //return Path.Combine(projectDirectory, @"/home/pi/score/images/", "mouse.cur");
                 return "/home/pi/score/images/mouse.cur";
             }
             else
             {
-               // return Path.Combine(projectDirectory, @"images\", "mouse.cur");
                 return Path.Combine(projectDirectory, @"images\", "mouse.cur");
             }
         }
 
         public static Image GetImgKraai()
         {
-            int p = (int)Environment.OSVersion.Platform;
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-
-            if (p == 4 || p == 6 || p == 128)
+        if (osLinux)
             {
                 return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "ODT0.gif"));
             }
@@ -167,7 +176,7 @@ namespace peter
                 int timeout = 1000;
                 PingOptions pingOptions = new PingOptions();
                 PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
-                Console.WriteLine("INTERNET");
+               // Console.WriteLine("INTERNET");
                 return (reply.Status == IPStatus.Success);
             }
             catch (Exception)

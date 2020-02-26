@@ -682,7 +682,12 @@
             // fileSystemWatcher
             // 
             this.fileSystemWatcher.EnableRaisingEvents = true;
+            this.fileSystemWatcher.Filter = "cnf.44";
+            this.fileSystemWatcher.IncludeSubdirectories = true;
+            this.fileSystemWatcher.NotifyFilter = System.IO.NotifyFilters.LastWrite;
+            this.fileSystemWatcher.Path = "\\";
             this.fileSystemWatcher.SynchronizingObject = this;
+            this.fileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Changed);
             // 
             // scorebord
             // 
