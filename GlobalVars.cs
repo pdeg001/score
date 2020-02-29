@@ -23,7 +23,7 @@ namespace peter
         public static int carom;
         //public static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
         public static Boolean autoInnings;
-
+        
 
     }
 
@@ -54,10 +54,25 @@ namespace peter
         {
             if (osLinux)
             {
-                return @"/home/pi/score/cnf.44";
+                string linuxPath = @"/home/pi/score/cnf.44";
+                return linuxPath;
+               // Console.WriteLine(projectDirectory);
+                //return "cnf.44";
             } else
             {
                 return Path.Combine(projectDirectory,@"","cnf.44");
+            }
+        }
+
+        public static string GetAppPath()
+        {
+            if (osLinux)
+            {
+                return @"/home/pi/score/";
+            }
+            else
+            {
+                return Path.Combine(projectDirectory, @"", "");
             }
         }
 
@@ -106,6 +121,19 @@ namespace peter
             else
             {
                 return Image.FromFile(Path.Combine(projectDirectory, @"images\", "biljarter.png"));
+            }
+        }
+
+
+        public static Image GetPromoLogo()
+        {
+            if (osLinux)
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"/home/pi/score/images/", "UwLogo.png"));
+            }
+            else
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"images\", "UwLogo.png"));
             }
         }
 

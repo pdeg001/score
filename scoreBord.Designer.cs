@@ -381,12 +381,13 @@
             // btn_nieuwe_partij
             // 
             this.btn_nieuwe_partij.BackColor = System.Drawing.Color.Green;
+            this.btn_nieuwe_partij.FlatAppearance.BorderSize = 0;
             this.btn_nieuwe_partij.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_nieuwe_partij.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nieuwe_partij.ForeColor = System.Drawing.Color.White;
-            this.btn_nieuwe_partij.Location = new System.Drawing.Point(1333, 942);
+            this.btn_nieuwe_partij.Location = new System.Drawing.Point(1332, 942);
             this.btn_nieuwe_partij.Name = "btn_nieuwe_partij";
-            this.btn_nieuwe_partij.Size = new System.Drawing.Size(580, 93);
+            this.btn_nieuwe_partij.Size = new System.Drawing.Size(580, 95);
             this.btn_nieuwe_partij.TabIndex = 26;
             this.btn_nieuwe_partij.Text = "Nieuwe Partij";
             this.btn_nieuwe_partij.UseVisualStyleBackColor = false;
@@ -676,7 +677,8 @@
             // 
             // TmrInactive
             // 
-            this.TmrInactive.Interval = 600000;
+            this.TmrInactive.Enabled = true;
+            this.TmrInactive.Interval = 10000;
             this.TmrInactive.Tick += new System.EventHandler(this.TmrInactive_Tick);
             // 
             // fileSystemWatcher
@@ -685,16 +687,16 @@
             this.fileSystemWatcher.Filter = "cnf.44";
             this.fileSystemWatcher.IncludeSubdirectories = true;
             this.fileSystemWatcher.NotifyFilter = System.IO.NotifyFilters.LastWrite;
-            this.fileSystemWatcher.Path = "\\";
             this.fileSystemWatcher.SynchronizingObject = this;
             this.fileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Changed);
             // 
             // scorebord
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.AutoSize = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
             this.Controls.Add(this.p2Ball);
@@ -720,11 +722,16 @@
             this.Controls.Add(this.PnlTijd);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "scorebord";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "bord";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.scorebord_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -778,11 +785,11 @@
         private System.Windows.Forms.PictureBox p2Ball;
         private System.Windows.Forms.Panel PnlTijd;
         private System.Windows.Forms.Label LblTijd;
-        private System.Windows.Forms.Timer TmrTijd;
         private System.Windows.Forms.Label LblDag;
-        private System.Windows.Forms.Timer TmrPromo;
-        private System.Windows.Forms.Timer TmrInactive;
         private System.IO.FileSystemWatcher fileSystemWatcher;
+        public System.Windows.Forms.Timer TmrTijd;
+        public System.Windows.Forms.Timer TmrPromo;
+        public System.Windows.Forms.Timer TmrInactive;
     }
 
     

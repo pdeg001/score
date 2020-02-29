@@ -23,18 +23,22 @@ namespace peter
     
     public partial class scorebord : Form
     {
-     //   [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
-     //   public static extern IntPtr LoadCursorFromFile(string filename);
+        //   [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
+        //   public static extern IntPtr LoadCursorFromFile(string filename);
+
+         ShowPromo ClsSHowPromo = new ShowPromo();
+        Panel pnPromo;
 
         ClsBord p1Bord = new ClsBord();
         ClsBord p2Bord = new ClsBord();
-        ProcesScore P1ProcessScore = new ProcesScore();
-        ProcesScore P2ProcessScore = new ProcesScore();
+       // ProcesScore P1ProcessScore = new ProcesScore();
+       // ProcesScore P2ProcessScore = new ProcesScore();
         ClsInnings innings = new ClsInnings();
         GameTime spelDuurTimer = new GameTime();
         Form frmNewGame = new NieuwePartij();
         Form frmEndGame = new EindePartij();
-        Form frmPromo = new FrmPromo();
+       // Form frmPromo = new FrmPromo();
+
 
         Boolean startNewGame = false;
         Boolean disableHoverItems = false;
@@ -61,13 +65,8 @@ namespace peter
         private void Form1_Load(object sender, EventArgs e)
         {
         Functions.CheckOsLinux();
-            Console.WriteLine(File.ReadAllText(Functions.GetConfigFile()));
-            fileSystemWatcher.Path = @"\";
-             fileSystemWatcher.NotifyFilter = NotifyFilters.LastWrite;
-            fileSystemWatcher.Filter = "*.cnf";
-            fileSystemWatcher.EnableRaisingEvents = true;
-
-            Testjson();
+            fileSystemWatcher.Path = Functions.GetAppPath();
+           // Testjson();
             imgLogo.Image = Functions.GetImgLogo();
             //  SetCursor();
             //this.Cursor = new Cursor(Application.StartupPath + "\\Cursor(2).cur");
@@ -374,14 +373,6 @@ namespace peter
             Label lbl = sender as Label;
             changeBorder = false;
             lbl.Refresh();
-            //if (gameStarted)
-            //{
-            //    lbl.BackColor = Color.White;
-            //}
-            //else
-            //{
-            //    lbl.BackColor = Color.Transparent;
-            //}
         }
 
         private void Lbl_pName_MouseEnter(object sender, EventArgs e)
@@ -494,58 +485,41 @@ namespace peter
         }
         private void TmrInactive_Tick(object sender, EventArgs e)
         {
+            TmrInactive.Enabled = false;
             if (TmrPromo.Enabled)
                 return;
-            
-            TmrPromo.Enabled = true;
 
+            TmrPromo.Enabled = true;
         }
 
         private void TmrPromo_Tick(object sender, EventArgs e)
         {
-            if (frmPromo.Visible == false)
+            if (!Controls.Contains(pnPromo))
             {
-                frmPromo.Visible = true;
-                frmPromo.Top = 70;
-                frmPromo.Left = 70;
+                CreatePromoPanel();
             }
-            ShowScreenSaver();
+            ShowPromo.ShowScreenSaver(pnPromo);
         }
 
-        private void ShowScreenSaver()
+        private void CreatePromoPanel()
         {
-            //HORIZONTAL
-            if (frmPromo.Left == 0 || frmPromo.Right == this.ClientRectangle.Width)
-                promoX = -promoX;
+            pnPromo = ShowPromo.CreatePromoPanel();
+            this.Controls.Add(pnPromo);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            pnPromo.BringToFront();
 
-            if (promoX > 0)
-                frmPromo.Left = Math.Min(frmPromo.Left + promoX, this.ClientRectangle.Width - frmPromo.Width);
-            else
-                frmPromo.Left = Math.Max(frmPromo.Left + promoX, 0);
-
-            //GET PROMO TOP
-            if (frmPromo.Top - 35 <= 0)
-                promoY = 35; // -promoY;
-
-            if (frmPromo.Bottom + 35 >= 1050)
-                promoY = -Math.Abs(promoY);
-//            Console.WriteLine($"BOTTOM {frmPromo.Bottom} promoY = {promoY}");
-
-            frmPromo.Top += promoY;
         }
 
-        private void scorebord_MouseMove(object sender, MouseEventArgs e)
+        public void DisablePromo()
         {
-            if (TmrPromo.Enabled)
-            {
-                TmrPromo.Enabled = false;
-                frmPromo.Hide();
+            TmrPromo.Enabled = false;
+            //frmPromo.Hide();
+            //frmPromo.Visible = false;
+            if (Controls.Contains(pnPromo))
+                Controls.Remove(pnPromo);
 
-            }
-
+            TmrInactive.Enabled = true;
         }
-
-        
 
         public void WaitTimer(int milliseconds)
         {
@@ -567,92 +541,14 @@ namespace peter
             }
         }
 
-        
-
-            
-          
-        
-        public class ShowPromote
-        {
-            public string active { get; set; }
-            public string timeOut { get; set; }
-        }
-
-        public class DigitalFont
-        {
-            public string active { get; set; }
-        }
-
-        public class FontColor
-        {
-            public string colorYellow { get; set; }
-        }
-
-        public class LightSchema
-        {
-            public string useLightSchema { get; set; }
-        }
-
-        public class Message
-        {
-            public string line_1 { get; set; }
-            public string line_2 { get; set; }
-            public string line_3 { get; set; }
-            public string line_4 { get; set; }
-            public string line_5 { get; set; }
-        }
-
-        public class Reclame
-        {
-            public string active { get; set; }
-        }
-
-        public class RootObject
-        {
-            public ShowPromote showPromote { get; set; }
-            public DigitalFont digitalFont { get; set; }
-            public FontColor fontColor { get; set; }
-            public LightSchema lightSchema { get; set; }
-            public Message message { get; set; }
-            public Reclame reclame { get; set; }
-        }
-
         private void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
             Console.WriteLine("FILE CHANGE");
+            ShowPromo.SetConfigVars();
+
         }
 
-        private void Testjson()
-        {
-            string json = @"{
-  'showPromote': {
-    'active': '1',
-    'timeOut': '10'
-  },
-  'digitalFont': {
-    'active': '1'
-  },
-  'fontColor': {
-    'colorYellow': '1'
-  },
-  'lightSchema': {
-    'useLightSchema': '0'
-  },
-  'message': {
-    'line_1': 'Dit is een test bericht',
-    'line_2': '',
-    'line_3': 'Blijf kalm',
-    'line_4': '',
-    'line_5': 'Neem een versnapering van het huis'
-  },
-  'reclame': {
-    'active': '1'
-  }
-}";
-            
-            var welcome = QuickType.Welcome.FromJson(json);
-            Console.WriteLine(welcome.Message.Line5);
-        }
+        
     }
     //END CLASS
 }

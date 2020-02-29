@@ -67,7 +67,9 @@
             // btn_nee
             // 
             this.btn_nee.BackColor = System.Drawing.Color.White;
+            this.btn_nee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_nee.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nee.ForeColor = System.Drawing.Color.Black;
             this.btn_nee.Location = new System.Drawing.Point(295, 499);
             this.btn_nee.Name = "btn_nee";
             this.btn_nee.Size = new System.Drawing.Size(448, 164);
@@ -81,7 +83,9 @@
             // btn_ja
             // 
             this.btn_ja.BackColor = System.Drawing.Color.White;
+            this.btn_ja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ja.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ja.ForeColor = System.Drawing.Color.Black;
             this.btn_ja.Location = new System.Drawing.Point(1070, 499);
             this.btn_ja.Name = "btn_ja";
             this.btn_ja.Size = new System.Drawing.Size(448, 164);
@@ -229,7 +233,9 @@
             // btnP2Start
             // 
             this.btnP2Start.BackColor = System.Drawing.Color.White;
+            this.btnP2Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnP2Start.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnP2Start.ForeColor = System.Drawing.Color.Black;
             this.btnP2Start.Location = new System.Drawing.Point(1198, 903);
             this.btnP2Start.Name = "btnP2Start";
             this.btnP2Start.Size = new System.Drawing.Size(448, 118);
@@ -244,7 +250,9 @@
             // btnP1Start
             // 
             this.btnP1Start.BackColor = System.Drawing.Color.White;
+            this.btnP1Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnP1Start.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnP1Start.ForeColor = System.Drawing.Color.Black;
             this.btnP1Start.Location = new System.Drawing.Point(1198, 776);
             this.btnP1Start.Name = "btnP1Start";
             this.btnP1Start.Size = new System.Drawing.Size(448, 118);

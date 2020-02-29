@@ -50,6 +50,8 @@
             // btn_ja
             // 
             this.btn_ja.BackColor = System.Drawing.Color.White;
+            this.btn_ja.FlatAppearance.BorderSize = 0;
+            this.btn_ja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ja.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ja.Location = new System.Drawing.Point(1154, 374);
             this.btn_ja.Name = "btn_ja";
@@ -64,7 +66,10 @@
             // btn_nee
             // 
             this.btn_nee.BackColor = System.Drawing.Color.White;
+            this.btn_nee.FlatAppearance.BorderSize = 0;
+            this.btn_nee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_nee.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nee.ForeColor = System.Drawing.Color.Black;
             this.btn_nee.Location = new System.Drawing.Point(343, 374);
             this.btn_nee.Name = "btn_nee";
             this.btn_nee.Size = new System.Drawing.Size(448, 164);
@@ -94,7 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1920, 1061);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btn_ja);
             this.Controls.Add(this.btn_nee);
@@ -104,6 +109,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EindePartij";
             this.Text = "EindePartij";
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }

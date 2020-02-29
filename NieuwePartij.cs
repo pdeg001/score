@@ -88,11 +88,13 @@ namespace peter
             {
                 chkSpelersInvoeren.Image = Functions.GetImgCheckMark();
                 addPlayers = true;
+                btn_ja.Visible = false;
                 ShowPlayerObjects();
                 txtP1Name.Select();
             }
             else
             {
+                btn_ja.Visible = true;
                 chkSpelersInvoeren.Image = null;
                 addPlayers = false;
                 ShowPlayerObjects();

@@ -10,13 +10,13 @@
     "colorYellow": "1"
   },
   "lightSchema": {
-    "useLightSchema": "0"
+    "useLightSchema": "10"
   },
   "message": {
-    "line_1": "Familie Dröge wenst u een voorspoedig",
-    "line_2": "2021, en een sportief biljart jaar toe",
-    "line_3": "d",
-    "line_4": "",
+    "line_1": "",
+    "line_2": "Welkom",
+    "line_3": "Biljart vereniging",
+    "line_4": "Klotsende Ballen",
     "line_5": ""
   },
   "reclame": {
@@ -24,6 +24,5 @@
   },
   "partijDuur": {
     "active": "1" 
-    "active": "1" 
-  }
+    }
 }
