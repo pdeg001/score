@@ -24,7 +24,7 @@ namespace peter
         public static Panel CreatePromoPanel()
         {
             pnPromo.Size = new System.Drawing.Size(990, 620);
-            pnPromo.Location = new Point(35, 35);
+            pnPromo.Location = new Point(35, 125);
             pnPromo.BorderStyle = BorderStyle.FixedSingle;
             pnPromo.BackColor = Color.White;
 
@@ -33,44 +33,55 @@ namespace peter
             picPromo.BorderStyle = BorderStyle.FixedSingle;
             picPromo.Image = Functions.GetPromoLogo();
 
+            pnPromo.Controls.Add(picPromo);
+
             CreateTextLabel1(lblText1, 235);
             CreateTextLabel1(lblText2, lblText1.Bottom + 20);
             CreateTextLabel1(lblText3, lblText2.Bottom + 20);
             CreateTextLabel1(lblText4, lblText3.Bottom + 20);
             CreateTextLabel1(lblText5, lblText4.Bottom + 20);
-
-            pnPromo.Controls.Add(picPromo);
-            pnPromo.Controls.Add(lblText1);
-            pnPromo.Controls.Add(lblText2);
-            pnPromo.Controls.Add(lblText3);
-            pnPromo.Controls.Add(lblText4);
-            pnPromo.Controls.Add(lblText5);
-
+            
             SetConfigVars();
 
             return pnPromo;
-
-        }
+          }
 
         public static void ShowScreenSaver(Panel pnPromo)
         {
+            int posx=0;
+            
             //HORIZONTAL
             if (pnPromo.Left == 0 || pnPromo.Right == 1920)
+            {
                 promoX = -promoX;
+            }
 
             if (promoX > 0)
-                pnPromo.Left = Math.Min(pnPromo.Left + promoX, 1920 - pnPromo.Width);
+            {
+             //   pnPromo.Left = Math.Min(pnPromo.Left + promoX, 1920 - pnPromo.Width);
+                posx = Math.Min(pnPromo.Left + promoX, 1920 - pnPromo.Width);
+            }
             else
-                pnPromo.Left = Math.Max(pnPromo.Left + promoX, 0);
-
+            {
+             //   pnPromo.Left = Math.Max(pnPromo.Left + promoX, 0);
+                posx = Math.Max(pnPromo.Left + promoX, 0);
+            }
             //GET PROMO TOP
-            if (pnPromo.Top - 35 <= 0)
+            if (pnPromo.Top - 35 <= 125)
+            {
                 promoY = Math.Abs(promoY);
-
+            }  
             if (pnPromo.Bottom + 35 >= 1050)
+            {
                 promoY = -Math.Abs(promoY);
+            }// else
+            //{
+            //    posy = pnPromo.Top + 35;
+            //}
+               // posy = pnPromo.Top + 35;
 
-            pnPromo.Top += promoY;
+            //pnPromo.Top += promoY;
+            pnPromo.Location = new Point(posx, pnPromo.Top+promoY);
         }
 
         public static void CreateTextLabel1(object sender, int topPosition)
@@ -85,6 +96,7 @@ namespace peter
             lbl.TextAlign = ContentAlignment.TopCenter;
             lbl.Font = new Font("Arial", 36);
             lbl.Text = "01234567890123456789012345678901234567890";
+            pnPromo.Controls.Add(lbl);
 
         }
 

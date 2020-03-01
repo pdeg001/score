@@ -26,8 +26,10 @@ namespace peter
 
         static void OnGlobalMouseMove(object sender, MouseEventArgs e)
         {
-            //   Console.WriteLine(e.Location.ToString());
             scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
+            if (!f1.CheckPromoActive())
+                return;
+            //   Console.WriteLine(e.Location.ToString());
             f1.DisablePromo();
         }
     }

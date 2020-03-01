@@ -100,28 +100,28 @@ namespace peter
             return new Cursor(bm.GetHicon());
         }
 
-        public void SetCursor()
-        {
-            Bitmap bm = (Bitmap)imageList1.Images[0];
-            this.Cursor = CreateCursor(bm, new Size(48, 48));
-        }
+        //public void SetCursor()
+        //{
+        //    Bitmap bm = (Bitmap)imageList1.Images[0];
+        //    this.Cursor = CreateCursor(bm, new Size(48, 48));
+        //}
 
-        private void ExitApplication(object sender, MouseEventArgs e)
-        {
-            Application.Exit();
-        }
+        //private void ExitApplication(object sender, MouseEventArgs e)
+        //{
+        //    Application.Exit();
+        //}
 
-        private void genHoverMake(object sender, EventArgs e)
-        {
+        //private void genHoverMake(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void restoreHoverMake(object sender, EventArgs e)
-        {
-            Label lbl = sender as Label;
-            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");//#FF00FF System.Drawing.Color.Blue;
-            lbl.ForeColor = System.Drawing.Color.Yellow;
-        }
+        //private void restoreHoverMake(object sender, EventArgs e)
+        //{
+        //    Label lbl = sender as Label;
+        //    lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");//#FF00FF System.Drawing.Color.Blue;
+        //    lbl.ForeColor = System.Drawing.Color.Yellow;
+        //}
 
         private void genHover(object sender, EventArgs e)
         {
@@ -181,28 +181,28 @@ namespace peter
            // DisableClickItems(false);
         }
 
-        public void DisableClickItems(Boolean enable)
-        {
-            lbl_p1_car_1.Enabled = enable;
+        //public void DisableClickItems(Boolean enable)
+        //{
+        //    lbl_p1_car_1.Enabled = enable;
             
-            lbl_p1_car_10.Enabled = enable;
-            lbl_p1_car_100.Enabled = enable;
-            p1_make_1.Enabled = enable;
-            p1_make_10.Enabled = enable;
-            p1_make_100.Enabled = enable;
+        //    lbl_p1_car_10.Enabled = enable;
+        //    lbl_p1_car_100.Enabled = enable;
+        //    p1_make_1.Enabled = enable;
+        //    p1_make_10.Enabled = enable;
+        //    p1_make_100.Enabled = enable;
 
-            lbl_p2_car_1.Enabled = enable;
-            lbl_p2_car_10.Enabled = enable;
-            lbl_p2_car_100.Enabled = enable;
-            p2_make_1.Enabled = enable;
-            p2_make_10.Enabled = enable;
-            p2_make_100.Enabled = enable;
+        //    lbl_p2_car_1.Enabled = enable;
+        //    lbl_p2_car_10.Enabled = enable;
+        //    lbl_p2_car_100.Enabled = enable;
+        //    p2_make_1.Enabled = enable;
+        //    p2_make_10.Enabled = enable;
+        //    p2_make_100.Enabled = enable;
 
-            lbl_p1_name.Enabled = enable;
-            lbl_p2_name.Enabled = enable;
-            lbl_innings.Enabled = enable;
+        //    lbl_p1_name.Enabled = enable;
+        //    lbl_p2_name.Enabled = enable;
+        //    lbl_innings.Enabled = enable;
 
-        }
+        //}
 
         private void P1Caram(object sender, MouseEventArgs e)
         {
@@ -213,6 +213,9 @@ namespace peter
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p1Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
             p1Bord.CalcMoyenne();
+            TmrInactive.Enabled = false;
+            Thread.Sleep(100);
+            TmrInactive.Enabled = true;
         }
 
         private void P2Caram(object sender, MouseEventArgs e)
@@ -474,7 +477,7 @@ namespace peter
 
         private void TmrTijd_Tick(object sender, EventArgs e)
         {
-            LblTijd.Text = DateTime.Now.ToString("HH:mm");
+            LblTijd.Text = DateTime.Now.ToString("HH:mm:ss");
             LblDag.Text = DateTime.Now.ToString("dddd") + " " + DateTime.Now.ToString("dd MMMM yyyy");
         }
 
@@ -485,9 +488,16 @@ namespace peter
         }
         private void TmrInactive_Tick(object sender, EventArgs e)
         {
+            
+
             TmrInactive.Enabled = false;
             if (TmrPromo.Enabled)
+            {
                 return;
+            } else
+            {
+                Cursor.Position = new Point(this.ClientRectangle.Right, this.ClientRectangle.Bottom);
+            }
 
             TmrPromo.Enabled = true;
         }
@@ -496,9 +506,11 @@ namespace peter
         {
             if (!Controls.Contains(pnPromo))
             {
+                
                 CreatePromoPanel();
             }
             ShowPromo.ShowScreenSaver(pnPromo);
+           
         }
 
         private void CreatePromoPanel()
@@ -508,6 +520,14 @@ namespace peter
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             pnPromo.BringToFront();
 
+        }
+
+        public bool CheckPromoActive()
+        {
+            if (!Controls.Contains(pnPromo))
+                return false;
+
+            return true;
         }
 
         public void DisablePromo()

@@ -667,18 +667,18 @@
             // TmrTijd
             // 
             this.TmrTijd.Enabled = true;
-            this.TmrTijd.Interval = 10000;
+            this.TmrTijd.Interval = 1000;
             this.TmrTijd.Tick += new System.EventHandler(this.TmrTijd_Tick);
             // 
             // TmrPromo
             // 
-            this.TmrPromo.Interval = 2000;
+            this.TmrPromo.Interval = 5000;
             this.TmrPromo.Tick += new System.EventHandler(this.TmrPromo_Tick);
             // 
             // TmrInactive
             // 
             this.TmrInactive.Enabled = true;
-            this.TmrInactive.Interval = 10000;
+            this.TmrInactive.Interval = 30000;
             this.TmrInactive.Tick += new System.EventHandler(this.TmrInactive_Tick);
             // 
             // fileSystemWatcher

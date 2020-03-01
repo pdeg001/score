@@ -116,10 +116,7 @@ namespace peter
                 lbl100.Text = newCaram.Substring(0, 1);
         }
 
-        public void SetFontFamily()
-        {
-        }
-
+        
       public void CalcMoyenne() 
         {
             double caroms;
