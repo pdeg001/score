@@ -17,6 +17,7 @@ using System.Net.NetworkInformation;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Security.Permissions;
+using System.Dynamic;
 
 namespace peter
 {
@@ -34,6 +35,7 @@ namespace peter
        // ProcesScore P1ProcessScore = new ProcesScore();
        // ProcesScore P2ProcessScore = new ProcesScore();
         ClsInnings innings = new ClsInnings();
+        StoreCurrentScore scs = new StoreCurrentScore();
         GameTime spelDuurTimer = new GameTime();
         Form frmNewGame = new NieuwePartij();
         Form frmEndGame = new EindePartij();
@@ -216,6 +218,8 @@ namespace peter
             TmrInactive.Enabled = false;
             Thread.Sleep(100);
             TmrInactive.Enabled = true;
+
+            TestJson();
         }
 
         private void P2Caram(object sender, MouseEventArgs e)
@@ -228,6 +232,7 @@ namespace peter
             p2Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
             p2Bord.CalcMoyenne();
 
+            TestJson();
         }
 
         private void P1Make(object sender, MouseEventArgs e)
@@ -448,6 +453,7 @@ namespace peter
 
             changeBorder = false;
             lbl_p1_name.Refresh();
+            TestJson();
         }
 
         private void P2NameClick()
@@ -465,6 +471,7 @@ namespace peter
             lbl_p2_name.ForeColor = Color.Black;
             changeBorder = false;
             lbl_p2_name.Refresh();
+            TestJson();
         }
 
         private void lbl_game_timer_Click(object sender, EventArgs e)
@@ -477,8 +484,10 @@ namespace peter
 
         private void TmrTijd_Tick(object sender, EventArgs e)
         {
-            LblTijd.Text = DateTime.Now.ToString("HH:mm:ss");
+            LblTijd.Text = DateTime.Now.ToString("HH:mm");
             LblDag.Text = DateTime.Now.ToString("dddd") + " " + DateTime.Now.ToString("dd MMMM yyyy");
+           if(gameStarted)
+            TestJson();
         }
 
 
@@ -565,7 +574,73 @@ namespace peter
         {
             Console.WriteLine("FILE CHANGE");
             ShowPromo.SetConfigVars();
+        }
 
+        private void TestJson(object sender, MouseEventArgs e)
+        {
+            string p1Make = $"{p1_make_1.Text}{p1_make_10.Text}{p1_make_100.Text}";
+            string p2Make = $"{p2_make_1.Text}{p2_make_10.Text}{p2_make_100.Text}";
+            string p1Score = $"{lbl_p1_car_1.Text}{lbl_p1_car_10.Text}{lbl_p1_car_100.Text}";
+            string p2Score = $"{lbl_p2_car_1.Text}{lbl_p2_car_10.Text}{lbl_p2_car_100.Text}";
+            string innings = $"{lbl_innings.Text}";
+            string duration = $"{lbl_game_timer.Text}";
+
+            string playing;
+            if (p1Play == true)
+            {
+                playing = "p1";
+            } else
+            {
+                playing = "p2";
+            }
+            dynamic flex = new ExpandoObject();
+
+            flex.p1Name = lbl_p1_name.Text;
+            flex.p2Name = lbl_p2_name.Text;
+            flex.p1Make = p1Make;
+            flex.p2Make = p2Make;
+            flex.innings = innings;
+            flex.duration = duration;
+            flex.playing = playing;
+
+            var ser = JsonConvert.SerializeObject(flex);
+
+            Console.WriteLine(ser);
+        }
+
+        private void TestJson()
+        {
+            string p1Make = $"{p1_make_100.Text}{p1_make_10.Text}{p1_make_1.Text}";
+            string p2Make = $"{p2_make_100.Text}{p2_make_10.Text}{p2_make_1.Text}";
+            string p1Score = $"{lbl_p1_car_100.Text}{lbl_p1_car_10.Text}{lbl_p1_car_1.Text}";
+            string p2Score = $"{lbl_p2_car_100.Text}{lbl_p2_car_10.Text}{lbl_p2_car_1.Text}";
+            string innings = $"{lbl_innings.Text}";
+            string duration = $"{lbl_game_timer.Text}";
+
+            string playing;
+            if (p1Play == true)
+            {
+                playing = "p1";
+            }
+            else
+            {
+                playing = "p2";
+            }
+            dynamic flex = new ExpandoObject();
+
+            flex.p1Name = lbl_p1_name.Text;
+            flex.p2Name = lbl_p2_name.Text;
+            flex.p1Score = p1Score;
+            flex.p2Score = p2Score;
+            flex.p1Make = p1Make;
+            flex.p2Make = p2Make;
+            flex.innings = innings;
+            flex.duration = duration;
+            flex.playing = playing;
+
+            var ser = JsonConvert.SerializeObject(flex);
+
+            Console.WriteLine(ser);
         }
 
         
