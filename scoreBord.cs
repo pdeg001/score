@@ -24,8 +24,8 @@ namespace peter
     
     public partial class scorebord : Form
     {
-        //   [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
-        //   public static extern IntPtr LoadCursorFromFile(string filename);
+           //[DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
+           //public static extern IntPtr LoadCursorFromFile(string filename);
 
          ShowPromo ClsSHowPromo = new ShowPromo();
         Panel pnPromo;
@@ -56,7 +56,8 @@ namespace peter
         int promoX = 35;
         int promoY = 35;
 
-            [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
+        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
+
         
 
         public scorebord()
@@ -73,13 +74,13 @@ namespace peter
             //  SetCursor();
             //this.Cursor = new Cursor(Application.StartupPath + "\\Cursor(2).cur");
             InitBoard();
-
-         //   Cursor mycursor = new Cursor(Cursor.Current.Handle);
+            this.Cursor = new Cursor(Functions.GetMouseCoursorPath());
+            //   Cursor mycursor = new Cursor(Cursor.Current.Handle);
             //Console.WriteLine(Functions.GetMouseCoursorPath());
-         //   IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
-         //   mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
-         //   this.Cursor = mycursor;
-            this.Cursor = Cursors.NoMove2D;
+            //   IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
+            //   mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
+            //   this.Cursor = mycursor;
+            //  this.Cursor = Cursors.NoMove2D;
 
             hasInternet =  Functions.CheckForInternetConnection();
             if (hasInternet)
@@ -608,6 +609,7 @@ namespace peter
             Console.WriteLine(ser);
         }
 
+        
         private void TestJson()
         {
             string p1Make = $"{p1_make_100.Text}{p1_make_10.Text}{p1_make_1.Text}";

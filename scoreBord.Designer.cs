@@ -76,7 +76,6 @@
             this.TmrPromo = new System.Windows.Forms.Timer(this.components);
             this.TmrInactive = new System.Windows.Forms.Timer(this.components);
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -691,16 +690,6 @@
             this.fileSystemWatcher.SynchronizingObject = this;
             this.fileSystemWatcher.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher_Changed);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(614, 1025);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 21);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TestJson);
-            // 
             // scorebord
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -710,7 +699,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.p2Ball);
             this.Controls.Add(this.p1Ball);
             this.Controls.Add(this.label8);
@@ -802,7 +790,6 @@
         public System.Windows.Forms.Timer TmrTijd;
         public System.Windows.Forms.Timer TmrPromo;
         public System.Windows.Forms.Timer TmrInactive;
-        private System.Windows.Forms.Button button1;
     }
 
     
