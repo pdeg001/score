@@ -4,12 +4,15 @@ using System.Timers;
 
 namespace peter
 {
+    
     class GameTime
     {
+        
         public Label lblSpelDuur;
         public static System.Timers.Timer aTimer = new System.Timers.Timer();
-        private static int mHour, mMinute = 0;
-        
+        public int mHour;
+        public int mMinute;
+
         public void GameTimer()
         {
             lblSpelDuur.Text = "00:00";

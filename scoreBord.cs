@@ -24,16 +24,16 @@ namespace peter
     
     public partial class scorebord : Form
     {
-           //[DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
-           //public static extern IntPtr LoadCursorFromFile(string filename);
+           [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
+           public static extern IntPtr LoadCursorFromFile(string filename);
 
          ShowPromo ClsSHowPromo = new ShowPromo();
         Panel pnPromo;
 
         ClsBord p1Bord = new ClsBord();
         ClsBord p2Bord = new ClsBord();
-       // ProcesScore P1ProcessScore = new ProcesScore();
-       // ProcesScore P2ProcessScore = new ProcesScore();
+       
+       
         ClsInnings innings = new ClsInnings();
         StoreCurrentScore scs = new StoreCurrentScore();
         GameTime spelDuurTimer = new GameTime();
@@ -51,7 +51,6 @@ namespace peter
         bool p1Play =false, p2Play = false;
         bool firstShow = true;
         bool playerNameSet = false;
-      //  bool statusSetToMake = false;
 
         int promoX = 35;
         int promoY = 35;
@@ -68,19 +67,16 @@ namespace peter
         private void Form1_Load(object sender, EventArgs e)
         {
         Functions.CheckOsLinux();
+
+
             fileSystemWatcher.Path = Functions.GetAppPath();
            // Testjson();
             imgLogo.Image = Functions.GetImgLogo();
-            //  SetCursor();
-            //this.Cursor = new Cursor(Application.StartupPath + "\\Cursor(2).cur");
+
             InitBoard();
-            this.Cursor = new Cursor(Functions.GetMouseCoursorPath());
-            //   Cursor mycursor = new Cursor(Cursor.Current.Handle);
-            //Console.WriteLine(Functions.GetMouseCoursorPath());
-            //   IntPtr colorcursorhandle = LoadCursorFromFile(Functions.GetMouseCoursorPath());
-            //   mycursor.GetType().InvokeMember("handle", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetField, null, mycursor, new object[] { colorcursorhandle });
-            //   this.Cursor = mycursor;
-            //  this.Cursor = Cursors.NoMove2D;
+
+            
+            Cursor = Cursors.NoMove2D;
 
             hasInternet =  Functions.CheckForInternetConnection();
             if (hasInternet)
@@ -95,36 +91,7 @@ namespace peter
             }
         }
 
-
-        public static Cursor CreateCursor(Bitmap bm, Size size)
-        {
-
-            bm = new Bitmap(bm, size);
-            return new Cursor(bm.GetHicon());
-        }
-
-        //public void SetCursor()
-        //{
-        //    Bitmap bm = (Bitmap)imageList1.Images[0];
-        //    this.Cursor = CreateCursor(bm, new Size(48, 48));
-        //}
-
-        //private void ExitApplication(object sender, MouseEventArgs e)
-        //{
-        //    Application.Exit();
-        //}
-
-        //private void genHoverMake(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void restoreHoverMake(object sender, EventArgs e)
-        //{
-        //    Label lbl = sender as Label;
-        //    lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");//#FF00FF System.Drawing.Color.Blue;
-        //    lbl.ForeColor = System.Drawing.Color.Yellow;
-        //}
+       
 
         private void genHover(object sender, EventArgs e)
         {
@@ -181,6 +148,8 @@ namespace peter
             p1Bord.ResetBoard();
             p2Bord.ResetBoard();
             disableHoverItems = true;
+            if (File.Exists("currGame.pdg"))
+                RestoreGame();
            // DisableClickItems(false);
         }
 
@@ -238,7 +207,9 @@ namespace peter
 
         private void P1Make(object sender, MouseEventArgs e)
         {
-            if (firstShow || playerNameSet)
+            //if (firstShow || playerNameSet)
+            //    return;
+            if (startNewGame == false)
                 return;
 
             Label lbl = sender as Label;
@@ -249,7 +220,9 @@ namespace peter
 
         private void P2Make(object sender, MouseEventArgs e)
         {
-            if (firstShow && playerNameSet)
+            //if (firstShow && playerNameSet)
+            //    return;
+            if (startNewGame == false)
                 return;
 
             Label lbl = sender as Label;
@@ -330,6 +303,7 @@ namespace peter
             btn_nieuwe_partij.Text = "Nieuwe Partij";
             btn_nieuwe_partij.BackColor = Color.Green;
             startNewGame = false;
+            gameStarted = false;
             firstShow = true;
             p1Play = true;
             p2Play = true;
@@ -337,6 +311,10 @@ namespace peter
             p1Bord.DisableCaromHover();
             p2Bord.DisableCaromHover();
             p2Bord.DisableMakeHover();
+
+            //DELETE CURRGAME.PDEG
+            if (File.Exists("currGame.pdg"))
+                File.Delete("currGame.pdg");
 
         }
 
@@ -362,19 +340,34 @@ namespace peter
         {
            if (startNewGame == true)
             {
-                imgLogo.Image = Functions.GetImgLogo();
-                startNewGame = false;
-                spelDuurTimer.EnableGameTime(true);
-                btn_nieuwe_partij.Text = "Partij Beëindigen";
-                btn_nieuwe_partij.BackColor = Color.Red;
-                gameStarted = true;
-                disableHoverItems = false;
-                firstShow = false;
-                p1Bord.EnableMakeHover();
-                p2Bord.EnableMakeHover();
-                P1NameClick();
-               
+                //imgLogo.Image = Functions.GetImgLogo();
+                //startNewGame = false;
+                //spelDuurTimer.EnableGameTime(true);
+                //btn_nieuwe_partij.Text = "Partij Beëindigen";
+                //btn_nieuwe_partij.BackColor = Color.Red;
+                //gameStarted = true;
+                //disableHoverItems = false;
+                //firstShow = false;
+                //p1Bord.EnableMakeHover();
+                //p2Bord.EnableMakeHover();
+                //P1NameClick();
+                InitNewGame();
             }
+        }
+
+        private void InitNewGame()
+        {
+            imgLogo.Image = Functions.GetImgLogo();
+            startNewGame = false;
+            spelDuurTimer.EnableGameTime(true);
+            btn_nieuwe_partij.Text = "Partij Beëindigen";
+            btn_nieuwe_partij.BackColor = Color.Red;
+            gameStarted = true;
+            disableHoverItems = false;
+            firstShow = false;
+            p1Bord.EnableMakeHover();
+            p2Bord.EnableMakeHover();
+            P1NameClick();
         }
 
         private void Lbl_pName_MouseLeave(object sender, EventArgs e)
@@ -642,10 +635,45 @@ namespace peter
 
             var ser = JsonConvert.SerializeObject(flex);
 
-            Console.WriteLine(ser);
+            ///<summary>Write current score and vars to currGame file</summary>
+            ///
+            File.WriteAllText("currGame.pdg", ser);
         }
 
-        
+        private void RestoreGame()
+        {
+            string json;
+            FileStream cnfReader = new FileStream("currGame.pdg", FileMode.Open, FileAccess.Read);
+            using (StreamReader sr = new StreamReader(cnfReader))
+            {
+                json = sr.ReadToEnd(); //.Replace("\"", "\'");
+            }
+            cnfReader.Close();
+
+            var gameLines = Game.RestoreCurrGame.FromJson(json);
+            
+            lbl_game_timer.Text = gameLines.Duration;
+            lbl_innings.Text = gameLines.Innings;
+            string[] p1Game = {gameLines.P1Make, gameLines.P1Score, gameLines.P1Name};
+            string[] p2Game = {gameLines.P2Make, gameLines.P2Score, gameLines.P2Name};
+
+            p1Bord.RestoreGame(p1Game);
+            p2Bord.RestoreGame(p2Game);
+
+            InitNewGame();
+
+            if (gameLines.Playing == "p1")
+                P1NameClick();
+            else
+                P2NameClick();
+
+            string[] time = gameLines.Duration.Split(':');
+            spelDuurTimer.mHour = Int32.Parse(time[0]);
+            spelDuurTimer.mMinute = Int32.Parse(time[1]);
+        }
+
+
+
     }
     //END CLASS
 }

@@ -422,7 +422,6 @@
             this.p2_progress.Location = new System.Drawing.Point(10, 571);
             this.p2_progress.Name = "p2_progress";
             this.p2_progress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.p2_progress.RightToLeftLayout = true;
             this.p2_progress.Size = new System.Drawing.Size(580, 36);
             this.p2_progress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.p2_progress.TabIndex = 33;
@@ -678,7 +677,7 @@
             // TmrInactive
             // 
             this.TmrInactive.Enabled = true;
-            this.TmrInactive.Interval = 30000;
+            this.TmrInactive.Interval = 300000;
             this.TmrInactive.Tick += new System.EventHandler(this.TmrInactive_Tick);
             // 
             // fileSystemWatcher

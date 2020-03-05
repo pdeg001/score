@@ -15,8 +15,12 @@ using System.Drawing.Text;
 
 namespace peter
 {
+
     class ClsBord
     {
+        
+
+
         public Label lbl1;
         public Label lblMake1;
         public Label lbl10;
@@ -30,11 +34,9 @@ namespace peter
 
         public int caroms;
         public double avg;
-        
 
         public void ResetBoard()
         {
-
             //PrivateFontCollection privateFontCollection = new PrivateFontCollection();
             //privateFontCollection.AddFontFile(Functions.GetFontFile());
             //lbl1.Font = new Font(privateFontCollection.Families[0], 150);
@@ -213,6 +215,18 @@ namespace peter
             lbl.ForeColor = System.Drawing.Color.Yellow;
         }
 
+        public void RestoreGame(string[] p1Game)
+        {
+            lblMake100.Text = p1Game[0].Substring(0, 1);
+            lblMake10.Text = p1Game[0].Substring(1, 1);
+            lblMake1.Text = p1Game[0].Substring(2, 1);
+            lbl100.Text = p1Game[1].Substring(0, 1);
+            lbl10.Text = p1Game[1].Substring(1, 1);
+            lbl1.Text = p1Game[1].Substring(2, 1);
+
+            caroms = CalcCaram();
+            CalcMoyenne();
+        }
     } 
 }
 
