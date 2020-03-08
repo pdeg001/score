@@ -15,13 +15,21 @@ namespace peter
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            try
+            {
 
-            Application.AddMessageFilter(new MouseMessageFilter());
-            MouseMessageFilter.MouseMove += new MouseEventHandler(OnGlobalMouseMove);
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new scorebord());
+                Application.AddMessageFilter(new MouseMessageFilter());
+                MouseMessageFilter.MouseMove += new MouseEventHandler(OnGlobalMouseMove);
+
+                Application.Run(new scorebord());
+            }
+            catch (ArgumentException e) {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.ParamName);
+            }
         }
 
         static void OnGlobalMouseMove(object sender, MouseEventArgs e)

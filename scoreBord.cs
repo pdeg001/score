@@ -24,10 +24,10 @@ namespace peter
     
     public partial class scorebord : Form
     {
-           [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
-           public static extern IntPtr LoadCursorFromFile(string filename);
+          // [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
+          // public static extern IntPtr LoadCursorFromFile(string filename);
 
-         ShowPromo ClsSHowPromo = new ShowPromo();
+        ShowPromo ClsSHowPromo = new ShowPromo();
         Panel pnPromo;
 
         ClsBord p1Bord = new ClsBord();
@@ -39,18 +39,19 @@ namespace peter
         GameTime spelDuurTimer = new GameTime();
         Form frmNewGame = new NieuwePartij();
         Form frmEndGame = new EindePartij();
-       // Form frmPromo = new FrmPromo();
 
 
         Boolean startNewGame = false;
         Boolean disableHoverItems = false;
         Boolean inningsSet = true;
-       Boolean gameStarted = false;
+        Boolean gameStarted = false;
         bool changeBorder;
         bool hasInternet = false;
         bool p1Play =false, p2Play = false;
         bool firstShow = true;
         bool playerNameSet = false;
+
+        Color newGameButtonColor;
 
         int promoX = 35;
         int promoY = 35;
@@ -67,16 +68,13 @@ namespace peter
         private void Form1_Load(object sender, EventArgs e)
         {
         Functions.CheckOsLinux();
-
-
             fileSystemWatcher.Path = Functions.GetAppPath();
-           // Testjson();
             imgLogo.Image = Functions.GetImgLogo();
 
             InitBoard();
-
             
             Cursor = Cursors.NoMove2D;
+           
 
             hasInternet =  Functions.CheckForInternetConnection();
             if (hasInternet)
@@ -91,8 +89,6 @@ namespace peter
             }
         }
 
-       
-
         private void genHover(object sender, EventArgs e)
         {
             if (firstShow)
@@ -101,28 +97,46 @@ namespace peter
             if (startNewGame)
                 return;
 
-            Label lbl = sender as Label;
-            
-            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF"); //System.Drawing.Color.LightBlue;
-            lbl.ForeColor = System.Drawing.Color.Yellow;
+            if (sender.GetType().Name == "Label")
+            {
+                Label lbl = sender as Label;
+                lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF"); //System.Drawing.Color.LightBlue;
+                lbl.ForeColor = System.Drawing.Color.Yellow;
+            }
+
+            if(sender.GetType().Name == "Panel")
+            {
+                Panel pnl = sender as Panel;
+                pnl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF"); //System.Drawing.Color.LightBlue;
+            }
         }
 
         private void restoreHover(object sender, EventArgs e)
         {
-            Label lbl = sender as Label;
-            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");//#FF00FF System.Drawing.Color.Blue;
-            lbl.ForeColor = System.Drawing.Color.Yellow;
+            if (sender.GetType().Name == "Label")
+            {
+                Label lbl = sender as Label;
+                lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");//#FF00FF System.Drawing.Color.Blue;
+                lbl.ForeColor = System.Drawing.Color.Yellow;
+            }
+
+            if(sender.GetType().Name == "Panel")
+            {
+                Panel pnl = sender as Panel;
+                pnl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");//#FF00FF System.Drawing.Color.Blue;
+            }
         }
 
 
         private void InitBoard()
         {
-         //   Console.WriteLine(Functions.GetIP());
-         //   lblIpNumber.Text = Functions.GetIP();
-
             spelDuurTimer.lblSpelDuur = lbl_game_timer;
             spelDuurTimer.GameTimer();
+            
             innings.lblInnings = lbl_innings;
+            innings.lblInning1 = lbl_inning_1;
+            innings.lblInning10 = lbl_inning_10;
+            innings.lblInning100 = lbl_inning_100;
             innings.ResetInning();
 
             p1Bord.lbl1 = lbl_p1_car_1;
@@ -150,31 +164,7 @@ namespace peter
             disableHoverItems = true;
             if (File.Exists("currGame.pdg"))
                 RestoreGame();
-           // DisableClickItems(false);
         }
-
-        //public void DisableClickItems(Boolean enable)
-        //{
-        //    lbl_p1_car_1.Enabled = enable;
-            
-        //    lbl_p1_car_10.Enabled = enable;
-        //    lbl_p1_car_100.Enabled = enable;
-        //    p1_make_1.Enabled = enable;
-        //    p1_make_10.Enabled = enable;
-        //    p1_make_100.Enabled = enable;
-
-        //    lbl_p2_car_1.Enabled = enable;
-        //    lbl_p2_car_10.Enabled = enable;
-        //    lbl_p2_car_100.Enabled = enable;
-        //    p2_make_1.Enabled = enable;
-        //    p2_make_10.Enabled = enable;
-        //    p2_make_100.Enabled = enable;
-
-        //    lbl_p1_name.Enabled = enable;
-        //    lbl_p2_name.Enabled = enable;
-        //    lbl_innings.Enabled = enable;
-
-        //}
 
         private void P1Caram(object sender, MouseEventArgs e)
         {
@@ -186,10 +176,10 @@ namespace peter
             p1Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
             p1Bord.CalcMoyenne();
             TmrInactive.Enabled = false;
-            Thread.Sleep(100);
             TmrInactive.Enabled = true;
 
-            TestJson();
+            WriteCurrScore();
+            Thread.Sleep(100);
         }
 
         private void P2Caram(object sender, MouseEventArgs e)
@@ -202,17 +192,19 @@ namespace peter
             p2Bord.SetCaramBoles(leftMouse, Convert.ToInt32(lbl.Tag));
             p2Bord.CalcMoyenne();
 
-            TestJson();
+            WriteCurrScore();
+            Thread.Sleep(100);
         }
 
         private void P1Make(object sender, MouseEventArgs e)
         {
-            //if (firstShow || playerNameSet)
-            //    return;
             if (startNewGame == false)
                 return;
 
             Label lbl = sender as Label;
+            //if (lbl.Text == "0")
+            //    return;
+
             Boolean leftMouse = e.Button == MouseButtons.Left;
             p1Bord.SetMake(leftMouse, Convert.ToInt32(lbl.Tag));
             p1Bord.CalcMoyenne();
@@ -220,8 +212,6 @@ namespace peter
 
         private void P2Make(object sender, MouseEventArgs e)
         {
-            //if (firstShow && playerNameSet)
-            //    return;
             if (startNewGame == false)
                 return;
 
@@ -236,8 +226,6 @@ namespace peter
             if (firstShow)
                 return;
             innings.setInnings(e.Button == MouseButtons.Left);
-            //  lbl_p1_moyenne1.Text = p1Bord.calcMoyenne(inningsCount);
-           // innings.setInnings(true);
             inningsSet = true;
             p1Bord.CalcMoyenne();
             p2Bord.CalcMoyenne();
@@ -251,21 +239,11 @@ namespace peter
                 frmNewGame.StartPosition = FormStartPosition.Manual;
                 frmNewGame.Location = Location;
                 frmNewGame.Show(this);
-
-                //p1Bord.ResetBoard();
-                //p2Bord.ResetBoard();
-                //innings.ResetInning();
-                //spelDuurTimer.EnableGameTime(true);
-                //btn_nieuwe_partij.Text = "Partij Beëindigen";
-                //btn_nieuwe_partij.BackColor = Color.Red;
             } else
             {
                 frmEndGame.StartPosition = FormStartPosition.Manual;
                 frmEndGame.Location = Location;
                 frmEndGame.Show(this);
-                //btn_nieuwe_partij.Text = "Nieuwe Partij";
-                //btn_nieuwe_partij.BackColor = Color.Green;
-                //spelDuurTimer.EnableGameTime(false);
             }
         }
 
@@ -340,17 +318,6 @@ namespace peter
         {
            if (startNewGame == true)
             {
-                //imgLogo.Image = Functions.GetImgLogo();
-                //startNewGame = false;
-                //spelDuurTimer.EnableGameTime(true);
-                //btn_nieuwe_partij.Text = "Partij Beëindigen";
-                //btn_nieuwe_partij.BackColor = Color.Red;
-                //gameStarted = true;
-                //disableHoverItems = false;
-                //firstShow = false;
-                //p1Bord.EnableMakeHover();
-                //p2Bord.EnableMakeHover();
-                //P1NameClick();
                 InitNewGame();
             }
         }
@@ -385,8 +352,6 @@ namespace peter
             Label lbl = sender as Label;
             changeBorder = true;
             lbl.Refresh();
-
-           // lbl.BackColor = Color.Red;
         }
 
         private void lbl_name_Paint(object sender, PaintEventArgs e)
@@ -431,6 +396,8 @@ namespace peter
         {
             p2Bord.DisableCaromHover();
             p1Bord.EnableCaromHover();
+            p2Ball.Visible = false;
+            p1Ball.Visible = true;
             if (GlobalVars.autoInnings && inningsSet == false)
             {
                 innings.setInnings(true);
@@ -447,13 +414,16 @@ namespace peter
 
             changeBorder = false;
             lbl_p1_name.Refresh();
-            TestJson();
+            WriteCurrScore();
         }
 
         private void P2NameClick()
         {
             p1Bord.DisableCaromHover();
             p2Bord.EnableCaromHover();
+            p2Ball.Visible = true;
+            p1Ball.Visible = false;
+
 
             inningsSet = false;
             p1Play = false;
@@ -465,7 +435,7 @@ namespace peter
             lbl_p2_name.ForeColor = Color.Black;
             changeBorder = false;
             lbl_p2_name.Refresh();
-            TestJson();
+            WriteCurrScore();
         }
 
         private void lbl_game_timer_Click(object sender, EventArgs e)
@@ -481,7 +451,7 @@ namespace peter
             LblTijd.Text = DateTime.Now.ToString("HH:mm");
             LblDag.Text = DateTime.Now.ToString("dddd") + " " + DateTime.Now.ToString("dd MMMM yyyy");
            if(gameStarted)
-            TestJson();
+            WriteCurrScore();
         }
 
 
@@ -513,7 +483,6 @@ namespace peter
                 CreatePromoPanel();
             }
             ShowPromo.ShowScreenSaver(pnPromo);
-           
         }
 
         private void CreatePromoPanel()
@@ -522,7 +491,6 @@ namespace peter
             this.Controls.Add(pnPromo);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             pnPromo.BringToFront();
-
         }
 
         public bool CheckPromoActive()
@@ -536,8 +504,6 @@ namespace peter
         public void DisablePromo()
         {
             TmrPromo.Enabled = false;
-            //frmPromo.Hide();
-            //frmPromo.Visible = false;
             if (Controls.Contains(pnPromo))
                 Controls.Remove(pnPromo);
 
@@ -548,7 +514,6 @@ namespace peter
         {
             System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
             if (milliseconds == 0 || milliseconds < 0) return;
-            //Console.WriteLine("start wait timer");
             timer1.Interval = milliseconds;
             timer1.Enabled = true;
             timer1.Start();
@@ -556,7 +521,6 @@ namespace peter
             {
                 timer1.Enabled = false;
                 timer1.Stop();
-                //Console.WriteLine("stop wait timer");
             };
             while (timer1.Enabled)
             {
@@ -566,44 +530,10 @@ namespace peter
 
         private void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
-            Console.WriteLine("FILE CHANGE");
             ShowPromo.SetConfigVars();
         }
-
-        private void TestJson(object sender, MouseEventArgs e)
-        {
-            string p1Make = $"{p1_make_1.Text}{p1_make_10.Text}{p1_make_100.Text}";
-            string p2Make = $"{p2_make_1.Text}{p2_make_10.Text}{p2_make_100.Text}";
-            string p1Score = $"{lbl_p1_car_1.Text}{lbl_p1_car_10.Text}{lbl_p1_car_100.Text}";
-            string p2Score = $"{lbl_p2_car_1.Text}{lbl_p2_car_10.Text}{lbl_p2_car_100.Text}";
-            string innings = $"{lbl_innings.Text}";
-            string duration = $"{lbl_game_timer.Text}";
-
-            string playing;
-            if (p1Play == true)
-            {
-                playing = "p1";
-            } else
-            {
-                playing = "p2";
-            }
-            dynamic flex = new ExpandoObject();
-
-            flex.p1Name = lbl_p1_name.Text;
-            flex.p2Name = lbl_p2_name.Text;
-            flex.p1Make = p1Make;
-            flex.p2Make = p2Make;
-            flex.innings = innings;
-            flex.duration = duration;
-            flex.playing = playing;
-
-            var ser = JsonConvert.SerializeObject(flex);
-
-            Console.WriteLine(ser);
-        }
-
         
-        private void TestJson()
+        private void WriteCurrScore()
         {
             string p1Make = $"{p1_make_100.Text}{p1_make_10.Text}{p1_make_1.Text}";
             string p2Make = $"{p2_make_100.Text}{p2_make_10.Text}{p2_make_1.Text}";
@@ -640,20 +570,54 @@ namespace peter
             File.WriteAllText("currGame.pdg", ser);
         }
 
+        private void lbl_inning_100_MouseEnter(object sender, EventArgs e)
+        {
+            pnl_Inning.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF");
+        }
+
+        private void lbl_inning_100_MouseLeave(object sender, EventArgs e)
+        {
+            pnl_Inning.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+        }
+
+        private void btn_nieuwe_partij_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+
+            newGameButtonColor = btn.BackColor;
+            btn.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF");
+            btn.ForeColor = Color.Yellow;
+        }
+
+        private void btn_nieuwe_partij_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.BackColor = newGameButtonColor;
+            btn.ForeColor = Color.White;
+        }
+
         private void RestoreGame()
         {
             string json;
             FileStream cnfReader = new FileStream("currGame.pdg", FileMode.Open, FileAccess.Read);
             using (StreamReader sr = new StreamReader(cnfReader))
             {
-                json = sr.ReadToEnd(); //.Replace("\"", "\'");
+                json = sr.ReadToEnd(); 
             }
             cnfReader.Close();
 
             var gameLines = Game.RestoreCurrGame.FromJson(json);
-            
+
+            lbl_p2_name.Text = gameLines.P2Name;
+            lbl_p1_name.Text = gameLines.P1Name;
             lbl_game_timer.Text = gameLines.Duration;
             lbl_innings.Text = gameLines.Innings;
+            lbl_inning_100.Text = gameLines.Innings.Substring(0, 1);
+            lbl_inning_10.Text = gameLines.Innings.Substring(1, 1);
+            lbl_inning_1.Text = gameLines.Innings.Substring(2, 1);
+
+            innings.RestoreInnings(gameLines.Innings);
+           
             string[] p1Game = {gameLines.P1Make, gameLines.P1Score, gameLines.P1Name};
             string[] p2Game = {gameLines.P2Make, gameLines.P2Score, gameLines.P2Name};
 

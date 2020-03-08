@@ -59,15 +59,5 @@ namespace peter.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] digital_7 {
-            get {
-                object obj = ResourceManager.GetObject("digital_7", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

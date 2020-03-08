@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using System.Drawing.Text;
 
 
@@ -37,15 +30,27 @@ namespace peter
 
         public void ResetBoard()
         {
-            //PrivateFontCollection privateFontCollection = new PrivateFontCollection();
-            //privateFontCollection.AddFontFile(Functions.GetFontFile());
-            //lbl1.Font = new Font(privateFontCollection.Families[0], 150);
-            //lbl10.Font = new Font(privateFontCollection.Families[0], 150);
-            //lbl100.Font = new Font(privateFontCollection.Families[0], 200);
-            //lbl100.TextAlign = ContentAlignment.TopCenter;
-            //lblMake1.Font = new Font(privateFontCollection.Families[0], 180);
-            //lblMake10.Font = new Font(privateFontCollection.Families[0], 180);
-            //lblMake100.Font = new Font(privateFontCollection.Families[0], 180);
+
+            if (Functions.osLinux)
+            {
+                PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+                privateFontCollection.AddFontFile(Functions.GetFontFile());
+         //   Console.WriteLine($"PATH    {Functions.GetFontFile()}");
+                lbl1.Font = new Font(privateFontCollection.Families[0], 80);
+                lbl10.Font = new Font(privateFontCollection.Families[0], 80);
+                lbl100.Font = new Font(privateFontCollection.Families[0], 80);
+
+                lblMake1.Font = new Font(privateFontCollection.Families[0], 80);
+                lblMake10.Font = new Font(privateFontCollection.Families[0], 80);
+                lblMake100.Font = new Font(privateFontCollection.Families[0], 80);
+
+                ScaleFont(lbl100, 180);
+                ScaleFont(lbl10, 180);
+                ScaleFont(lbl1, 180);
+                ScaleFont(lblMake100, 140);
+                ScaleFont(lblMake10, 140);
+                ScaleFont(lblMake1, 140);
+            }
 
             lbl1.Text           = "0";
             lbl10.Text          = "0";
@@ -73,14 +78,17 @@ namespace peter
             if (currCaram <= 999 && currCaram > -1)
             {
                 SetNewCaram(Functions.GenPadding(currCaram));
-                ProcesScore.CalcMoyenne(currCaram);
+                if (ClsInnings.inningsCount != 0)
+                {
+                    ProcesScore.CalcMoyenne(currCaram);
+                }
                 caroms = currCaram;
             }
         }
 
         private int CalcCaram()
         {
-            return Convert.ToInt32(lbl100.Text + lbl10.Text+lbl1.Text);
+            return Convert.ToInt32($"{lbl100.Text}{lbl10.Text}{lbl1.Text}");// + lbl10.Text + lbl1.Text); ; ;
         }
 
         public void SetMake(Boolean LeftMouse, int Value)
@@ -113,17 +121,18 @@ namespace peter
 
         private void SetNewCaram(string newCaram)
         {
-                lbl1.Text = newCaram.Substring(2, 1);
-                lbl10.Text = newCaram.Substring(1, 1);
-                lbl100.Text = newCaram.Substring(0, 1);
+            lbl1.Text = newCaram.Substring(2, 1);
+            lbl10.Text = newCaram.Substring(1, 1);
+            lbl100.Text = newCaram.Substring(0, 1);
         }
 
-        
-      public void CalcMoyenne() 
+
+        public void CalcMoyenne() 
         {
             double caroms;
             double Innings = ClsInnings.inningsCount;
             string mMoyenne;
+
 
             caroms = CalcCaram();
 
@@ -145,6 +154,12 @@ namespace peter
 
             mCarom = caroms;
             mMake = CalcMake();
+
+           if(mMake == 0)
+            {
+                lblPercentage.Text = "n.v.t.";
+                return;
+            }
 
             percentage = (mCarom / mMake) * 100;
 
@@ -224,9 +239,54 @@ namespace peter
             lbl10.Text = p1Game[1].Substring(1, 1);
             lbl1.Text = p1Game[1].Substring(2, 1);
 
+            Console.WriteLine($"{ lbl100.Text}{lbl10.Text}{ lbl1.Text}");
             caroms = CalcCaram();
             CalcMoyenne();
         }
+
+
+        private void ScaleFont(Label lbl, int size)
+        {
+            // Only bother if there's text.
+            string txt = lbl.Text;
+            if (txt.Length > 0)
+            {
+                int best_size = size; // 180;
+
+                // See how much room we have, allowing a bit
+                // for the Label's internal margin.
+                int wid = lbl.DisplayRectangle.Width - 3;
+                int hgt = lbl.DisplayRectangle.Height - 3;
+
+                // Make a Graphics object to measure the text.
+                using (Graphics gr = lbl.CreateGraphics())
+                {
+                    for (int i = 1; i <= 100; i++)
+                    {
+                        using (Font test_font =
+                            new Font(lbl.Font.FontFamily, i))
+                        {
+                            // See how much space the text would
+                            // need, specifying a maximum width.
+                            SizeF text_size =
+                                gr.MeasureString(txt, test_font);
+                            if ((text_size.Width > wid) ||
+                                (text_size.Height > hgt))
+                            {
+                                best_size = i - 1;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Use that font size.
+                lbl.TextAlign = ContentAlignment.MiddleCenter;
+                lbl.Font = new Font(lbl.Font.FontFamily, best_size);
+            }
+        }
+
+
     } 
 }
 

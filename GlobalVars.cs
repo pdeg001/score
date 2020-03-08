@@ -78,18 +78,20 @@ namespace peter
 
         public static string GetFontFile()
         {
-         ///   string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-         ///   return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
+            ///   string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            ///   return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
             //return Path.Combine(projectDirectory, @"fonts\", "dsdigi.ttf");
 
-         
+
             if (osLinux)
             {
-                return @"/home/pi/score/fonts/digital-7.ttf";
+                //return @"/home/pi/score/fonts/digital-7.ttf";
+                return @"/home/pi/score/fonts/dig.otf";
             }
             else
             {
-                return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
+                //return Path.Combine(projectDirectory, @"fonts\", "digital-7.ttf");
+                return Path.Combine(projectDirectory, @"fonts\", "dig.otf");
             }
 
         }

@@ -180,7 +180,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\digital-7.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -199,9 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Cursor1.cur" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
