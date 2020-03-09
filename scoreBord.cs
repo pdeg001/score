@@ -37,8 +37,10 @@ namespace peter
         ClsInnings innings = new ClsInnings();
         StoreCurrentScore scs = new StoreCurrentScore();
         GameTime spelDuurTimer = new GameTime();
+        
         Form frmNewGame = new NieuwePartij();
         Form frmEndGame = new EindePartij();
+        Form frmTeamen = new TeamenSelectie();
 
 
         Boolean startNewGame = false;
@@ -234,6 +236,8 @@ namespace peter
 
         private void btn_nieuwe_partij_Click(object sender, EventArgs e)
         {
+            frmTeamen.Show(this);
+            return;
             if (btn_nieuwe_partij.Text == "Nieuwe Partij")
             {
                 frmNewGame.StartPosition = FormStartPosition.Manual;
