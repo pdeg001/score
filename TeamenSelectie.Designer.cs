@@ -50,6 +50,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblDiscipline = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -93,7 +94,7 @@
             this.lblP1NameLocal.UseCompatibleTextRendering = true;
             this.lblP1NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
             this.lblP1NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
-            this.lblP1NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Player_MouseUp);
+            this.lblP1NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblP2NameLocal
             // 
@@ -110,6 +111,7 @@
             this.lblP2NameLocal.UseCompatibleTextRendering = true;
             this.lblP2NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
             this.lblP2NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.lblP2NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblP3NameLocal
             // 
@@ -126,6 +128,7 @@
             this.lblP3NameLocal.UseCompatibleTextRendering = true;
             this.lblP3NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
             this.lblP3NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.lblP3NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblP4NameLocal
             // 
@@ -142,6 +145,7 @@
             this.lblP4NameLocal.UseCompatibleTextRendering = true;
             this.lblP4NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
             this.lblP4NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.lblP4NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblP1NameUit
             // 
@@ -158,6 +162,7 @@
             this.lblP1NameUit.UseCompatibleTextRendering = true;
             this.lblP1NameUit.MouseEnter += new System.EventHandler(this.GenHover);
             this.lblP1NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.lblP1NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblP2NameUit
             // 
@@ -174,6 +179,7 @@
             this.lblP2NameUit.UseCompatibleTextRendering = true;
             this.lblP2NameUit.MouseEnter += new System.EventHandler(this.GenHover);
             this.lblP2NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.lblP2NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblP3NameUit
             // 
@@ -190,6 +196,7 @@
             this.lblP3NameUit.UseCompatibleTextRendering = true;
             this.lblP3NameUit.MouseEnter += new System.EventHandler(this.GenHover);
             this.lblP3NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.lblP3NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblP4NameUit
             // 
@@ -206,6 +213,7 @@
             this.lblP4NameUit.UseCompatibleTextRendering = true;
             this.lblP4NameUit.MouseEnter += new System.EventHandler(this.GenHover);
             this.lblP4NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.lblP4NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblClub1Name
             // 
@@ -357,6 +365,20 @@
             this.btn_cancel.Text = "Annuleer";
             this.btn_cancel.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(497, 834);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(448, 164);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Sluit";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // TeamenSelectie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -382,6 +404,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblP1NameLocal);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_continue);
             this.Controls.Add(this.lblDiscipline);
@@ -426,5 +449,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblDiscipline;
         private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button button1;
     }
 }
