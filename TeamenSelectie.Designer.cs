@@ -82,13 +82,13 @@
             // lblP1NameLocal
             // 
             this.lblP1NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP1NameLocal.Font = new System.Drawing.Font("Arial", 58F);
+            this.lblP1NameLocal.Font = new System.Drawing.Font("Arial", 52F);
             this.lblP1NameLocal.ForeColor = System.Drawing.Color.Yellow;
             this.lblP1NameLocal.Location = new System.Drawing.Point(0, 263);
             this.lblP1NameLocal.Name = "lblP1NameLocal";
             this.lblP1NameLocal.Size = new System.Drawing.Size(767, 110);
             this.lblP1NameLocal.TabIndex = 4;
-            this.lblP1NameLocal.Tag = "p1HomeColor";
+            this.lblP1NameLocal.Tag = "p1Make";
             this.lblP1NameLocal.Text = "Peter de Groot";
             this.lblP1NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblP1NameLocal.UseCompatibleTextRendering = true;
@@ -99,7 +99,7 @@
             // lblP2NameLocal
             // 
             this.lblP2NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP2NameLocal.Font = new System.Drawing.Font("Arial", 58F);
+            this.lblP2NameLocal.Font = new System.Drawing.Font("Arial", 52F);
             this.lblP2NameLocal.ForeColor = System.Drawing.Color.Yellow;
             this.lblP2NameLocal.Location = new System.Drawing.Point(0, 380);
             this.lblP2NameLocal.Name = "lblP2NameLocal";
@@ -116,7 +116,7 @@
             // lblP3NameLocal
             // 
             this.lblP3NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP3NameLocal.Font = new System.Drawing.Font("Arial", 58F);
+            this.lblP3NameLocal.Font = new System.Drawing.Font("Arial", 52F);
             this.lblP3NameLocal.ForeColor = System.Drawing.Color.Yellow;
             this.lblP3NameLocal.Location = new System.Drawing.Point(0, 497);
             this.lblP3NameLocal.Name = "lblP3NameLocal";
@@ -133,7 +133,7 @@
             // lblP4NameLocal
             // 
             this.lblP4NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP4NameLocal.Font = new System.Drawing.Font("Arial", 58F);
+            this.lblP4NameLocal.Font = new System.Drawing.Font("Arial", 52F);
             this.lblP4NameLocal.ForeColor = System.Drawing.Color.Yellow;
             this.lblP4NameLocal.Location = new System.Drawing.Point(0, 614);
             this.lblP4NameLocal.Name = "lblP4NameLocal";
@@ -150,7 +150,7 @@
             // lblP1NameUit
             // 
             this.lblP1NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP1NameUit.Font = new System.Drawing.Font("Arial", 58F);
+            this.lblP1NameUit.Font = new System.Drawing.Font("Arial", 52F);
             this.lblP1NameUit.ForeColor = System.Drawing.Color.Yellow;
             this.lblP1NameUit.Location = new System.Drawing.Point(1160, 263);
             this.lblP1NameUit.Name = "lblP1NameUit";
@@ -167,7 +167,7 @@
             // lblP2NameUit
             // 
             this.lblP2NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP2NameUit.Font = new System.Drawing.Font("Arial", 58F);
+            this.lblP2NameUit.Font = new System.Drawing.Font("Arial", 52F);
             this.lblP2NameUit.ForeColor = System.Drawing.Color.Yellow;
             this.lblP2NameUit.Location = new System.Drawing.Point(1160, 380);
             this.lblP2NameUit.Name = "lblP2NameUit";
@@ -184,7 +184,7 @@
             // lblP3NameUit
             // 
             this.lblP3NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP3NameUit.Font = new System.Drawing.Font("Arial", 58F);
+            this.lblP3NameUit.Font = new System.Drawing.Font("Arial", 52F);
             this.lblP3NameUit.ForeColor = System.Drawing.Color.Yellow;
             this.lblP3NameUit.Location = new System.Drawing.Point(1160, 497);
             this.lblP3NameUit.Name = "lblP3NameUit";
@@ -201,7 +201,7 @@
             // lblP4NameUit
             // 
             this.lblP4NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP4NameUit.Font = new System.Drawing.Font("Arial", 58F);
+            this.lblP4NameUit.Font = new System.Drawing.Font("Arial", 52F);
             this.lblP4NameUit.ForeColor = System.Drawing.Color.Yellow;
             this.lblP4NameUit.Location = new System.Drawing.Point(1160, 614);
             this.lblP4NameUit.Name = "lblP4NameUit";

@@ -44,14 +44,13 @@ namespace peter
         {
             Label lbl = sender as Label;
 
-           
-
+            Console.WriteLine($"LABELNAME : {lbl.Name}  P1CLICKED.NAME : {p1Clicked.Name}");
+            Console.WriteLine($"LABELNAME : {lbl.Name}  P2CLICKED.NAME : {p2Clicked.Name}");
             if (lbl.Name == p1Clicked.Name || lbl.Name == p2Clicked.Name)
                 return;
 
             lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF");
             lbl.ForeColor = System.Drawing.Color.Yellow;
-
         }
 
         private void RestoreHover(object sender, EventArgs e)
@@ -101,25 +100,42 @@ namespace peter
                 if (lbl.Name != p1Clicked.Name)
                 {
                     lbl.BackColor = Color.Green;
-                    p1Clicked = lbl;
+                    p1Clicked.Name = lbl.Name;
+                    GetPlayerMake(lbl.Tag.ToString());
                 } else
                 {
                     lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-                    p1Clicked.Name = "";
+                    p1Clicked.Name = "name";
                 }
             }
 
             if (lbl.Name.IndexOf("Uit") > -1)
             {
                 RestoreLabelColorUit();
-                lbl.BackColor = Color.Green;
-                p2Clicked = lbl;
+                if (lbl.Name != p2Clicked.Name)
+                {
+                    lbl.BackColor = Color.Green;
+                    p2Clicked.Name = lbl.Name;
+                } else
+                {
+                    lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+                    p2Clicked.Name = "name";
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void GetPlayerMake(string lblMake)
+        {
+           Label lblx = new Label();
+            var lbl = Controls.Find(lblMake, true);
+            //  var label = new Label[] lblMake;
+            lblx = lbl;
+            Console.WriteLine($"PLAYER MAKE = {lbl}");
         }
     }
 }
