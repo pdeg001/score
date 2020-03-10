@@ -239,7 +239,6 @@ namespace peter
             lbl10.Text = p1Game[1].Substring(1, 1);
             lbl1.Text = p1Game[1].Substring(2, 1);
 
-            Console.WriteLine($"{ lbl100.Text}{lbl10.Text}{ lbl1.Text}");
             caroms = CalcCaram();
             CalcMoyenne();
         }

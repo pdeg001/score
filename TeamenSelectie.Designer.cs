@@ -40,14 +40,14 @@
             this.lblP4NameUit = new System.Windows.Forms.Label();
             this.lblClub1Name = new System.Windows.Forms.Label();
             this.lblClub2Name = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.p1HomeMake = new System.Windows.Forms.Label();
+            this.p2HomeMake = new System.Windows.Forms.Label();
+            this.p3HomeMake = new System.Windows.Forms.Label();
+            this.p4HomeMake = new System.Windows.Forms.Label();
+            this.p1VisitMake = new System.Windows.Forms.Label();
+            this.p2VisitMake = new System.Windows.Forms.Label();
+            this.p3VisitMake = new System.Windows.Forms.Label();
+            this.p4VisitMake = new System.Windows.Forms.Label();
             this.lblDiscipline = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -88,7 +88,7 @@
             this.lblP1NameLocal.Name = "lblP1NameLocal";
             this.lblP1NameLocal.Size = new System.Drawing.Size(767, 110);
             this.lblP1NameLocal.TabIndex = 4;
-            this.lblP1NameLocal.Tag = "p1Make";
+            this.lblP1NameLocal.Tag = "p1HomeMake";
             this.lblP1NameLocal.Text = "Peter de Groot";
             this.lblP1NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblP1NameLocal.UseCompatibleTextRendering = true;
@@ -105,7 +105,7 @@
             this.lblP2NameLocal.Name = "lblP2NameLocal";
             this.lblP2NameLocal.Size = new System.Drawing.Size(767, 110);
             this.lblP2NameLocal.TabIndex = 4;
-            this.lblP2NameLocal.Tag = "p2HomeColor";
+            this.lblP2NameLocal.Tag = "p2HomeMake";
             this.lblP2NameLocal.Text = "Piet Oudeman";
             this.lblP2NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblP2NameLocal.UseCompatibleTextRendering = true;
@@ -122,7 +122,7 @@
             this.lblP3NameLocal.Name = "lblP3NameLocal";
             this.lblP3NameLocal.Size = new System.Drawing.Size(767, 110);
             this.lblP3NameLocal.TabIndex = 4;
-            this.lblP3NameLocal.Tag = "p3HomeColor";
+            this.lblP3NameLocal.Tag = "p3HomeMake";
             this.lblP3NameLocal.Text = "Speler 3";
             this.lblP3NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblP3NameLocal.UseCompatibleTextRendering = true;
@@ -139,7 +139,7 @@
             this.lblP4NameLocal.Name = "lblP4NameLocal";
             this.lblP4NameLocal.Size = new System.Drawing.Size(767, 110);
             this.lblP4NameLocal.TabIndex = 4;
-            this.lblP4NameLocal.Tag = "p4HomeColor";
+            this.lblP4NameLocal.Tag = "p4HomeMake";
             this.lblP4NameLocal.Text = "Speler 4";
             this.lblP4NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblP4NameLocal.UseCompatibleTextRendering = true;
@@ -156,7 +156,7 @@
             this.lblP1NameUit.Name = "lblP1NameUit";
             this.lblP1NameUit.Size = new System.Drawing.Size(759, 110);
             this.lblP1NameUit.TabIndex = 4;
-            this.lblP1NameUit.Tag = "p1VisitColor";
+            this.lblP1NameUit.Tag = "p1VisitMake";
             this.lblP1NameUit.Text = "Speler 1";
             this.lblP1NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblP1NameUit.UseCompatibleTextRendering = true;
@@ -173,7 +173,7 @@
             this.lblP2NameUit.Name = "lblP2NameUit";
             this.lblP2NameUit.Size = new System.Drawing.Size(759, 110);
             this.lblP2NameUit.TabIndex = 4;
-            this.lblP2NameUit.Tag = "p2VisitColor";
+            this.lblP2NameUit.Tag = "p2VisitMake";
             this.lblP2NameUit.Text = "Speler 2";
             this.lblP2NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblP2NameUit.UseCompatibleTextRendering = true;
@@ -190,7 +190,7 @@
             this.lblP3NameUit.Name = "lblP3NameUit";
             this.lblP3NameUit.Size = new System.Drawing.Size(759, 110);
             this.lblP3NameUit.TabIndex = 4;
-            this.lblP3NameUit.Tag = "p3VisitColor";
+            this.lblP3NameUit.Tag = "p3VisitMake";
             this.lblP3NameUit.Text = "Speler 3";
             this.lblP3NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblP3NameUit.UseCompatibleTextRendering = true;
@@ -207,7 +207,7 @@
             this.lblP4NameUit.Name = "lblP4NameUit";
             this.lblP4NameUit.Size = new System.Drawing.Size(759, 110);
             this.lblP4NameUit.TabIndex = 4;
-            this.lblP4NameUit.Tag = "p4VisitColor";
+            this.lblP4NameUit.Tag = "p4VisitMake";
             this.lblP4NameUit.Text = "S. v Duivenvoorde";
             this.lblP4NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblP4NameUit.UseCompatibleTextRendering = true;
@@ -239,106 +239,124 @@
             this.lblClub2Name.Text = "3BV de Parelhof";
             this.lblClub2Name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // p1HomeMake
             // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 64F);
-            this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(773, 263);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(186, 110);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "39";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.UseCompatibleTextRendering = true;
+            this.p1HomeMake.BackColor = System.Drawing.Color.Blue;
+            this.p1HomeMake.Font = new System.Drawing.Font("Arial", 64F);
+            this.p1HomeMake.ForeColor = System.Drawing.Color.Yellow;
+            this.p1HomeMake.Location = new System.Drawing.Point(773, 263);
+            this.p1HomeMake.Name = "p1HomeMake";
+            this.p1HomeMake.Size = new System.Drawing.Size(186, 110);
+            this.p1HomeMake.TabIndex = 4;
+            this.p1HomeMake.Text = "39";
+            this.p1HomeMake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p1HomeMake.UseCompatibleTextRendering = true;
+            this.p1HomeMake.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.p1HomeMake.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
+            this.p1HomeMake.MouseUp += new System.Windows.Forms.MouseEventHandler(this.GenHoverPlayerMake);
             // 
-            // label3
+            // p2HomeMake
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label3.Font = new System.Drawing.Font("Arial", 64F);
-            this.label3.ForeColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(773, 380);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 110);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "26";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.UseCompatibleTextRendering = true;
+            this.p2HomeMake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.p2HomeMake.Font = new System.Drawing.Font("Arial", 64F);
+            this.p2HomeMake.ForeColor = System.Drawing.Color.Yellow;
+            this.p2HomeMake.Location = new System.Drawing.Point(773, 380);
+            this.p2HomeMake.Name = "p2HomeMake";
+            this.p2HomeMake.Size = new System.Drawing.Size(186, 110);
+            this.p2HomeMake.TabIndex = 4;
+            this.p2HomeMake.Text = "26";
+            this.p2HomeMake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p2HomeMake.UseCompatibleTextRendering = true;
+            this.p2HomeMake.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.p2HomeMake.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
-            // label4
+            // p3HomeMake
             // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label4.Font = new System.Drawing.Font("Arial", 64F);
-            this.label4.ForeColor = System.Drawing.Color.Yellow;
-            this.label4.Location = new System.Drawing.Point(773, 497);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(186, 110);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "44";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.UseCompatibleTextRendering = true;
+            this.p3HomeMake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.p3HomeMake.Font = new System.Drawing.Font("Arial", 64F);
+            this.p3HomeMake.ForeColor = System.Drawing.Color.Yellow;
+            this.p3HomeMake.Location = new System.Drawing.Point(773, 497);
+            this.p3HomeMake.Name = "p3HomeMake";
+            this.p3HomeMake.Size = new System.Drawing.Size(186, 110);
+            this.p3HomeMake.TabIndex = 4;
+            this.p3HomeMake.Text = "44";
+            this.p3HomeMake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p3HomeMake.UseCompatibleTextRendering = true;
+            this.p3HomeMake.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.p3HomeMake.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
-            // label5
+            // p4HomeMake
             // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label5.Font = new System.Drawing.Font("Arial", 64F);
-            this.label5.ForeColor = System.Drawing.Color.Yellow;
-            this.label5.Location = new System.Drawing.Point(773, 614);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(184, 110);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "29";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.UseCompatibleTextRendering = true;
+            this.p4HomeMake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.p4HomeMake.Font = new System.Drawing.Font("Arial", 64F);
+            this.p4HomeMake.ForeColor = System.Drawing.Color.Yellow;
+            this.p4HomeMake.Location = new System.Drawing.Point(775, 614);
+            this.p4HomeMake.Name = "p4HomeMake";
+            this.p4HomeMake.Size = new System.Drawing.Size(184, 110);
+            this.p4HomeMake.TabIndex = 4;
+            this.p4HomeMake.Text = "29";
+            this.p4HomeMake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4HomeMake.UseCompatibleTextRendering = true;
+            this.p4HomeMake.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.p4HomeMake.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
-            // label6
+            // p1VisitMake
             // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label6.Font = new System.Drawing.Font("Arial", 64F);
-            this.label6.ForeColor = System.Drawing.Color.Yellow;
-            this.label6.Location = new System.Drawing.Point(970, 263);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(184, 110);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "39";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p1VisitMake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.p1VisitMake.Font = new System.Drawing.Font("Arial", 64F);
+            this.p1VisitMake.ForeColor = System.Drawing.Color.Yellow;
+            this.p1VisitMake.Location = new System.Drawing.Point(970, 263);
+            this.p1VisitMake.Name = "p1VisitMake";
+            this.p1VisitMake.Size = new System.Drawing.Size(184, 110);
+            this.p1VisitMake.TabIndex = 4;
+            this.p1VisitMake.Text = "39";
+            this.p1VisitMake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p1VisitMake.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.p1VisitMake.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
-            // label7
+            // p2VisitMake
             // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label7.Font = new System.Drawing.Font("Arial", 64F);
-            this.label7.ForeColor = System.Drawing.Color.Yellow;
-            this.label7.Location = new System.Drawing.Point(970, 380);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(184, 110);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "26";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p2VisitMake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.p2VisitMake.Font = new System.Drawing.Font("Arial", 64F);
+            this.p2VisitMake.ForeColor = System.Drawing.Color.Yellow;
+            this.p2VisitMake.Location = new System.Drawing.Point(970, 380);
+            this.p2VisitMake.Name = "p2VisitMake";
+            this.p2VisitMake.Size = new System.Drawing.Size(184, 110);
+            this.p2VisitMake.TabIndex = 4;
+            this.p2VisitMake.Text = "26";
+            this.p2VisitMake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p2VisitMake.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.p2VisitMake.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
-            // label8
+            // p3VisitMake
             // 
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label8.Font = new System.Drawing.Font("Arial", 64F);
-            this.label8.ForeColor = System.Drawing.Color.Yellow;
-            this.label8.Location = new System.Drawing.Point(970, 497);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(184, 110);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "44";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p3VisitMake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.p3VisitMake.Font = new System.Drawing.Font("Arial", 64F);
+            this.p3VisitMake.ForeColor = System.Drawing.Color.Yellow;
+            this.p3VisitMake.Location = new System.Drawing.Point(970, 497);
+            this.p3VisitMake.Name = "p3VisitMake";
+            this.p3VisitMake.Size = new System.Drawing.Size(184, 110);
+            this.p3VisitMake.TabIndex = 4;
+            this.p3VisitMake.Text = "44";
+            this.p3VisitMake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p3VisitMake.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.p3VisitMake.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
-            // label9
+            // p4VisitMake
             // 
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.label9.Font = new System.Drawing.Font("Arial", 64F);
-            this.label9.ForeColor = System.Drawing.Color.Yellow;
-            this.label9.Location = new System.Drawing.Point(970, 614);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(184, 110);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "291";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label9.UseCompatibleTextRendering = true;
+            this.p4VisitMake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.p4VisitMake.Font = new System.Drawing.Font("Arial", 64F);
+            this.p4VisitMake.ForeColor = System.Drawing.Color.Yellow;
+            this.p4VisitMake.Location = new System.Drawing.Point(970, 614);
+            this.p4VisitMake.Name = "p4VisitMake";
+            this.p4VisitMake.Size = new System.Drawing.Size(184, 110);
+            this.p4VisitMake.TabIndex = 4;
+            this.p4VisitMake.Tag = "";
+            this.p4VisitMake.Text = "291";
+            this.p4VisitMake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.p4VisitMake.UseCompatibleTextRendering = true;
+            this.p4VisitMake.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.p4VisitMake.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // lblDiscipline
             // 
@@ -395,14 +413,14 @@
             this.Controls.Add(this.lblP1NameUit);
             this.Controls.Add(this.lblClub2Name);
             this.Controls.Add(this.lblClub1Name);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.p4VisitMake);
+            this.Controls.Add(this.p4HomeMake);
+            this.Controls.Add(this.p3VisitMake);
+            this.Controls.Add(this.p3HomeMake);
+            this.Controls.Add(this.p2VisitMake);
+            this.Controls.Add(this.p1VisitMake);
+            this.Controls.Add(this.p2HomeMake);
+            this.Controls.Add(this.p1HomeMake);
             this.Controls.Add(this.lblP1NameLocal);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_cancel);
@@ -439,14 +457,14 @@
         private System.Windows.Forms.Label lblP4NameUit;
         private System.Windows.Forms.Label lblClub1Name;
         private System.Windows.Forms.Label lblClub2Name;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label p1HomeMake;
+        private System.Windows.Forms.Label p2HomeMake;
+        private System.Windows.Forms.Label p3HomeMake;
+        private System.Windows.Forms.Label p4HomeMake;
+        private System.Windows.Forms.Label p1VisitMake;
+        private System.Windows.Forms.Label p2VisitMake;
+        private System.Windows.Forms.Label p3VisitMake;
+        private System.Windows.Forms.Label p4VisitMake;
         private System.Windows.Forms.Label lblDiscipline;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button button1;

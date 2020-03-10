@@ -126,6 +126,18 @@ namespace peter
             }
         }
 
+        public static Image GetImgStartFlag()
+        {
+            CheckOsLinux();
+            if (osLinux)
+            {
+                return Image.FromFile(@"/home/pi/score/images/startflag.png");
+            }
+            else
+            {
+                return Image.FromFile(Path.Combine(projectDirectory, @"images\", "startflag.png"));
+            }
+        }
 
         public static Image GetPromoLogo()
         {
