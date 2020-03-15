@@ -11,9 +11,6 @@ namespace peter
 
     class ClsBord
     {
-        
-
-
         public Label lbl1;
         public Label lblMake1;
         public Label lbl10;

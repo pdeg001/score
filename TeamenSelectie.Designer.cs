@@ -30,14 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btn_continue = new System.Windows.Forms.Button();
-            this.lblP1NameLocal = new System.Windows.Forms.Label();
-            this.lblP2NameLocal = new System.Windows.Forms.Label();
-            this.lblP3NameLocal = new System.Windows.Forms.Label();
-            this.lblP4NameLocal = new System.Windows.Forms.Label();
-            this.lblP1NameUit = new System.Windows.Forms.Label();
-            this.lblP2NameUit = new System.Windows.Forms.Label();
-            this.lblP3NameUit = new System.Windows.Forms.Label();
-            this.lblP4NameUit = new System.Windows.Forms.Label();
+            this.P1NameLocal = new System.Windows.Forms.Label();
+            this.P2NameLocal = new System.Windows.Forms.Label();
+            this.P3NameLocal = new System.Windows.Forms.Label();
+            this.P4NameLocal = new System.Windows.Forms.Label();
+            this.P1NameUit = new System.Windows.Forms.Label();
+            this.P2NameUit = new System.Windows.Forms.Label();
+            this.P3NameUit = new System.Windows.Forms.Label();
+            this.P4NameUit = new System.Windows.Forms.Label();
             this.lblClub1Name = new System.Windows.Forms.Label();
             this.lblClub2Name = new System.Windows.Forms.Label();
             this.p1HomeMake = new System.Windows.Forms.Label();
@@ -79,141 +79,141 @@
             this.btn_continue.UseVisualStyleBackColor = false;
             this.btn_continue.Click += new System.EventHandler(this.btn_continue_Click);
             // 
-            // lblP1NameLocal
+            // P1NameLocal
             // 
-            this.lblP1NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP1NameLocal.Font = new System.Drawing.Font("Arial", 52F);
-            this.lblP1NameLocal.ForeColor = System.Drawing.Color.Yellow;
-            this.lblP1NameLocal.Location = new System.Drawing.Point(0, 263);
-            this.lblP1NameLocal.Name = "lblP1NameLocal";
-            this.lblP1NameLocal.Size = new System.Drawing.Size(767, 110);
-            this.lblP1NameLocal.TabIndex = 4;
-            this.lblP1NameLocal.Tag = "p1HomeMake";
-            this.lblP1NameLocal.Text = "Peter de Groot";
-            this.lblP1NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblP1NameLocal.UseCompatibleTextRendering = true;
-            this.lblP1NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
-            this.lblP1NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
-            this.lblP1NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
+            this.P1NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.P1NameLocal.Font = new System.Drawing.Font("Arial", 52F);
+            this.P1NameLocal.ForeColor = System.Drawing.Color.Yellow;
+            this.P1NameLocal.Location = new System.Drawing.Point(0, 263);
+            this.P1NameLocal.Name = "P1NameLocal";
+            this.P1NameLocal.Size = new System.Drawing.Size(767, 110);
+            this.P1NameLocal.TabIndex = 4;
+            this.P1NameLocal.Tag = "p1HomeMake";
+            this.P1NameLocal.Text = "Peter de Groot";
+            this.P1NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P1NameLocal.UseCompatibleTextRendering = true;
+            this.P1NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P1NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P1NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
-            // lblP2NameLocal
+            // P2NameLocal
             // 
-            this.lblP2NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP2NameLocal.Font = new System.Drawing.Font("Arial", 52F);
-            this.lblP2NameLocal.ForeColor = System.Drawing.Color.Yellow;
-            this.lblP2NameLocal.Location = new System.Drawing.Point(0, 380);
-            this.lblP2NameLocal.Name = "lblP2NameLocal";
-            this.lblP2NameLocal.Size = new System.Drawing.Size(767, 110);
-            this.lblP2NameLocal.TabIndex = 4;
-            this.lblP2NameLocal.Tag = "p2HomeMake";
-            this.lblP2NameLocal.Text = "Piet Oudeman";
-            this.lblP2NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblP2NameLocal.UseCompatibleTextRendering = true;
-            this.lblP2NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
-            this.lblP2NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
-            this.lblP2NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
+            this.P2NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.P2NameLocal.Font = new System.Drawing.Font("Arial", 52F);
+            this.P2NameLocal.ForeColor = System.Drawing.Color.Yellow;
+            this.P2NameLocal.Location = new System.Drawing.Point(0, 380);
+            this.P2NameLocal.Name = "P2NameLocal";
+            this.P2NameLocal.Size = new System.Drawing.Size(767, 110);
+            this.P2NameLocal.TabIndex = 4;
+            this.P2NameLocal.Tag = "p2HomeMake";
+            this.P2NameLocal.Text = "Piet Oudeman";
+            this.P2NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P2NameLocal.UseCompatibleTextRendering = true;
+            this.P2NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P2NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P2NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
-            // lblP3NameLocal
+            // P3NameLocal
             // 
-            this.lblP3NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP3NameLocal.Font = new System.Drawing.Font("Arial", 52F);
-            this.lblP3NameLocal.ForeColor = System.Drawing.Color.Yellow;
-            this.lblP3NameLocal.Location = new System.Drawing.Point(0, 497);
-            this.lblP3NameLocal.Name = "lblP3NameLocal";
-            this.lblP3NameLocal.Size = new System.Drawing.Size(767, 110);
-            this.lblP3NameLocal.TabIndex = 4;
-            this.lblP3NameLocal.Tag = "p3HomeMake";
-            this.lblP3NameLocal.Text = "Speler 3";
-            this.lblP3NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblP3NameLocal.UseCompatibleTextRendering = true;
-            this.lblP3NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
-            this.lblP3NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
-            this.lblP3NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
+            this.P3NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.P3NameLocal.Font = new System.Drawing.Font("Arial", 52F);
+            this.P3NameLocal.ForeColor = System.Drawing.Color.Yellow;
+            this.P3NameLocal.Location = new System.Drawing.Point(0, 497);
+            this.P3NameLocal.Name = "P3NameLocal";
+            this.P3NameLocal.Size = new System.Drawing.Size(767, 110);
+            this.P3NameLocal.TabIndex = 4;
+            this.P3NameLocal.Tag = "p3HomeMake";
+            this.P3NameLocal.Text = "Speler 3";
+            this.P3NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P3NameLocal.UseCompatibleTextRendering = true;
+            this.P3NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P3NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P3NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
-            // lblP4NameLocal
+            // P4NameLocal
             // 
-            this.lblP4NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP4NameLocal.Font = new System.Drawing.Font("Arial", 52F);
-            this.lblP4NameLocal.ForeColor = System.Drawing.Color.Yellow;
-            this.lblP4NameLocal.Location = new System.Drawing.Point(0, 614);
-            this.lblP4NameLocal.Name = "lblP4NameLocal";
-            this.lblP4NameLocal.Size = new System.Drawing.Size(767, 110);
-            this.lblP4NameLocal.TabIndex = 4;
-            this.lblP4NameLocal.Tag = "p4HomeMake";
-            this.lblP4NameLocal.Text = "Speler 4";
-            this.lblP4NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblP4NameLocal.UseCompatibleTextRendering = true;
-            this.lblP4NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
-            this.lblP4NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
-            this.lblP4NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
+            this.P4NameLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.P4NameLocal.Font = new System.Drawing.Font("Arial", 52F);
+            this.P4NameLocal.ForeColor = System.Drawing.Color.Yellow;
+            this.P4NameLocal.Location = new System.Drawing.Point(0, 614);
+            this.P4NameLocal.Name = "P4NameLocal";
+            this.P4NameLocal.Size = new System.Drawing.Size(767, 110);
+            this.P4NameLocal.TabIndex = 4;
+            this.P4NameLocal.Tag = "p4HomeMake";
+            this.P4NameLocal.Text = "Speler 4";
+            this.P4NameLocal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P4NameLocal.UseCompatibleTextRendering = true;
+            this.P4NameLocal.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P4NameLocal.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P4NameLocal.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
-            // lblP1NameUit
+            // P1NameUit
             // 
-            this.lblP1NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP1NameUit.Font = new System.Drawing.Font("Arial", 52F);
-            this.lblP1NameUit.ForeColor = System.Drawing.Color.Yellow;
-            this.lblP1NameUit.Location = new System.Drawing.Point(1160, 263);
-            this.lblP1NameUit.Name = "lblP1NameUit";
-            this.lblP1NameUit.Size = new System.Drawing.Size(759, 110);
-            this.lblP1NameUit.TabIndex = 4;
-            this.lblP1NameUit.Tag = "p1VisitMake";
-            this.lblP1NameUit.Text = "Speler 1";
-            this.lblP1NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblP1NameUit.UseCompatibleTextRendering = true;
-            this.lblP1NameUit.MouseEnter += new System.EventHandler(this.GenHover);
-            this.lblP1NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
-            this.lblP1NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
+            this.P1NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.P1NameUit.Font = new System.Drawing.Font("Arial", 52F);
+            this.P1NameUit.ForeColor = System.Drawing.Color.Yellow;
+            this.P1NameUit.Location = new System.Drawing.Point(1160, 263);
+            this.P1NameUit.Name = "P1NameUit";
+            this.P1NameUit.Size = new System.Drawing.Size(759, 110);
+            this.P1NameUit.TabIndex = 4;
+            this.P1NameUit.Tag = "p1VisitMake";
+            this.P1NameUit.Text = "Speler 1";
+            this.P1NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P1NameUit.UseCompatibleTextRendering = true;
+            this.P1NameUit.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P1NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P1NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
-            // lblP2NameUit
+            // P2NameUit
             // 
-            this.lblP2NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP2NameUit.Font = new System.Drawing.Font("Arial", 52F);
-            this.lblP2NameUit.ForeColor = System.Drawing.Color.Yellow;
-            this.lblP2NameUit.Location = new System.Drawing.Point(1160, 380);
-            this.lblP2NameUit.Name = "lblP2NameUit";
-            this.lblP2NameUit.Size = new System.Drawing.Size(759, 110);
-            this.lblP2NameUit.TabIndex = 4;
-            this.lblP2NameUit.Tag = "p2VisitMake";
-            this.lblP2NameUit.Text = "Speler 2";
-            this.lblP2NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblP2NameUit.UseCompatibleTextRendering = true;
-            this.lblP2NameUit.MouseEnter += new System.EventHandler(this.GenHover);
-            this.lblP2NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
-            this.lblP2NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
+            this.P2NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.P2NameUit.Font = new System.Drawing.Font("Arial", 52F);
+            this.P2NameUit.ForeColor = System.Drawing.Color.Yellow;
+            this.P2NameUit.Location = new System.Drawing.Point(1160, 380);
+            this.P2NameUit.Name = "P2NameUit";
+            this.P2NameUit.Size = new System.Drawing.Size(759, 110);
+            this.P2NameUit.TabIndex = 4;
+            this.P2NameUit.Tag = "p2VisitMake";
+            this.P2NameUit.Text = "Speler 2";
+            this.P2NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P2NameUit.UseCompatibleTextRendering = true;
+            this.P2NameUit.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P2NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P2NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
-            // lblP3NameUit
+            // P3NameUit
             // 
-            this.lblP3NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP3NameUit.Font = new System.Drawing.Font("Arial", 52F);
-            this.lblP3NameUit.ForeColor = System.Drawing.Color.Yellow;
-            this.lblP3NameUit.Location = new System.Drawing.Point(1160, 497);
-            this.lblP3NameUit.Name = "lblP3NameUit";
-            this.lblP3NameUit.Size = new System.Drawing.Size(759, 110);
-            this.lblP3NameUit.TabIndex = 4;
-            this.lblP3NameUit.Tag = "p3VisitMake";
-            this.lblP3NameUit.Text = "Speler 3";
-            this.lblP3NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblP3NameUit.UseCompatibleTextRendering = true;
-            this.lblP3NameUit.MouseEnter += new System.EventHandler(this.GenHover);
-            this.lblP3NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
-            this.lblP3NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
+            this.P3NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.P3NameUit.Font = new System.Drawing.Font("Arial", 52F);
+            this.P3NameUit.ForeColor = System.Drawing.Color.Yellow;
+            this.P3NameUit.Location = new System.Drawing.Point(1160, 497);
+            this.P3NameUit.Name = "P3NameUit";
+            this.P3NameUit.Size = new System.Drawing.Size(759, 110);
+            this.P3NameUit.TabIndex = 4;
+            this.P3NameUit.Tag = "p3VisitMake";
+            this.P3NameUit.Text = "Speler 3";
+            this.P3NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P3NameUit.UseCompatibleTextRendering = true;
+            this.P3NameUit.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P3NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P3NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
-            // lblP4NameUit
+            // P4NameUit
             // 
-            this.lblP4NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
-            this.lblP4NameUit.Font = new System.Drawing.Font("Arial", 52F);
-            this.lblP4NameUit.ForeColor = System.Drawing.Color.Yellow;
-            this.lblP4NameUit.Location = new System.Drawing.Point(1160, 614);
-            this.lblP4NameUit.Name = "lblP4NameUit";
-            this.lblP4NameUit.Size = new System.Drawing.Size(759, 110);
-            this.lblP4NameUit.TabIndex = 4;
-            this.lblP4NameUit.Tag = "p4VisitMake";
-            this.lblP4NameUit.Text = "S. v Duivenvoorde";
-            this.lblP4NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblP4NameUit.UseCompatibleTextRendering = true;
-            this.lblP4NameUit.MouseEnter += new System.EventHandler(this.GenHover);
-            this.lblP4NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
-            this.lblP4NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
+            this.P4NameUit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.P4NameUit.Font = new System.Drawing.Font("Arial", 52F);
+            this.P4NameUit.ForeColor = System.Drawing.Color.Yellow;
+            this.P4NameUit.Location = new System.Drawing.Point(1160, 614);
+            this.P4NameUit.Name = "P4NameUit";
+            this.P4NameUit.Size = new System.Drawing.Size(759, 110);
+            this.P4NameUit.TabIndex = 4;
+            this.P4NameUit.Tag = "p4VisitMake";
+            this.P4NameUit.Text = "S. v Duivenvoorde";
+            this.P4NameUit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P4NameUit.UseCompatibleTextRendering = true;
+            this.P4NameUit.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P4NameUit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P4NameUit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblClub1Name
             // 
@@ -325,8 +325,6 @@
             this.p2VisitMake.TabIndex = 4;
             this.p2VisitMake.Text = "26";
             this.p2VisitMake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.p2VisitMake.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
-            this.p2VisitMake.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // p3VisitMake
             // 
@@ -404,13 +402,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
-            this.Controls.Add(this.lblP4NameUit);
-            this.Controls.Add(this.lblP4NameLocal);
-            this.Controls.Add(this.lblP3NameUit);
-            this.Controls.Add(this.lblP3NameLocal);
-            this.Controls.Add(this.lblP2NameUit);
-            this.Controls.Add(this.lblP2NameLocal);
-            this.Controls.Add(this.lblP1NameUit);
+            this.Controls.Add(this.P4NameUit);
+            this.Controls.Add(this.P4NameLocal);
+            this.Controls.Add(this.P3NameUit);
+            this.Controls.Add(this.P3NameLocal);
+            this.Controls.Add(this.P2NameUit);
+            this.Controls.Add(this.P2NameLocal);
+            this.Controls.Add(this.P1NameUit);
             this.Controls.Add(this.lblClub2Name);
             this.Controls.Add(this.lblClub1Name);
             this.Controls.Add(this.p4VisitMake);
@@ -421,7 +419,7 @@
             this.Controls.Add(this.p1VisitMake);
             this.Controls.Add(this.p2HomeMake);
             this.Controls.Add(this.p1HomeMake);
-            this.Controls.Add(this.lblP1NameLocal);
+            this.Controls.Add(this.P1NameLocal);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_continue);
@@ -447,14 +445,14 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_continue;
-        private System.Windows.Forms.Label lblP1NameLocal;
-        private System.Windows.Forms.Label lblP2NameLocal;
-        private System.Windows.Forms.Label lblP3NameLocal;
-        private System.Windows.Forms.Label lblP4NameLocal;
-        private System.Windows.Forms.Label lblP1NameUit;
-        private System.Windows.Forms.Label lblP2NameUit;
-        private System.Windows.Forms.Label lblP3NameUit;
-        private System.Windows.Forms.Label lblP4NameUit;
+        private System.Windows.Forms.Label P1NameLocal;
+        private System.Windows.Forms.Label P2NameLocal;
+        private System.Windows.Forms.Label P3NameLocal;
+        private System.Windows.Forms.Label P4NameLocal;
+        private System.Windows.Forms.Label P1NameUit;
+        private System.Windows.Forms.Label P2NameUit;
+        private System.Windows.Forms.Label P3NameUit;
+        private System.Windows.Forms.Label P4NameUit;
         private System.Windows.Forms.Label lblClub1Name;
         private System.Windows.Forms.Label lblClub2Name;
         private System.Windows.Forms.Label p1HomeMake;

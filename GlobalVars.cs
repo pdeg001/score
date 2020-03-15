@@ -23,7 +23,7 @@ namespace peter
         public static int carom;
         //public static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
         public static Boolean autoInnings;
-        
+        public static string teamenStartingPlayer;
 
     }
 

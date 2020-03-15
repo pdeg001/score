@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace peter
 {
     public partial class TeamenSelectie : Form
     {
-        
+
         Label p1Clicked = new Label();
         Label p2Clicked = new Label();
         Label p1Make = new Label();
@@ -20,21 +15,23 @@ namespace peter
 
         Image img = Functions.GetImgStartFlag();
 
-        string p1PlayerName, p1PlayerMake;
-        string p2PlayerName, p2PlayerMake;
-        string playerStartsGame = "";
+        TeamSelection clsTeamSelectHome = new TeamSelection();
+        TeamSelection clsTeamSelectVisit = new TeamSelection();
+
+        string p1PlayerName = "";
+        string p1PlayerMake = "";
+        string p2PlayerName = "";
+        string p2PlayerMake = "";
+        string playerStartsGame = "null";
 
 
 
         scorebord f1 = (scorebord)Application.OpenForms["scorebord"];
 
+
         public TeamenSelectie()
         {
             InitializeComponent();
-            p1Clicked.Name = "";
-            p2Clicked.Name = "";
-           
-
         }
 
         private void TeamenSelectie_Load(object sender, EventArgs e)
@@ -55,36 +52,30 @@ namespace peter
 
         private void RestoreHover(object sender, EventArgs e)
         {
-          
-                Label lbl = sender as Label;
 
-                if (lbl.Name == p1Clicked.Name || lbl.Name == p2Clicked.Name)
-                    return;
+            Label lbl = sender as Label;
 
-                lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-                lbl.ForeColor = System.Drawing.Color.Yellow;
-          
+            if (lbl.Name == p1Clicked.Name || lbl.Name == p2Clicked.Name)
+                return;
+
+            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            lbl.ForeColor = System.Drawing.Color.Yellow;
+
 
         }
 
         private void GenHoverPlayerMake(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            if(lbl.Name.IndexOf("Home") > -1)
-            {
-                if (lbl.Name != p1Make.Name)
-                    return;
-            }
 
-            if (lbl.Name.IndexOf("Visit") > -1)
+            if ((lbl.Name.IndexOf("p1") != -1) && p1PlayerName == "")
             {
-                if (lbl.Name != p2Make.Name)
-                    return;
+                Console.WriteLine("PPPPP");
+                return;
             }
 
             lbl.BackColor = Color.Red;
             lbl.ForeColor = Color.White;
-            lbl.Image = img;
         }
 
         private void RestoreHoverPlayerMake(object sender, EventArgs e)
@@ -93,7 +84,6 @@ namespace peter
 
             lbl.BackColor = Color.Blue;
             lbl.ForeColor = Color.Yellow;
-            lbl.Image = null;
         }
 
 
@@ -106,10 +96,10 @@ namespace peter
 
         private void RestoreLabelColorHome()
         {
-            lblP1NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            lblP2NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            lblP3NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            lblP4NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P1NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P2NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P3NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P4NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
         }
 
         private void PlayerMake_MouseUp(object sender, MouseEventArgs e)
@@ -120,16 +110,16 @@ namespace peter
 
         private void RestoreLabelColorUit()
         {
-            lblP1NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            lblP2NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            lblP3NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            lblP4NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P1NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P2NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P3NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P4NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
         }
 
         private void PlayerClicked(object sender, MouseEventArgs e)
         {
             Label lbl = sender as Label;
-           
+
             if (lbl.Name.IndexOf("Local") > -1)
             {
                 RestoreLabelColorHome();
@@ -139,10 +129,12 @@ namespace peter
                     p1Clicked.Name = lbl.Name;
                     p1PlayerMake = GetPlayerMake(lbl.Tag.ToString());
                     p1Make = Controls.Find(lbl.Tag.ToString(), true).FirstOrDefault() as Label;
-                } else
+                }
+                else
                 {
                     lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
                     p1Clicked.Name = "name";
+                    p1PlayerName = "";
                     p1Make = new Label();
                 }
             }
@@ -156,10 +148,12 @@ namespace peter
                     p2Clicked.Name = lbl.Name;
                     p2PlayerMake = GetPlayerMake(lbl.Tag.ToString());
                     p2Make = Controls.Find(lbl.Tag.ToString(), true).FirstOrDefault() as Label;
-                } else
+                }
+                else
                 {
                     lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
                     p2Clicked.Name = "name";
+                    p2PlayerName = "";
                     p2Make = new Label();
                 }
             }
@@ -173,7 +167,7 @@ namespace peter
         private string GetPlayerMake(string lblMake)
         {
             Label lblMakeCarom = Controls.Find(lblMake, true).FirstOrDefault() as Label;
-           
+
             return lblMakeCarom.Text;
         }
     }
