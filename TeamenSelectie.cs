@@ -32,12 +32,44 @@ namespace peter
         public TeamenSelectie()
         {
             InitializeComponent();
+            SetTeamSelectionClassLabels();
         }
 
         private void TeamenSelectie_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void SetTeamSelectionClassLabels()
+        {
+            //Home
+            clsTeamSelectHome.p1Name = P1NameHome;
+            clsTeamSelectHome.p2Name = P2NameHome;
+            clsTeamSelectHome.p3Name = P3NameHome;
+            clsTeamSelectHome.p4Name = P4NameHome;
+            clsTeamSelectHome.p1Make = P1MakeHome;
+            clsTeamSelectHome.p2Make = P2MakeHome;
+            clsTeamSelectHome.p3Make = P3MakeHome;
+            clsTeamSelectHome.p4Make = P4MakeHome;
+            clsTeamSelectHome.playerName = TeamSelectionPlayers.P1;
+            clsTeamSelectHome.playerMake = TeamSelectionPlayers.P1Make;
+            //clsTeamSelectHome.playerStarts = TeamSelectionPlayers.PStart;
+            //Visitors
+            clsTeamSelectVisit.p1Name = P1NameVisit;
+            clsTeamSelectVisit.p2Name = P2NameVisit;
+            clsTeamSelectVisit.p3Name = P3NameVisit;
+            clsTeamSelectVisit.p4Name = P4NameVisit;
+            clsTeamSelectVisit.p1Make = P1MakeVisit;
+            clsTeamSelectVisit.p2Make = P2MakeVisit;
+            clsTeamSelectVisit.p3Make = P3MakeVisit;
+            clsTeamSelectVisit.p4Make = P4MakeVisit;
+            clsTeamSelectVisit.playerName = TeamSelectionPlayers.P2;
+            clsTeamSelectVisit.playerMake = TeamSelectionPlayers.P2Make;
+           // clsTeamSelectVisit.playerStarts = TeamSelectionPlayers.PStart;
+            clsTeamSelectHome.EnablePlayerHover();
+            clsTeamSelectVisit.EnablePlayerHover();
+        }
+
 
         private void GenHover(object sender, EventArgs e)
         {
@@ -96,10 +128,10 @@ namespace peter
 
         private void RestoreLabelColorHome()
         {
-            P1NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            P2NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            P3NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            P4NameLocal.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P1NameHome.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P2NameHome.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P3NameHome.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P4NameHome.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
         }
 
         private void PlayerMake_MouseUp(object sender, MouseEventArgs e)
@@ -110,10 +142,10 @@ namespace peter
 
         private void RestoreLabelColorUit()
         {
-            P1NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            P2NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            P3NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-            P4NameUit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P1NameVisit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P2NameVisit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P3NameVisit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            P4NameVisit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
         }
 
         private void PlayerClicked(object sender, MouseEventArgs e)
@@ -129,6 +161,7 @@ namespace peter
                     p1Clicked.Name = lbl.Name;
                     p1PlayerMake = GetPlayerMake(lbl.Tag.ToString());
                     p1Make = Controls.Find(lbl.Tag.ToString(), true).FirstOrDefault() as Label;
+                    
                 }
                 else
                 {

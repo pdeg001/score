@@ -19,18 +19,22 @@ namespace peter
         public Label p3Make;
         public Label p4Make;
 
+        public string playerName;
+        public string playerMake;
+        public string playerStarts;
+       
+
         Label pNameClicked = new Label();
         Label pMake = new Label();
 
         
        
         TeamenSelectie f1 = (TeamenSelectie)Application.OpenForms["teamenselectie"];
-
+        
 
         public void Swap(ref string playerStarts)
         {
-         playerStart = playerStarts;
-          
+            playerStart = playerStarts;
         }
 
         public void EnablePlayerHover()
@@ -69,7 +73,7 @@ namespace peter
         private void GenHover(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            if (pNameClicked.Name == lbl.Name)
+            if (playerName == lbl.Name)
                 return;
 
             lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF");
@@ -79,7 +83,7 @@ namespace peter
         private void RestoreHover(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            if (pNameClicked.Name == lbl.Name)
+            if (playerName == lbl.Name)
                 return;
 
             lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
@@ -90,21 +94,17 @@ namespace peter
         {
             var lbl = sender as Label;
 
-            Console.WriteLine($"PLAYER START : { playerStart}");
-            //if (pNameClicked.Name == "name" || pNameClicked.Tag.ToString()!= lbl.Name)
-            //    return;
-          
-            if (lbl.Name == playerStart)
+            if (lbl.Name != playerMake)
                 return;
+          
             lbl.BackColor = Color.Red;
             lbl.ForeColor = Color.White;
-
         }
 
         private void RestoreHoverMake(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
-            if (lbl.Name == playerStart)
+            if (lbl.Name == playerName)
                 return;
 
             lbl.BackColor = Color.Blue;
@@ -119,46 +119,55 @@ namespace peter
             p4Name.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
         }
 
+        private void RestoreLabelColorMake()
+        {
+            p1Make.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            p2Make.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            p3Make.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+            p4Make.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
+        }
+
         private void PlayerClicked(object sender, MouseEventArgs e)
         {
             Label lbl = sender as Label;
 
-            RestoreLabelColor();
-            if (lbl.Name != pNameClicked.Name)
+            if (lbl.Name != playerName)
             {
+                RestoreLabelColor();
                 lbl.BackColor = Color.Green;
-                pNameClicked = lbl;
-                
-                Console.WriteLine(pNameClicked.Name);
-     
-                
-                Label t = Application.OpenForms["TeamenSelectie"].Controls[lbl.Tag.ToString()] as Label;
+                playerName = lbl.Name;
+                playerMake = lbl.Tag.ToString();
             }
             else
             {
                 lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-                pNameClicked = new Label();
-                pNameClicked.Name = "name";
-                pMake = new Label();
+                playerName = null;
+                playerMake = null;
+               
             }
         }
+
         private void PlayerStartClick(object sender, MouseEventArgs e)
         {
             Label lbl = sender as Label;
 
-            if (pMake.Name == lbl.Name)
+            if (pMake.Name == playerName)
             {
-                pMake = new Label();
-                playerStart = "";
+                playerName = null;
+                RestoreLabelColorMake();
                 return;
             }
 
-            pMake.Name = lbl.Name;
+            // playerName = lbl.Name;
+            RestoreCurrentPlayerStart(TeamSelectionPlayers.PStart);
             lbl.BackColor = Color.Green;
-            playerStart = pMake.Name;
+            TeamSelectionPlayers.PStart = pMake.Name;
+            Console.WriteLine($"PREVIOUS PLAYER START : {TeamSelectionPlayers.PStart}");
+        }
 
-            //   GlobalVars.teamenStartingPlayer = pMake.Name;
-        //    f1.SetPlayerStart("peter");
+        private void RestoreCurrentPlayerStart(string prevStart)
+        {
+            Console.WriteLine($"PREVIOUS PLAYER START : {TeamSelectionPlayers.PStart}");
         }
     }
 }

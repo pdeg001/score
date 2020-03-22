@@ -154,6 +154,7 @@
       <DependentUpon>TeamenSelectie.cs</DependentUpon>
     </Compile>
     <Compile Include="TeamSelection.cs" />
+    <Compile Include="TeamSelectionPlayers.cs" />
     <EmbeddedResource Include="EindePartij.resx">
       <DependentUpon>EindePartij.cs</DependentUpon>
     </EmbeddedResource>
