@@ -16,7 +16,7 @@
         public static string P2 { get => p2; set => p2 = value; }
         public static string P2Make { get => p2Make; set => p2Make = value; }
         public static string PStart { get => pStart; set => pStart = value; }
-
-        
+        public static int P1Carom { get => p1Carom; set => p1Carom = value; }
+        public static int P2Carom { get => p2Carom; set => p2Carom = value; }
     }
 }
