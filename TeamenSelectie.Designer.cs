@@ -54,6 +54,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ImgPlayerStarts = new System.Windows.Forms.PictureBox();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.lblp1name = new System.Windows.Forms.Label();
+            this.lblp1make = new System.Windows.Forms.Label();
+            this.lblp2make = new System.Windows.Forms.Label();
+            this.lblp2name = new System.Windows.Forms.Label();
+            this.lblpstart = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ImgPlayerStarts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,11 +97,12 @@
             this.P1NameHome.ForeColor = System.Drawing.Color.Yellow;
             this.P1NameHome.Location = new System.Drawing.Point(0, 263);
             this.P1NameHome.Name = "P1NameHome";
+            this.P1NameHome.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.P1NameHome.Size = new System.Drawing.Size(767, 110);
             this.P1NameHome.TabIndex = 4;
             this.P1NameHome.Tag = "P1MakeHome";
             this.P1NameHome.Text = "Peter de Groot";
-            this.P1NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P1NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.P1NameHome.UseCompatibleTextRendering = true;
             this.P1NameHome.MouseEnter += new System.EventHandler(this.GenHover);
             this.P1NameHome.MouseLeave += new System.EventHandler(this.RestoreHover);
@@ -109,11 +115,12 @@
             this.P2NameHome.ForeColor = System.Drawing.Color.Yellow;
             this.P2NameHome.Location = new System.Drawing.Point(0, 380);
             this.P2NameHome.Name = "P2NameHome";
+            this.P2NameHome.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.P2NameHome.Size = new System.Drawing.Size(767, 110);
             this.P2NameHome.TabIndex = 4;
             this.P2NameHome.Tag = "P2MakeHome";
             this.P2NameHome.Text = "Piet Oudeman";
-            this.P2NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P2NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.P2NameHome.UseCompatibleTextRendering = true;
             this.P2NameHome.MouseEnter += new System.EventHandler(this.GenHover);
             this.P2NameHome.MouseLeave += new System.EventHandler(this.RestoreHover);
@@ -126,11 +133,12 @@
             this.P3NameHome.ForeColor = System.Drawing.Color.Yellow;
             this.P3NameHome.Location = new System.Drawing.Point(0, 497);
             this.P3NameHome.Name = "P3NameHome";
+            this.P3NameHome.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.P3NameHome.Size = new System.Drawing.Size(767, 110);
             this.P3NameHome.TabIndex = 4;
             this.P3NameHome.Tag = "P3MakeHome";
             this.P3NameHome.Text = "Speler 3";
-            this.P3NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P3NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.P3NameHome.UseCompatibleTextRendering = true;
             this.P3NameHome.MouseEnter += new System.EventHandler(this.GenHover);
             this.P3NameHome.MouseLeave += new System.EventHandler(this.RestoreHover);
@@ -143,11 +151,12 @@
             this.P4NameHome.ForeColor = System.Drawing.Color.Yellow;
             this.P4NameHome.Location = new System.Drawing.Point(0, 614);
             this.P4NameHome.Name = "P4NameHome";
+            this.P4NameHome.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.P4NameHome.Size = new System.Drawing.Size(767, 110);
             this.P4NameHome.TabIndex = 4;
             this.P4NameHome.Tag = "P4MakeHome";
             this.P4NameHome.Text = "Speler 4";
-            this.P4NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P4NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.P4NameHome.UseCompatibleTextRendering = true;
             this.P4NameHome.MouseEnter += new System.EventHandler(this.GenHover);
             this.P4NameHome.MouseLeave += new System.EventHandler(this.RestoreHover);
@@ -160,11 +169,12 @@
             this.P1NameVisit.ForeColor = System.Drawing.Color.Yellow;
             this.P1NameVisit.Location = new System.Drawing.Point(1160, 263);
             this.P1NameVisit.Name = "P1NameVisit";
+            this.P1NameVisit.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.P1NameVisit.Size = new System.Drawing.Size(759, 110);
             this.P1NameVisit.TabIndex = 4;
             this.P1NameVisit.Tag = "P1MakeVisit";
             this.P1NameVisit.Text = "Speler 1";
-            this.P1NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P1NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.P1NameVisit.UseCompatibleTextRendering = true;
             this.P1NameVisit.MouseEnter += new System.EventHandler(this.GenHover);
             this.P1NameVisit.MouseLeave += new System.EventHandler(this.RestoreHover);
@@ -177,11 +187,12 @@
             this.P2NameVisit.ForeColor = System.Drawing.Color.Yellow;
             this.P2NameVisit.Location = new System.Drawing.Point(1160, 380);
             this.P2NameVisit.Name = "P2NameVisit";
+            this.P2NameVisit.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.P2NameVisit.Size = new System.Drawing.Size(759, 110);
             this.P2NameVisit.TabIndex = 4;
             this.P2NameVisit.Tag = "P2MakeVisit";
             this.P2NameVisit.Text = "Speler 2";
-            this.P2NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P2NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.P2NameVisit.UseCompatibleTextRendering = true;
             this.P2NameVisit.MouseEnter += new System.EventHandler(this.GenHover);
             this.P2NameVisit.MouseLeave += new System.EventHandler(this.RestoreHover);
@@ -194,11 +205,12 @@
             this.P3NameVisit.ForeColor = System.Drawing.Color.Yellow;
             this.P3NameVisit.Location = new System.Drawing.Point(1160, 497);
             this.P3NameVisit.Name = "P3NameVisit";
+            this.P3NameVisit.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.P3NameVisit.Size = new System.Drawing.Size(759, 110);
             this.P3NameVisit.TabIndex = 4;
             this.P3NameVisit.Tag = "P3MakeVisit";
             this.P3NameVisit.Text = "Speler 3";
-            this.P3NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P3NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.P3NameVisit.UseCompatibleTextRendering = true;
             this.P3NameVisit.MouseEnter += new System.EventHandler(this.GenHover);
             this.P3NameVisit.MouseLeave += new System.EventHandler(this.RestoreHover);
@@ -211,11 +223,12 @@
             this.P4NameVisit.ForeColor = System.Drawing.Color.Yellow;
             this.P4NameVisit.Location = new System.Drawing.Point(1160, 614);
             this.P4NameVisit.Name = "P4NameVisit";
+            this.P4NameVisit.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.P4NameVisit.Size = new System.Drawing.Size(759, 110);
             this.P4NameVisit.TabIndex = 4;
             this.P4NameVisit.Tag = "P4MakeVisit";
             this.P4NameVisit.Text = "S. v Duivenvoorde";
-            this.P4NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P4NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.P4NameVisit.UseCompatibleTextRendering = true;
             this.P4NameVisit.MouseEnter += new System.EventHandler(this.GenHover);
             this.P4NameVisit.MouseLeave += new System.EventHandler(this.RestoreHover);
@@ -254,6 +267,7 @@
             this.P1MakeHome.Name = "P1MakeHome";
             this.P1MakeHome.Size = new System.Drawing.Size(186, 110);
             this.P1MakeHome.TabIndex = 4;
+            this.P1MakeHome.Tag = "P1NameHome";
             this.P1MakeHome.Text = "39";
             this.P1MakeHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P1MakeHome.UseCompatibleTextRendering = true;
@@ -270,6 +284,7 @@
             this.P2MakeHome.Name = "P2MakeHome";
             this.P2MakeHome.Size = new System.Drawing.Size(186, 110);
             this.P2MakeHome.TabIndex = 4;
+            this.P2MakeHome.Tag = "P2NameHome";
             this.P2MakeHome.Text = "26";
             this.P2MakeHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P2MakeHome.UseCompatibleTextRendering = true;
@@ -286,6 +301,7 @@
             this.P3MakeHome.Name = "P3MakeHome";
             this.P3MakeHome.Size = new System.Drawing.Size(186, 110);
             this.P3MakeHome.TabIndex = 4;
+            this.P3MakeHome.Tag = "P3NameHome";
             this.P3MakeHome.Text = "44";
             this.P3MakeHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P3MakeHome.UseCompatibleTextRendering = true;
@@ -302,6 +318,7 @@
             this.P4MakeHome.Name = "P4MakeHome";
             this.P4MakeHome.Size = new System.Drawing.Size(184, 110);
             this.P4MakeHome.TabIndex = 4;
+            this.P4MakeHome.Tag = "P4NameHome";
             this.P4MakeHome.Text = "29";
             this.P4MakeHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P4MakeHome.UseCompatibleTextRendering = true;
@@ -318,6 +335,7 @@
             this.P1MakeVisit.Name = "P1MakeVisit";
             this.P1MakeVisit.Size = new System.Drawing.Size(184, 110);
             this.P1MakeVisit.TabIndex = 4;
+            this.P1MakeVisit.Tag = "P1NameVisit";
             this.P1MakeVisit.Text = "39";
             this.P1MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P1MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
@@ -333,6 +351,7 @@
             this.P2MakeVisit.Name = "P2MakeVisit";
             this.P2MakeVisit.Size = new System.Drawing.Size(184, 110);
             this.P2MakeVisit.TabIndex = 4;
+            this.P2MakeVisit.Tag = "P2NameVisit";
             this.P2MakeVisit.Text = "26";
             this.P2MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P2MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
@@ -348,6 +367,7 @@
             this.P3MakeVisit.Name = "P3MakeVisit";
             this.P3MakeVisit.Size = new System.Drawing.Size(184, 110);
             this.P3MakeVisit.TabIndex = 4;
+            this.P3MakeVisit.Tag = "P3NameVisit";
             this.P3MakeVisit.Text = "44";
             this.P3MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P3MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
@@ -363,7 +383,7 @@
             this.P4MakeVisit.Name = "P4MakeVisit";
             this.P4MakeVisit.Size = new System.Drawing.Size(184, 110);
             this.P4MakeVisit.TabIndex = 4;
-            this.P4MakeVisit.Tag = "";
+            this.P4MakeVisit.Tag = "P4NameVisit";
             this.P4MakeVisit.Text = "291";
             this.P4MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P4MakeVisit.UseCompatibleTextRendering = true;
@@ -435,6 +455,56 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // lblp1name
+            // 
+            this.lblp1name.AutoSize = true;
+            this.lblp1name.ForeColor = System.Drawing.Color.Transparent;
+            this.lblp1name.Location = new System.Drawing.Point(33, 751);
+            this.lblp1name.Name = "lblp1name";
+            this.lblp1name.Size = new System.Drawing.Size(77, 27);
+            this.lblp1name.TabIndex = 6;
+            this.lblp1name.Text = "label2";
+            // 
+            // lblp1make
+            // 
+            this.lblp1make.AutoSize = true;
+            this.lblp1make.ForeColor = System.Drawing.Color.Transparent;
+            this.lblp1make.Location = new System.Drawing.Point(33, 791);
+            this.lblp1make.Name = "lblp1make";
+            this.lblp1make.Size = new System.Drawing.Size(77, 27);
+            this.lblp1make.TabIndex = 6;
+            this.lblp1make.Text = "label2";
+            // 
+            // lblp2make
+            // 
+            this.lblp2make.AutoSize = true;
+            this.lblp2make.ForeColor = System.Drawing.Color.Transparent;
+            this.lblp2make.Location = new System.Drawing.Point(1176, 782);
+            this.lblp2make.Name = "lblp2make";
+            this.lblp2make.Size = new System.Drawing.Size(77, 27);
+            this.lblp2make.TabIndex = 7;
+            this.lblp2make.Text = "label2";
+            // 
+            // lblp2name
+            // 
+            this.lblp2name.AutoSize = true;
+            this.lblp2name.ForeColor = System.Drawing.Color.Transparent;
+            this.lblp2name.Location = new System.Drawing.Point(1176, 742);
+            this.lblp2name.Name = "lblp2name";
+            this.lblp2name.Size = new System.Drawing.Size(77, 27);
+            this.lblp2name.TabIndex = 8;
+            this.lblp2name.Text = "label5";
+            // 
+            // lblpstart
+            // 
+            this.lblpstart.AutoSize = true;
+            this.lblpstart.ForeColor = System.Drawing.Color.Transparent;
+            this.lblpstart.Location = new System.Drawing.Point(929, 769);
+            this.lblpstart.Name = "lblpstart";
+            this.lblpstart.Size = new System.Drawing.Size(77, 27);
+            this.lblpstart.TabIndex = 9;
+            this.lblpstart.Text = "label2";
+            // 
             // TeamenSelectie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -442,6 +512,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.lblpstart);
+            this.Controls.Add(this.lblp2make);
+            this.Controls.Add(this.lblp2name);
+            this.Controls.Add(this.lblp1make);
+            this.Controls.Add(this.lblp1name);
             this.Controls.Add(this.ImgPlayerStarts);
             this.Controls.Add(this.P4NameVisit);
             this.Controls.Add(this.P4NameHome);
@@ -477,9 +552,11 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TeamenSelectie";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.TeamenSelectie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ImgPlayerStarts)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -510,5 +587,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox ImgPlayerStarts;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label lblp1name;
+        private System.Windows.Forms.Label lblp1make;
+        private System.Windows.Forms.Label lblp2make;
+        private System.Windows.Forms.Label lblp2name;
+        private System.Windows.Forms.Label lblpstart;
     }
 }
