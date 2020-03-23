@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace peter
 {
+    using TSP = TeamSelectionPlayers;
     public partial class TeamenSelectie : Form
     {
-
         Label p1Clicked = new Label();
         Label p2Clicked = new Label();
         Label p1Make = new Label();
@@ -15,9 +15,10 @@ namespace peter
 
         Image img = Functions.GetImgStartFlag();
 
-        TeamSelection clsTeamSelectHome = new TeamSelection();
-        TeamSelection clsTeamSelectVisit = new TeamSelection();
-
+        //    TeamSelection clsTeamSelectHome = new TeamSelection();
+        //    TeamSelection clsTeamSelectVisit = new TeamSelection();
+        TeamSelectionPlayers TSP = new TeamSelectionPlayers();
+        
         string p1PlayerName = "";
         string p1PlayerMake = "";
         string p2PlayerName = "";
@@ -32,7 +33,7 @@ namespace peter
         public TeamenSelectie()
         {
             InitializeComponent();
-            SetTeamSelectionClassLabels();
+        //    SetTeamSelectionClassLabels();
         }
 
         private void TeamenSelectie_Load(object sender, EventArgs e)
@@ -40,43 +41,43 @@ namespace peter
 
         }
 
-        private void SetTeamSelectionClassLabels()
-        {
-            TeamSelectionPlayers.PStart = "test";
-            //Home
-            clsTeamSelectHome.p1Name = P1NameHome;
-            clsTeamSelectHome.p2Name = P2NameHome;
-            clsTeamSelectHome.p3Name = P3NameHome;
-            clsTeamSelectHome.p4Name = P4NameHome;
-            clsTeamSelectHome.p1Make = P1MakeHome;
-            clsTeamSelectHome.p2Make = P2MakeHome;
-            clsTeamSelectHome.p3Make = P3MakeHome;
-            clsTeamSelectHome.p4Make = P4MakeHome;
-            clsTeamSelectHome.playerName = TeamSelectionPlayers.P1;
-            clsTeamSelectHome.playerMake = TeamSelectionPlayers.P1Make;
-            //clsTeamSelectHome.playerStarts = TeamSelectionPlayers.PStart;
-            //Visitors
-            clsTeamSelectVisit.p1Name = P1NameVisit;
-            clsTeamSelectVisit.p2Name = P2NameVisit;
-            clsTeamSelectVisit.p3Name = P3NameVisit;
-            clsTeamSelectVisit.p4Name = P4NameVisit;
-            clsTeamSelectVisit.p1Make = P1MakeVisit;
-            clsTeamSelectVisit.p2Make = P2MakeVisit;
-            clsTeamSelectVisit.p3Make = P3MakeVisit;
-            clsTeamSelectVisit.p4Make = P4MakeVisit;
-            clsTeamSelectVisit.playerName = TeamSelectionPlayers.P2;
-            clsTeamSelectVisit.playerMake = TeamSelectionPlayers.P2Make;
-           // clsTeamSelectVisit.playerStarts = TeamSelectionPlayers.PStart;
-            clsTeamSelectHome.EnablePlayerHover();
-            clsTeamSelectVisit.EnablePlayerHover();
-        }
+        //private void SetTeamSelectionClassLabels()
+        //{
+        //    TeamSelectionPlayers.PStart = "test";
+        //    //Home
+        //    clsTeamSelectHome.p1Name = P1NameHome;
+        //    clsTeamSelectHome.p2Name = P2NameHome;
+        //    clsTeamSelectHome.p3Name = P3NameHome;
+        //    clsTeamSelectHome.p4Name = P4NameHome;
+        //    clsTeamSelectHome.p1Make = P1MakeHome;
+        //    clsTeamSelectHome.p2Make = P2MakeHome;
+        //    clsTeamSelectHome.p3Make = P3MakeHome;
+        //    clsTeamSelectHome.p4Make = P4MakeHome;
+        //    clsTeamSelectHome.playerName = TeamSelectionPlayers.P1;
+        //    clsTeamSelectHome.playerMake = TeamSelectionPlayers.P1Make;
+        //    //clsTeamSelectHome.playerStarts = TeamSelectionPlayers.PStart;
+        //    //Visitors
+        //    clsTeamSelectVisit.p1Name = P1NameVisit;
+        //    clsTeamSelectVisit.p2Name = P2NameVisit;
+        //    clsTeamSelectVisit.p3Name = P3NameVisit;
+        //    clsTeamSelectVisit.p4Name = P4NameVisit;
+        //    clsTeamSelectVisit.p1Make = P1MakeVisit;
+        //    clsTeamSelectVisit.p2Make = P2MakeVisit;
+        //    clsTeamSelectVisit.p3Make = P3MakeVisit;
+        //    clsTeamSelectVisit.p4Make = P4MakeVisit;
+        //    clsTeamSelectVisit.playerName = TeamSelectionPlayers.P2;
+        //    clsTeamSelectVisit.playerMake = TeamSelectionPlayers.P2Make;
+        //   // clsTeamSelectVisit.playerStarts = TeamSelectionPlayers.PStart;
+        //    clsTeamSelectHome.EnablePlayerHover();
+        //    clsTeamSelectVisit.EnablePlayerHover();
+        //}
 
 
         private void GenHover(object sender, EventArgs e)
         {
             Label lbl = sender as Label;
 
-            if (lbl.Name == p1Clicked.Name || lbl.Name == p2Clicked.Name)
+            if (lbl.Name == TSP.P1 || lbl.Name == TSP.P2)
                 return;
 
             lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF00FF");
@@ -88,7 +89,7 @@ namespace peter
 
             Label lbl = sender as Label;
 
-            if (lbl.Name == p1Clicked.Name || lbl.Name == p2Clicked.Name)
+            if (lbl.Name == TSP.P1 || lbl.Name == TSP.P2)
                 return;
 
             lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
@@ -99,7 +100,24 @@ namespace peter
 
         private void GenHoverPlayerMake(object sender, EventArgs e)
         {
+            var lbl = sender as Label;
 
+            if (lbl.Name != TSP.P1Make && lbl.Name != TSP.P2Make)
+                return;
+
+            lbl.BackColor = Color.Red;
+            lbl.ForeColor = Color.White;
+        }
+
+        private void RestoreHoverPlayerMake(object sender, EventArgs e)
+        {
+            var lbl = sender as Label;
+
+            if (lbl.Name != TSP.P1Make && lbl.Name != TSP.P2Make)
+                return;
+
+            lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000AFF");
+            lbl.ForeColor = System.Drawing.Color.Yellow;
         }
 
 
@@ -124,7 +142,7 @@ namespace peter
 
         }
 
-        private void RestoreLabelColorUit()
+        private void RestoreLabelColorVisitor()
         {
             P1NameVisit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
             P2NameVisit.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
@@ -136,42 +154,37 @@ namespace peter
         {
             Label lbl = sender as Label;
 
-            if (lbl.Name.IndexOf("Local") > -1)
+            if (lbl.Name.IndexOf("Home") > -1)
             {
                 RestoreLabelColorHome();
-                if (lbl.Name != p1Clicked.Name)
+                if (lbl.Name != TSP.P1 || TSP.P1 == "")//p1Clicked.Name)
                 {
                     lbl.BackColor = Color.Green;
-                    p1Clicked.Name = lbl.Name;
-                    p1PlayerMake = GetPlayerMake(lbl.Tag.ToString());
-                    p1Make = Controls.Find(lbl.Tag.ToString(), true).FirstOrDefault() as Label;
-                    
+                    TSP.P1 = lbl.Name;
+                    TSP.P1Make = lbl.Tag.ToString();
                 }
                 else
                 {
                     lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-                    p1Clicked.Name = "name";
-                    p1PlayerName = "";
-                    p1Make = new Label();
+                    TSP.P1 = "";
+                    TSP.P1Make = "";
                 }
             }
 
-            if (lbl.Name.IndexOf("Uit") > -1)
+            if (lbl.Name.IndexOf("Visit") > -1)
             {
-                RestoreLabelColorUit();
-                if (lbl.Name != p2Clicked.Name)
+                RestoreLabelColorVisitor();
+                if (lbl.Name != TSP.P2 || TSP.P2 == "")
                 {
                     lbl.BackColor = Color.Green;
-                    p2Clicked.Name = lbl.Name;
-                    p2PlayerMake = GetPlayerMake(lbl.Tag.ToString());
-                    p2Make = Controls.Find(lbl.Tag.ToString(), true).FirstOrDefault() as Label;
+                    TSP.P2 = lbl.Name;
+                    TSP.P2Make = lbl.Tag.ToString();
                 }
                 else
                 {
                     lbl.BackColor = System.Drawing.ColorTranslator.FromHtml("#000053");
-                    p2Clicked.Name = "name";
-                    p2PlayerName = "";
-                    p2Make = new Label();
+                    TSP.P2 = "";
+                    TSP.P2Make = "";
                 }
             }
         }

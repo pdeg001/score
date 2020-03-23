@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeamenSelectie));
             this.label1 = new System.Windows.Forms.Label();
             this.btn_continue = new System.Windows.Forms.Button();
             this.P1NameHome = new System.Windows.Forms.Label();
@@ -51,6 +52,9 @@
             this.lblDiscipline = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.ImgPlayerStarts = new System.Windows.Forms.PictureBox();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.ImgPlayerStarts)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -67,7 +71,9 @@
             // 
             // btn_continue
             // 
-            this.btn_continue.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btn_continue.BackColor = System.Drawing.Color.White;
+            this.btn_continue.FlatAppearance.BorderSize = 0;
+            this.btn_continue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btn_continue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_continue.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_continue.ForeColor = System.Drawing.Color.Black;
@@ -78,7 +84,6 @@
             this.btn_continue.Text = "Verder";
             this.btn_continue.UseVisualStyleBackColor = false;
             this.btn_continue.Click += new System.EventHandler(this.btn_continue_Click);
-            this.btn_continue.MouseEnter += new System.EventHandler(this.BtnGenHover);
             // 
             // P1NameHome
             // 
@@ -93,6 +98,9 @@
             this.P1NameHome.Text = "Peter de Groot";
             this.P1NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P1NameHome.UseCompatibleTextRendering = true;
+            this.P1NameHome.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P1NameHome.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P1NameHome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // P2NameHome
             // 
@@ -107,6 +115,9 @@
             this.P2NameHome.Text = "Piet Oudeman";
             this.P2NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P2NameHome.UseCompatibleTextRendering = true;
+            this.P2NameHome.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P2NameHome.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P2NameHome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // P3NameHome
             // 
@@ -121,6 +132,9 @@
             this.P3NameHome.Text = "Speler 3";
             this.P3NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P3NameHome.UseCompatibleTextRendering = true;
+            this.P3NameHome.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P3NameHome.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P3NameHome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // P4NameHome
             // 
@@ -135,6 +149,9 @@
             this.P4NameHome.Text = "Speler 4";
             this.P4NameHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P4NameHome.UseCompatibleTextRendering = true;
+            this.P4NameHome.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P4NameHome.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P4NameHome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // P1NameVisit
             // 
@@ -149,6 +166,9 @@
             this.P1NameVisit.Text = "Speler 1";
             this.P1NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P1NameVisit.UseCompatibleTextRendering = true;
+            this.P1NameVisit.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P1NameVisit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P1NameVisit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // P2NameVisit
             // 
@@ -163,6 +183,9 @@
             this.P2NameVisit.Text = "Speler 2";
             this.P2NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P2NameVisit.UseCompatibleTextRendering = true;
+            this.P2NameVisit.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P2NameVisit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P2NameVisit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // P3NameVisit
             // 
@@ -177,6 +200,9 @@
             this.P3NameVisit.Text = "Speler 3";
             this.P3NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P3NameVisit.UseCompatibleTextRendering = true;
+            this.P3NameVisit.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P3NameVisit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P3NameVisit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // P4NameVisit
             // 
@@ -191,6 +217,9 @@
             this.P4NameVisit.Text = "S. v Duivenvoorde";
             this.P4NameVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P4NameVisit.UseCompatibleTextRendering = true;
+            this.P4NameVisit.MouseEnter += new System.EventHandler(this.GenHover);
+            this.P4NameVisit.MouseLeave += new System.EventHandler(this.RestoreHover);
+            this.P4NameVisit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerClicked);
             // 
             // lblClub1Name
             // 
@@ -228,6 +257,8 @@
             this.P1MakeHome.Text = "39";
             this.P1MakeHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P1MakeHome.UseCompatibleTextRendering = true;
+            this.P1MakeHome.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.P1MakeHome.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // P2MakeHome
             // 
@@ -241,6 +272,8 @@
             this.P2MakeHome.Text = "26";
             this.P2MakeHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P2MakeHome.UseCompatibleTextRendering = true;
+            this.P2MakeHome.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.P2MakeHome.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // P3MakeHome
             // 
@@ -254,6 +287,8 @@
             this.P3MakeHome.Text = "44";
             this.P3MakeHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P3MakeHome.UseCompatibleTextRendering = true;
+            this.P3MakeHome.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.P3MakeHome.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // P4MakeHome
             // 
@@ -267,6 +302,8 @@
             this.P4MakeHome.Text = "29";
             this.P4MakeHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P4MakeHome.UseCompatibleTextRendering = true;
+            this.P4MakeHome.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.P4MakeHome.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // P1MakeVisit
             // 
@@ -279,6 +316,8 @@
             this.P1MakeVisit.TabIndex = 4;
             this.P1MakeVisit.Text = "39";
             this.P1MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P1MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.P1MakeVisit.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // P2MakeVisit
             // 
@@ -291,6 +330,8 @@
             this.P2MakeVisit.TabIndex = 4;
             this.P2MakeVisit.Text = "26";
             this.P2MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P2MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.P2MakeVisit.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // P3MakeVisit
             // 
@@ -303,6 +344,8 @@
             this.P3MakeVisit.TabIndex = 4;
             this.P3MakeVisit.Text = "44";
             this.P3MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.P3MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.P3MakeVisit.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // P4MakeVisit
             // 
@@ -317,6 +360,8 @@
             this.P4MakeVisit.Text = "291";
             this.P4MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P4MakeVisit.UseCompatibleTextRendering = true;
+            this.P4MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
+            this.P4MakeVisit.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
             // 
             // lblDiscipline
             // 
@@ -333,6 +378,8 @@
             // btn_cancel
             // 
             this.btn_cancel.BackColor = System.Drawing.Color.White;
+            this.btn_cancel.FlatAppearance.BorderSize = 0;
+            this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancel.ForeColor = System.Drawing.Color.Black;
@@ -357,6 +404,28 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ImgPlayerStarts
+            // 
+            this.ImgPlayerStarts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(83)))));
+            this.ImgPlayerStarts.Image = global::peter.Properties.Resources.mouse;
+            this.ImgPlayerStarts.InitialImage = global::peter.Properties.Resources.mouse;
+            this.ImgPlayerStarts.Location = new System.Drawing.Point(1160, 614);
+            this.ImgPlayerStarts.Name = "ImgPlayerStarts";
+            this.ImgPlayerStarts.Size = new System.Drawing.Size(84, 110);
+            this.ImgPlayerStarts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ImgPlayerStarts.TabIndex = 5;
+            this.ImgPlayerStarts.TabStop = false;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // TeamenSelectie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -364,6 +433,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(26)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.ImgPlayerStarts);
             this.Controls.Add(this.P4NameVisit);
             this.Controls.Add(this.P4NameHome);
             this.Controls.Add(this.P3NameVisit);
@@ -399,6 +469,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TeamenSelectie";
             this.Load += new System.EventHandler(this.TeamenSelectie_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ImgPlayerStarts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -428,5 +499,7 @@
         private System.Windows.Forms.Label lblDiscipline;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox ImgPlayerStarts;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
