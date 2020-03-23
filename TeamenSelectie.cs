@@ -8,10 +8,10 @@ namespace peter
     using TSP = TeamSelectionPlayers;
     public partial class TeamenSelectie : Form
     {
-        Label p1Clicked = new Label();
-        Label p2Clicked = new Label();
-        Label p1Make = new Label();
-        Label p2Make = new Label();
+        //Label p1Clicked = new Label();
+        //Label p2Clicked = new Label();
+        //Label p1Make = new Label();
+        //Label p2Make = new Label();
 
         Image img = Functions.GetImgStartFlag();
 
@@ -206,6 +206,12 @@ namespace peter
             Button btn = sender as Button;
             btn.BackColor = Color.Green;
             btn.ForeColor = Color.White;
+        }
+
+        private void PlayerStart(object sender, MouseEventArgs e)
+        {
+            Button btn = sender as Button;
+
         }
     }
 }

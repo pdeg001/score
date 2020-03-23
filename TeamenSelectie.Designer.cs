@@ -259,6 +259,7 @@
             this.P1MakeHome.UseCompatibleTextRendering = true;
             this.P1MakeHome.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
             this.P1MakeHome.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
+            this.P1MakeHome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerStart);
             // 
             // P2MakeHome
             // 
@@ -274,6 +275,7 @@
             this.P2MakeHome.UseCompatibleTextRendering = true;
             this.P2MakeHome.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
             this.P2MakeHome.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
+            this.P2MakeHome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerStart);
             // 
             // P3MakeHome
             // 
@@ -289,6 +291,7 @@
             this.P3MakeHome.UseCompatibleTextRendering = true;
             this.P3MakeHome.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
             this.P3MakeHome.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
+            this.P3MakeHome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerStart);
             // 
             // P4MakeHome
             // 
@@ -304,6 +307,7 @@
             this.P4MakeHome.UseCompatibleTextRendering = true;
             this.P4MakeHome.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
             this.P4MakeHome.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
+            this.P4MakeHome.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerStart);
             // 
             // P1MakeVisit
             // 
@@ -318,6 +322,7 @@
             this.P1MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P1MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
             this.P1MakeVisit.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
+            this.P1MakeVisit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerStart);
             // 
             // P2MakeVisit
             // 
@@ -332,6 +337,7 @@
             this.P2MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P2MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
             this.P2MakeVisit.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
+            this.P2MakeVisit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerStart);
             // 
             // P3MakeVisit
             // 
@@ -346,6 +352,7 @@
             this.P3MakeVisit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.P3MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
             this.P3MakeVisit.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
+            this.P3MakeVisit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerStart);
             // 
             // P4MakeVisit
             // 
@@ -362,6 +369,7 @@
             this.P4MakeVisit.UseCompatibleTextRendering = true;
             this.P4MakeVisit.MouseEnter += new System.EventHandler(this.GenHoverPlayerMake);
             this.P4MakeVisit.MouseLeave += new System.EventHandler(this.RestoreHoverPlayerMake);
+            this.P4MakeVisit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayerStart);
             // 
             // lblDiscipline
             // 
@@ -415,6 +423,7 @@
             this.ImgPlayerStarts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ImgPlayerStarts.TabIndex = 5;
             this.ImgPlayerStarts.TabStop = false;
+            this.ImgPlayerStarts.Visible = false;
             // 
             // printPreviewDialog1
             // 
