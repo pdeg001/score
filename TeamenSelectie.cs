@@ -42,6 +42,7 @@ namespace peter
 
         private void SetTeamSelectionClassLabels()
         {
+            TeamSelectionPlayers.PStart = "test";
             //Home
             clsTeamSelectHome.p1Name = P1NameHome;
             clsTeamSelectHome.p2Name = P2NameHome;
@@ -98,24 +99,7 @@ namespace peter
 
         private void GenHoverPlayerMake(object sender, EventArgs e)
         {
-            Label lbl = sender as Label;
 
-            if ((lbl.Name.IndexOf("p1") != -1) && p1PlayerName == "")
-            {
-                Console.WriteLine("PPPPP");
-                return;
-            }
-
-            lbl.BackColor = Color.Red;
-            lbl.ForeColor = Color.White;
-        }
-
-        private void RestoreHoverPlayerMake(object sender, EventArgs e)
-        {
-            Label lbl = sender as Label;
-
-            lbl.BackColor = Color.Blue;
-            lbl.ForeColor = Color.Yellow;
         }
 
 
@@ -202,6 +186,13 @@ namespace peter
             Label lblMakeCarom = Controls.Find(lblMake, true).FirstOrDefault() as Label;
 
             return lblMakeCarom.Text;
+        }
+
+        private void BtnGenHover(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.BackColor = Color.Green;
+            btn.ForeColor = Color.White;
         }
     }
 }

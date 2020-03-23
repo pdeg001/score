@@ -71,13 +71,14 @@
             this.btn_continue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_continue.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_continue.ForeColor = System.Drawing.Color.Black;
-            this.btn_continue.Location = new System.Drawing.Point(1427, 834);
+            this.btn_continue.Location = new System.Drawing.Point(1471, 938);
             this.btn_continue.Name = "btn_continue";
-            this.btn_continue.Size = new System.Drawing.Size(448, 164);
+            this.btn_continue.Size = new System.Drawing.Size(448, 140);
             this.btn_continue.TabIndex = 3;
             this.btn_continue.Text = "Verder";
             this.btn_continue.UseVisualStyleBackColor = false;
             this.btn_continue.Click += new System.EventHandler(this.btn_continue_Click);
+            this.btn_continue.MouseEnter += new System.EventHandler(this.BtnGenHover);
             // 
             // P1NameHome
             // 
@@ -335,9 +336,9 @@
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancel.ForeColor = System.Drawing.Color.Black;
-            this.btn_cancel.Location = new System.Drawing.Point(962, 834);
+            this.btn_cancel.Location = new System.Drawing.Point(0, 938);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(448, 164);
+            this.btn_cancel.Size = new System.Drawing.Size(448, 140);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "Annuleer";
             this.btn_cancel.UseVisualStyleBackColor = false;
@@ -348,9 +349,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(497, 834);
+            this.button1.Location = new System.Drawing.Point(720, 938);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(448, 164);
+            this.button1.Size = new System.Drawing.Size(448, 140);
             this.button1.TabIndex = 3;
             this.button1.Text = "Sluit";
             this.button1.UseVisualStyleBackColor = false;

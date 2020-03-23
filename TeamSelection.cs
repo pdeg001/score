@@ -161,7 +161,7 @@ namespace peter
             // playerName = lbl.Name;
             RestoreCurrentPlayerStart(TeamSelectionPlayers.PStart);
             lbl.BackColor = Color.Green;
-            TeamSelectionPlayers.PStart = pMake.Name;
+            TeamSelectionPlayers.PStart = lbl.Name.Substring(0,2);
             Console.WriteLine($"PREVIOUS PLAYER START : {TeamSelectionPlayers.PStart}");
         }
 
