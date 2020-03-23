@@ -210,8 +210,20 @@ namespace peter
 
         private void PlayerStart(object sender, MouseEventArgs e)
         {
-            Button btn = sender as Button;
+            Label lbl = sender as Label;
+
+            Console.WriteLine($"PLAYER START : {TSP.PStart}");
+            if(TSP.PStart == null)
+            {
+                TSP.PStart = lbl.Name;
+
+                return;
+            }
 
         }
     }
 }
+
+
+
+

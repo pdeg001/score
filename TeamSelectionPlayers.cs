@@ -4,8 +4,11 @@
     {
         private static string p1;
         private static string p1Make;
+        private static int p1Carom;
         private static string p2;
         private static string p2Make;
+        private static int p2Carom;
+
         private static string pStart;
 
         public static string P1 { get => p1; set => p1 = value; }
