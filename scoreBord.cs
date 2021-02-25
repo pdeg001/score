@@ -1,32 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.Runtime.InteropServices;
-using System.Reflection;
 using System.Threading;
-using System.Net.NetworkInformation;
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Security.Permissions;
 using System.Dynamic;
 
 namespace peter
 {
-    
+
     public partial class scorebord : Form
     {
-          // [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
-          // public static extern IntPtr LoadCursorFromFile(string filename);
-
         ShowPromo ClsSHowPromo = new ShowPromo();
         Panel pnPromo;
 
@@ -43,10 +28,10 @@ namespace peter
         Form frmTeamen = new TeamenSelectie();
 
 
-        Boolean startNewGame = false;
-        Boolean disableHoverItems = false;
-        Boolean inningsSet = true;
-        Boolean gameStarted = false;
+        bool startNewGame = false;
+        bool disableHoverItems = false;
+        bool inningsSet = true;
+        bool gameStarted = false;
         bool changeBorder;
         bool hasInternet = false;
         bool p1Play =false, p2Play = false;
@@ -134,7 +119,7 @@ namespace peter
         {
             spelDuurTimer.lblSpelDuur = lbl_game_timer;
             spelDuurTimer.GameTimer();
-            
+
             innings.lblInnings = lbl_innings;
             innings.lblInning1 = lbl_inning_1;
             innings.lblInning10 = lbl_inning_10;
@@ -161,6 +146,7 @@ namespace peter
             p2Bord.lblMoyenne = lbl_p2_moyenne;
             p2Bord.lblPercentage = lbl_p2_perc;
             p2Bord.progressBar = p2_progress;
+          
             p1Bord.ResetBoard();
             p2Bord.ResetBoard();
             disableHoverItems = true;
@@ -302,19 +288,19 @@ namespace peter
 
         public void SetP1Data(string name, string toMake)
         {
-            lbl_p1_name.Text    = name;
-            p1_make_100.Text    = toMake.Substring(0, 1);
-            p1_make_10.Text     = toMake.Substring(1, 1);
-            p1_make_1.Text      = toMake.Substring(2, 1);
+            lbl_p1_name.Text = name;
+            p1_make_100.Text = toMake.Substring(0, 1);
+            p1_make_10.Text = toMake.Substring(1, 1);
+            p1_make_1.Text = toMake.Substring(2, 1);
            
         }
 
         public void SetP2Data(string name, string toMake)
         {
-            lbl_p2_name.Text    = name;
-            p2_make_100.Text    = toMake.Substring(0, 1);
-            p2_make_10.Text     = toMake.Substring(1, 1);
-            p2_make_1.Text      = toMake.Substring(2, 1);
+            lbl_p2_name.Text = name;
+            p2_make_100.Text = toMake.Substring(0, 1);
+            p2_make_10.Text = toMake.Substring(1, 1);
+            p2_make_1.Text = toMake.Substring(2, 1);
             
         }
 

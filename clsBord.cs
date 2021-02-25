@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 
 
-//TODO: add function comment for all classes
 
 namespace peter
 {
@@ -32,7 +31,7 @@ namespace peter
             {
                 PrivateFontCollection privateFontCollection = new PrivateFontCollection();
                 privateFontCollection.AddFontFile(Functions.GetFontFile());
-         //   Console.WriteLine($"PATH    {Functions.GetFontFile()}");
+              
                 lbl1.Font = new Font(privateFontCollection.Families[0], 80);
                 lbl10.Font = new Font(privateFontCollection.Families[0], 80);
                 lbl100.Font = new Font(privateFontCollection.Families[0], 80);
@@ -49,18 +48,18 @@ namespace peter
                 ScaleFont(lblMake1, 140);
             }
 
-            lbl1.Text           = "0";
-            lbl10.Text          = "0";
-            lbl100.Text         = "0";
-            lblMake1.Text       = "0";
-            lblMake10.Text      = "0";
-            lblMake100.Text     = "0";
-            lblPercentage.Text  = "0.000";
-            lblMoyenne.Text     = "0.000";
-            progressBar.Value   = 0;
+            lbl1.Text = "0";
+            lbl10.Text = "0";
+            lbl100.Text = "0";
+            lblMake1.Text = "0";
+            lblMake10.Text = "0";
+            lblMake100.Text = "0";
+            lblPercentage.Text = "0.000";
+            lblMoyenne.Text = "0.000";
+            progressBar.Value = 0;
 
-            caroms  = 0;
-            avg     = 0.0;
+            caroms = 0;
+            avg = 0.0;
         }
 
         public void SetCaramBoles(Boolean LeftMouse, int Value)
@@ -85,7 +84,7 @@ namespace peter
 
         private int CalcCaram()
         {
-            return Convert.ToInt32($"{lbl100.Text}{lbl10.Text}{lbl1.Text}");// + lbl10.Text + lbl1.Text); ; ;
+            return Convert.ToInt32($"{lbl100.Text}{lbl10.Text}{lbl1.Text}");
         }
 
         public void SetMake(Boolean LeftMouse, int Value)
