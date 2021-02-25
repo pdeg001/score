@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 /*
  handle all number-blocks displayed on the bord
- parameters needed name of number-block, number-block new value
+ parameters needed name of number-block, number-block new value.
  **/
 namespace peter
 {
