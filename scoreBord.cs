@@ -6,12 +6,19 @@ using System.Threading;
 using Newtonsoft.Json;
 using System.Security.Permissions;
 using System.Dynamic;
+using uPLibrary.Networking.M2Mqtt;
+using uPLibrary.Networking.M2Mqtt.Messages;
+
 
 namespace peter
 {
 
     public partial class scorebord : Form
     {
+
+        MqttClient clientSub;
+        delegate void SetTextCallback(string text);
+
         ShowPromo ClsSHowPromo = new ShowPromo();
         Panel pnPromo;
 
@@ -45,21 +52,40 @@ namespace peter
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
 
-        
 
+        
         public scorebord()
         {
+            
             InitializeComponent();
         }
 
+        private void EventPublished(Object sender, uPLibrary.Networking.M2Mqtt.Messages.MqttMsgPublishEventArgs e)
+        {
+            try
+            {
+                Console.WriteLine("*** Received Message");
+                Console.WriteLine("*** Topic: " + e.Topic);
+                Console.WriteLine("*** Message: " + System.Text.UTF8Encoding.UTF8.GetString(e.Message));
+                Console.WriteLine("");
+            }
+            catch (InvalidCastException ex)
+            {
+            }
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
-        Functions.CheckOsLinux();
+            clientSub = new MqttClient("pdeg3005.mynetgear.com");
+            clientSub.MqttMsgPublishReceived += new MqttClient.MqttMsgPublishEventHandler(EventPublished);
+
+            Functions.CheckOsLinux();
             fileSystemWatcher.Path = Functions.GetAppPath();
             imgLogo.Image = Functions.GetImgLogo();
 
             InitBoard();
-            
+           
             Cursor = Cursors.NoMove2D;
            
 

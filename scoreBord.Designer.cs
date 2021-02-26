@@ -417,6 +417,7 @@
             this.p1_progress.BackColor = System.Drawing.Color.White;
             this.p1_progress.ForeColor = System.Drawing.Color.Lime;
             this.p1_progress.Location = new System.Drawing.Point(10, 574);
+            this.p1_progress.MarqueeAnimationSpeed = 0;
             this.p1_progress.Name = "p1_progress";
             this.p1_progress.Size = new System.Drawing.Size(580, 36);
             this.p1_progress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
